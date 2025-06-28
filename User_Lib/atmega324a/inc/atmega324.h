@@ -20,33 +20,6 @@ Date:     24/06/2025
 /*** Global Library ***/
 #include "atmega324_registers.h"
 
-/*** Global Constant & Macro ***/
-#define Atmega324_GPW 0x0000
-#define Atmega324_GPIOA 0x0020
-#define Atmega324_GPIOB 0x0023
-#define Atmega324_GPIOC 0x0026
-#define Atmega324_GPIOD 0x0029
-#define Atmega324GPWR_Address 0x0000
-#define Atmega324AnalogComparator_Address 0x0050
-#define Atmega324AnalogToDigitalConverter_Address 0x0078
-#define Atmega324BootLoader_Address 0x0057
-#define Atmega324CPURegister_Address 0x003E
-#define Atmega324Eeprom_Address 0x003F
-#define Atmega324ExternalInterrupts_Address 0x003B
-#define Atmega324PORTA_Address 0x0020
-#define Atmega324PORTB_Address 0x0023
-#define Atmega324PORTC_Address 0x0026
-#define Atmega324PORTD_Address 0x0029
-#define Atmega324JtagInterface_Address 0x0051
-#define Atmega324SerialPeripherialInterface_Address 0x004C
-#define Atmega324TimerCounter1_Address 0x0036
-#define Atmega324TimerCounter0_Address 0X0035
-#define Atmega324TimerCounter2_Address 0x0037
-#define Atmega324TwoWireSerialInterface_Address 0x00B8
-#define Atmega324Usart0_Address 0x00C0
-#define Atmega324Usart1_Address 0x00C8
-#define Atmega324WatchdogTimer_Address 0x0060
-
 /*** INSTANCE ***/
 // GPWR
 typedef struct {
@@ -83,31 +56,39 @@ typedef struct {
 
 // I/O Port (PORTA)
 typedef struct {
-	_uint8_t pin; // 0x0020
-	_uint8_t ddr; // 0x0021
-	_uint8_t port; // 0x0022
+	_uint8_t* pin; // 0x0020
+	_uint8_t* ddr; // 0x0021
+	_uint8_t* port; // 0x0022
 } _GPIOA_TypeDef;
+
+_GPIOA_TypeDef* gpioa_instance(void);
 
 // I/O Port (PORTB)
 typedef struct {
-	_uint8_t pin; // 0x0023
-	_uint8_t ddr; // 0x0024
-	_uint8_t port; // 0x0025
+	_uint8_t* pin; // 0x0023
+	_uint8_t* ddr; // 0x0024
+	_uint8_t* port; // 0x0025
 } _GPIOB_TypeDef;
+
+_GPIOB_TypeDef* gpiob_instance(void);
 
 // I/O Port (PORTC)
 typedef struct {
-	_uint8_t pin; // 0x0026
-	_uint8_t ddr; // 0x0027
-	_uint8_t port; // 0x0028
+	_uint8_t* pin; // 0x0026
+	_uint8_t* ddr; // 0x0027
+	_uint8_t* port; // 0x0028
 } _GPIOC_TypeDef;
+
+_GPIOC_TypeDef* gpioc_instance(void);
 
 // I/O Port (PORTD)
 typedef struct {
-	_uint8_t pin; // 0x0029
-	_uint8_t ddr; // 0x002A
-	_uint8_t port; // 0x002B
+	_uint8_t* pin; // 0x0029
+	_uint8_t* ddr; // 0x002A
+	_uint8_t* port; // 0x002B
 } _GPIOD_TypeDef;
+
+_GPIOD_TypeDef* gpiod_instance(void);
 
 // External Interrupts (EXINT)
 typedef struct {

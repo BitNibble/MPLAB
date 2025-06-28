@@ -7,6 +7,18 @@ Date:     24/06/2025
 ************************************************************************/
 #include "atmega324.h"
 
+static const _GPIOA_TypeDef gpioa  = {.pin = ((_uint8_t*) 0x0020), .ddr = ((_uint8_t*) 0x0021), .port = ((_uint8_t*) 0x0022) };
+_GPIOA_TypeDef* gpioa_instance(void) {  return (_GPIOA_TypeDef*) &gpioa; }
+	
+static const _GPIOB_TypeDef gpiob  = {.pin = ((_uint8_t*) 0x0023), .ddr = ((_uint8_t*) 0x0024), .port = ((_uint8_t*) 0x0025) };
+_GPIOB_TypeDef* gpiob_instance(void) {  return (_GPIOB_TypeDef*) &gpiob; }
+	
+static const _GPIOC_TypeDef gpioc  = {.pin = ((_uint8_t*) 0x0026), .ddr = ((_uint8_t*) 0x0027), .port = ((_uint8_t*) 0x0028) };
+_GPIOC_TypeDef* gpioc_instance(void) {  return (_GPIOC_TypeDef*) &gpioc; }
+	
+static const _GPIOD_TypeDef gpiod  = {.pin = ((_uint8_t*) 0x0029), .ddr = ((_uint8_t*) 0x002A), .port = ((_uint8_t*) 0x002B) };
+_GPIOD_TypeDef* gpiod_instance(void) {  return (_GPIOD_TypeDef*) &gpiod; }
+
 /*** Atmega 128 Procedure and Function ***/
 uint16_t SwapByte(uint16_t num){uint16_t tp; tp = (num << 8); return (num >> 8) | tp;}
 uint16_t BAUDRATEnormal(uint32_t BAUD){uint32_t baudrate = F_CPU/16; baudrate /= BAUD; baudrate -= 1; return (uint16_t) baudrate;}
