@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="65">
+  <logicalFolder name="root" displayName="root" projectFiles="true">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true">
+      <itemPath>../User_Lib/atmega328p/inc/74hc595.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/atcommands.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/atmega328.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/atmega328analog.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/atmega328instance.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/atmega328interrupt.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/atmega328mapping.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/atmega328registers.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/atmega328timer0.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/atmega328timer1.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/atmega328timer2.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/atmega328twi.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/atmega328usart0.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/atmegaeeprom.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/bt05atcommands.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/buffer.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/clock.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/explode.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/function.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/hc05atcommands.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/hx711.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/keypad.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/lcd.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/lcd2p.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/lfsm.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/mm74c923.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/pcf8563rtc.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/pcf8575.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/rotenc.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/watch.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/znpid.h</itemPath>
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="true">
+      <itemPath>Makefile</itemPath>
+    </logicalFolder>
+    <logicalFolder name="LinkerScript"
+                   displayName="Linker Files"
+                   projectFiles="true">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true">
+      <itemPath>../User_Lib/atmega328p/src/74hc595.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/atcommands.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/atmega328analog.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/atmega328instance.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/atmega328interrupt.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/atmega328mapping.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/atmega328timer0.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/atmega328timer1.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/atmega328timer2.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/atmega328twi.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/atmega328usart0.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/atmegaeeprom.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/bt05atcommands.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/buffer.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/clock.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/explode.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/function.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/hc05atcommands.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/hx711.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/keypad.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/lcd.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/lcd2p.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/lfsm.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/mm74c923.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/pcf8563rtc.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/pcf8575.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/rotenc.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/watch.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/znpid.c</itemPath>
+    </logicalFolder>
+    <itemPath>atmega328p_1.c</itemPath>
+  </logicalFolder>
+  <sourceRootList>
+    <Elem>../User_Lib/atmega328p/inc</Elem>
+    <Elem>../User_Lib/atmega328p/src</Elem>
+  </sourceRootList>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="default" type="2">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <targetDevice>ATmega328P</targetDevice>
+        <targetHeader></targetHeader>
+        <targetPluginBoard></targetPluginBoard>
+        <platformTool>noID</platformTool>
+        <languageToolchain>AVR</languageToolchain>
+        <languageToolchainVersion>5.4.0</languageToolchainVersion>
+        <platform>3</platform>
+      </toolsSet>
+      <packs>
+        <pack name="ATmega_DFP" vendor="Microchip" version="3.1.264"/>
+      </packs>
+      <ScriptingSettings>
+      </ScriptingSettings>
+      <compileType>
+        <linkerTool>
+          <linkerLibItems>
+          </linkerLibItems>
+        </linkerTool>
+        <archiverTool>
+        </archiverTool>
+        <loading>
+          <useAlternateLoadableFile>false</useAlternateLoadableFile>
+          <parseOnProdLoad>false</parseOnProdLoad>
+          <alternateLoadableFile></alternateLoadableFile>
+        </loading>
+        <subordinates>
+        </subordinates>
+      </compileType>
+      <makeCustomizationType>
+        <makeCustomizationPreStepEnabled>false</makeCustomizationPreStepEnabled>
+        <makeUseCleanTarget>false</makeUseCleanTarget>
+        <makeCustomizationPreStep></makeCustomizationPreStep>
+        <makeCustomizationPostStepEnabled>false</makeCustomizationPostStepEnabled>
+        <makeCustomizationPostStep></makeCustomizationPostStep>
+        <makeCustomizationPutChecksumInUserID>false</makeCustomizationPutChecksumInUserID>
+        <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
+        <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
+      </makeCustomizationType>
+      <AVR-AR>
+        <property key="archiver-flags" value="-r"/>
+      </AVR-AR>
+      <AVR-AS>
+        <property key="announce-version" value="false"/>
+        <property key="include-paths" value=""/>
+        <property key="suppress-warnings" value="false"/>
+      </AVR-AS>
+      <AVR-AS-PRE>
+        <property key="announce-version" value="false"/>
+        <property key="include-paths" value=""/>
+        <property key="preprocessor-macros" value=""/>
+        <property key="preprocessor-macros-undefined" value=""/>
+        <property key="suppress-warnings" value="false"/>
+      </AVR-AS-PRE>
+      <AVR-CPP>
+        <property key="additional-warnings" value="true"/>
+        <property key="call-prologues" value="false"/>
+        <property key="default-bitfield-type" value="true"/>
+        <property key="default-char-type" value="true"/>
+        <property key="extra-include-directories" value="..\User_Lib\atmega328p\inc"/>
+        <property key="garbage-collect-data" value="true"/>
+        <property key="garbage-collect-functions" value="true"/>
+        <property key="inhibit-all" value="false"/>
+        <property key="make-warnings-into-errors" value="false"/>
+        <property key="no-interrupts" value="false"/>
+        <property key="no-system-directories" value="false"/>
+        <property key="optimization-level" value="-O1"/>
+        <property key="pack-struct" value="true"/>
+        <property key="preprocess-only" value="false"/>
+        <property key="preprocessor-macros" value=""/>
+        <property key="preprocessor-macros-undefined" value=""/>
+        <property key="save-temps" value="false"/>
+        <property key="short-calls" value="false"/>
+        <property key="short-enums" value="true"/>
+        <property key="strict-ansi" value="false"/>
+        <property key="strict-ansi-errors" value="false"/>
+        <property key="support-ansi" value="false"/>
+        <property key="syntax-only" value="false"/>
+        <property key="undefined-identifier" value="false"/>
+        <property key="verbose" value="false"/>
+      </AVR-CPP>
+      <AVR-GCC>
+        <property key="additional-warnings" value="true"/>
+        <property key="call-prologues" value="false"/>
+        <property key="default-bitfield-type" value="true"/>
+        <property key="default-char-type" value="true"/>
+        <property key="extra-include-directories" value="..\User_Lib\atmega328p\inc"/>
+        <property key="extra-warnings" value="false"/>
+        <property key="garbage-collect-data" value="true"/>
+        <property key="garbage-collect-functions" value="true"/>
+        <property key="inhibit-all" value="false"/>
+        <property key="make-warnings-into-errors" value="false"/>
+        <property key="no-interrupts" value="false"/>
+        <property key="no-system-directories" value="false"/>
+        <property key="optimization-level" value="-O1"/>
+        <property key="pack-struct" value="true"/>
+        <property key="preprocessor-macros" value=""/>
+        <property key="preprocessor-macros-undefined" value=""/>
+        <property key="save-temps" value="false"/>
+        <property key="short-calls" value="false"/>
+        <property key="short-enums" value="true"/>
+        <property key="strict-ansi" value="false"/>
+        <property key="strict-ansi-errors" value="false"/>
+        <property key="support-ansi" value="false"/>
+        <property key="syntax-only" value="false"/>
+        <property key="undefined-identifier" value="false"/>
+        <property key="verbose" value="false"/>
+      </AVR-GCC>
+      <AVR-Global>
+        <property key="common-include-directories" value=""/>
+        <property key="eep" value="false"/>
+        <property key="external-ram-check" value="false"/>
+        <property key="hex" value="true"/>
+        <property key="lss" value="false"/>
+        <property key="omit-pack-options" value="false"/>
+        <property key="relax-branches" value="false"/>
+        <property key="srec" value="false"/>
+        <property key="user-pack-device-support" value=""/>
+        <property key="user-pack-include" value=""/>
+        <property key="usersig" value="false"/>
+      </AVR-Global>
+      <AVR-LD>
+        <property key="eeprom-segment" value=""/>
+        <property key="exclude-standard-libraries" value="false"/>
+        <property key="extra-lib-directories" value="..\User_Lib\atmega328p\src"/>
+        <property key="flash-segment" value=""/>
+        <property key="generate-map-file" value="true"/>
+        <property key="initial-stack-address" value=""/>
+        <property key="input-libraries" value="libm"/>
+        <property key="no-default-libs" value="false"/>
+        <property key="no-shared-libraries" value="false"/>
+        <property key="no-startup-files" value="false"/>
+        <property key="omit-symbol-information" value="false"/>
+        <property key="other-options" value=""/>
+        <property key="remove-unused-sections" value="true"/>
+        <property key="rodata-writable" value="false"/>
+        <property key="sram-segment" value=""/>
+        <property key="v-printf" value="false"/>
+      </AVR-LD>
+      <AtmelIceTool>
+        <property key="AutoSelectMemRanges" value="auto"/>
+        <property key="communication.activationmode" value="nohv"/>
+        <property key="communication.interface" value="isp"/>
+        <property key="communication.speed" value="0,125"/>
+        <property key="debugoptions.debug-startup" value="Use system settings"/>
+        <property key="debugoptions.reset-behaviour" value="Use system settings"/>
+        <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="event.recorder.debugger.behavior" value="Running"/>
+        <property key="event.recorder.enabled" value="false"/>
+        <property key="event.recorder.scvd.files" value=""/>
+        <property key="firmware.path"
+                  value="Press to browse for a specific firmware version"/>
+        <property key="firmware.toolpack"
+                  value="Press to select which tool pack to use"/>
+        <property key="firmware.update.action" value="firmware.update.use.latest"/>
+        <property key="freeze.timers" value="false"/>
+        <property key="lastid" value=""/>
+        <property key="memories.aux" value="false"/>
+        <property key="memories.bootflash" value="true"/>
+        <property key="memories.configurationmemory" value="true"/>
+        <property key="memories.configurationmemory2" value="true"/>
+        <property key="memories.dataflash" value="true"/>
+        <property key="memories.eeprom" value="true"/>
+        <property key="memories.exclude.configurationmemory" value="true"/>
+        <property key="memories.flashdata" value="true"/>
+        <property key="memories.id" value="true"/>
+        <property key="memories.instruction.ram.ranges"
+                  value="${memories.instruction.ram.ranges}"/>
+        <property key="memories.programmemory" value="true"/>
+        <property key="memories.programmemory.ranges" value="0-3fff"/>
+        <property key="poweroptions.powerenable" value="false"/>
+        <property key="programoptions.eraseb4program" value="true"/>
+        <property key="programoptions.preservedataflash" value="false"/>
+        <property key="programoptions.preservedataflash.ranges" value="0-3ff"/>
+        <property key="programoptions.preserveeeprom" value="false"/>
+        <property key="programoptions.preserveeeprom.ranges" value=""/>
+        <property key="programoptions.preserveprogram.ranges" value=""/>
+        <property key="programoptions.preserveprogramrange" value="false"/>
+        <property key="programoptions.preserveuserid" value="false"/>
+        <property key="programoptions.programuserotp" value="false"/>
+        <property key="toolpack.updateoptions"
+                  value="toolpack.updateoptions.uselatestoolpack"/>
+        <property key="toolpack.updateoptions.packversion"
+                  value="Press to select which tool pack to use"/>
+        <property key="voltagevalue" value=""/>
+      </AtmelIceTool>
+      <Tool>
+        <property key="AutoSelectMemRanges" value="auto"/>
+        <property key="communication.activationmode" value="nohv"/>
+        <property key="communication.interface" value="isp"/>
+        <property key="communication.speed" value="0,125"/>
+        <property key="debugoptions.debug-startup" value="Use system settings"/>
+        <property key="debugoptions.reset-behaviour" value="Use system settings"/>
+        <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="event.recorder.debugger.behavior" value="Running"/>
+        <property key="event.recorder.enabled" value="false"/>
+        <property key="event.recorder.scvd.files" value=""/>
+        <property key="firmware.path"
+                  value="Press to browse for a specific firmware version"/>
+        <property key="firmware.toolpack"
+                  value="Press to select which tool pack to use"/>
+        <property key="firmware.update.action" value="firmware.update.use.latest"/>
+        <property key="freeze.timers" value="false"/>
+        <property key="lastid" value=""/>
+        <property key="memories.aux" value="false"/>
+        <property key="memories.bootflash" value="true"/>
+        <property key="memories.configurationmemory" value="true"/>
+        <property key="memories.configurationmemory2" value="true"/>
+        <property key="memories.dataflash" value="true"/>
+        <property key="memories.eeprom" value="true"/>
+        <property key="memories.exclude.configurationmemory" value="true"/>
+        <property key="memories.flashdata" value="true"/>
+        <property key="memories.id" value="true"/>
+        <property key="memories.instruction.ram.ranges"
+                  value="${memories.instruction.ram.ranges}"/>
+        <property key="memories.programmemory" value="true"/>
+        <property key="memories.programmemory.ranges" value="0-3fff"/>
+        <property key="poweroptions.powerenable" value="false"/>
+        <property key="programoptions.eraseb4program" value="true"/>
+        <property key="programoptions.preservedataflash" value="false"/>
+        <property key="programoptions.preservedataflash.ranges" value="0-3ff"/>
+        <property key="programoptions.preserveeeprom" value="false"/>
+        <property key="programoptions.preserveeeprom.ranges" value=""/>
+        <property key="programoptions.preserveprogram.ranges" value=""/>
+        <property key="programoptions.preserveprogramrange" value="false"/>
+        <property key="programoptions.preserveuserid" value="false"/>
+        <property key="programoptions.programuserotp" value="false"/>
+        <property key="toolpack.updateoptions"
+                  value="toolpack.updateoptions.uselatestoolpack"/>
+        <property key="toolpack.updateoptions.packversion"
+                  value="Press to select which tool pack to use"/>
+        <property key="voltagevalue" value=""/>
+      </Tool>
+    </conf>
+    <conf name="atmega328p_1" type="2">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <targetDevice>ATmega328P</targetDevice>
+        <targetHeader></targetHeader>
+        <targetPluginBoard></targetPluginBoard>
+        <platformTool>noID</platformTool>
+        <languageToolchain>AVR</languageToolchain>
+        <languageToolchainVersion>5.4.0</languageToolchainVersion>
+        <platform>3</platform>
+      </toolsSet>
+      <packs>
+        <pack name="ATmega_DFP" vendor="Microchip" version="3.1.264"/>
+      </packs>
+      <ScriptingSettings>
+      </ScriptingSettings>
+      <compileType>
+        <linkerTool>
+          <linkerLibItems>
+          </linkerLibItems>
+        </linkerTool>
+        <archiverTool>
+        </archiverTool>
+        <loading>
+          <useAlternateLoadableFile>false</useAlternateLoadableFile>
+          <parseOnProdLoad>false</parseOnProdLoad>
+          <alternateLoadableFile></alternateLoadableFile>
+        </loading>
+        <subordinates>
+        </subordinates>
+      </compileType>
+      <makeCustomizationType>
+        <makeCustomizationPreStepEnabled>false</makeCustomizationPreStepEnabled>
+        <makeUseCleanTarget>false</makeUseCleanTarget>
+        <makeCustomizationPreStep></makeCustomizationPreStep>
+        <makeCustomizationPostStepEnabled>false</makeCustomizationPostStepEnabled>
+        <makeCustomizationPostStep></makeCustomizationPostStep>
+        <makeCustomizationPutChecksumInUserID>false</makeCustomizationPutChecksumInUserID>
+        <makeCustomizationEnableLongLines>false</makeCustomizationEnableLongLines>
+        <makeCustomizationNormalizeHexFile>false</makeCustomizationNormalizeHexFile>
+      </makeCustomizationType>
+      <AVR-AR>
+        <property key="archiver-flags" value="-r"/>
+      </AVR-AR>
+      <AVR-AS>
+        <property key="announce-version" value="false"/>
+        <property key="include-paths" value=""/>
+        <property key="suppress-warnings" value="false"/>
+      </AVR-AS>
+      <AVR-AS-PRE>
+        <property key="announce-version" value="false"/>
+        <property key="include-paths" value=""/>
+        <property key="preprocessor-macros" value=""/>
+        <property key="preprocessor-macros-undefined" value=""/>
+        <property key="suppress-warnings" value="false"/>
+      </AVR-AS-PRE>
+      <AVR-CPP>
+        <property key="additional-warnings" value="true"/>
+        <property key="call-prologues" value="false"/>
+        <property key="default-bitfield-type" value="true"/>
+        <property key="default-char-type" value="true"/>
+        <property key="extra-include-directories" value="..\User_Lib\atmega328p\inc"/>
+        <property key="garbage-collect-data" value="true"/>
+        <property key="garbage-collect-functions" value="true"/>
+        <property key="inhibit-all" value="false"/>
+        <property key="make-warnings-into-errors" value="false"/>
+        <property key="no-interrupts" value="false"/>
+        <property key="no-system-directories" value="false"/>
+        <property key="optimization-level" value="-O1"/>
+        <property key="pack-struct" value="true"/>
+        <property key="preprocess-only" value="false"/>
+        <property key="preprocessor-macros" value=""/>
+        <property key="preprocessor-macros-undefined" value=""/>
+        <property key="save-temps" value="false"/>
+        <property key="short-calls" value="false"/>
+        <property key="short-enums" value="true"/>
+        <property key="strict-ansi" value="false"/>
+        <property key="strict-ansi-errors" value="false"/>
+        <property key="support-ansi" value="false"/>
+        <property key="syntax-only" value="false"/>
+        <property key="undefined-identifier" value="false"/>
+        <property key="verbose" value="false"/>
+      </AVR-CPP>
+      <AVR-GCC>
+        <property key="additional-warnings" value="true"/>
+        <property key="call-prologues" value="false"/>
+        <property key="default-bitfield-type" value="true"/>
+        <property key="default-char-type" value="true"/>
+        <property key="extra-include-directories" value="..\User_Lib\atmega328p\inc"/>
+        <property key="extra-warnings" value="false"/>
+        <property key="garbage-collect-data" value="true"/>
+        <property key="garbage-collect-functions" value="true"/>
+        <property key="inhibit-all" value="false"/>
+        <property key="make-warnings-into-errors" value="false"/>
+        <property key="no-interrupts" value="false"/>
+        <property key="no-system-directories" value="false"/>
+        <property key="optimization-level" value="-O1"/>
+        <property key="pack-struct" value="true"/>
+        <property key="preprocessor-macros" value=""/>
+        <property key="preprocessor-macros-undefined" value=""/>
+        <property key="save-temps" value="false"/>
+        <property key="short-calls" value="false"/>
+        <property key="short-enums" value="true"/>
+        <property key="strict-ansi" value="false"/>
+        <property key="strict-ansi-errors" value="false"/>
+        <property key="support-ansi" value="false"/>
+        <property key="syntax-only" value="false"/>
+        <property key="undefined-identifier" value="false"/>
+        <property key="verbose" value="false"/>
+      </AVR-GCC>
+      <AVR-Global>
+        <property key="common-include-directories" value=""/>
+        <property key="eep" value="false"/>
+        <property key="external-ram-check" value="false"/>
+        <property key="hex" value="true"/>
+        <property key="lss" value="false"/>
+        <property key="omit-pack-options" value="false"/>
+        <property key="relax-branches" value="false"/>
+        <property key="srec" value="false"/>
+        <property key="user-pack-device-support" value=""/>
+        <property key="user-pack-include" value=""/>
+        <property key="usersig" value="false"/>
+      </AVR-Global>
+      <AVR-LD>
+        <property key="eeprom-segment" value=""/>
+        <property key="exclude-standard-libraries" value="false"/>
+        <property key="extra-lib-directories" value="..\User_Lib\atmega328p\src"/>
+        <property key="flash-segment" value=""/>
+        <property key="generate-map-file" value="true"/>
+        <property key="initial-stack-address" value=""/>
+        <property key="input-libraries" value="libm"/>
+        <property key="no-default-libs" value="false"/>
+        <property key="no-shared-libraries" value="false"/>
+        <property key="no-startup-files" value="false"/>
+        <property key="omit-symbol-information" value="false"/>
+        <property key="other-options" value=""/>
+        <property key="remove-unused-sections" value="true"/>
+        <property key="rodata-writable" value="false"/>
+        <property key="sram-segment" value=""/>
+        <property key="v-printf" value="false"/>
+      </AVR-LD>
+      <AtmelIceTool>
+        <property key="AutoSelectMemRanges" value="auto"/>
+        <property key="communication.activationmode" value="nohv"/>
+        <property key="communication.interface" value="isp"/>
+        <property key="communication.speed" value="0,125"/>
+        <property key="debugoptions.debug-startup" value="Use system settings"/>
+        <property key="debugoptions.reset-behaviour" value="Use system settings"/>
+        <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="event.recorder.debugger.behavior" value="Running"/>
+        <property key="event.recorder.enabled" value="false"/>
+        <property key="event.recorder.scvd.files" value=""/>
+        <property key="firmware.path"
+                  value="Press to browse for a specific firmware version"/>
+        <property key="firmware.toolpack"
+                  value="Press to select which tool pack to use"/>
+        <property key="firmware.update.action" value="firmware.update.use.latest"/>
+        <property key="freeze.timers" value="false"/>
+        <property key="lastid" value=""/>
+        <property key="memories.aux" value="false"/>
+        <property key="memories.bootflash" value="true"/>
+        <property key="memories.configurationmemory" value="true"/>
+        <property key="memories.configurationmemory2" value="true"/>
+        <property key="memories.dataflash" value="true"/>
+        <property key="memories.eeprom" value="true"/>
+        <property key="memories.exclude.configurationmemory" value="true"/>
+        <property key="memories.flashdata" value="true"/>
+        <property key="memories.id" value="true"/>
+        <property key="memories.instruction.ram.ranges"
+                  value="${memories.instruction.ram.ranges}"/>
+        <property key="memories.programmemory" value="true"/>
+        <property key="memories.programmemory.ranges" value="0-3fff"/>
+        <property key="poweroptions.powerenable" value="false"/>
+        <property key="programoptions.eraseb4program" value="true"/>
+        <property key="programoptions.preservedataflash" value="false"/>
+        <property key="programoptions.preservedataflash.ranges" value="0-3ff"/>
+        <property key="programoptions.preserveeeprom" value="false"/>
+        <property key="programoptions.preserveeeprom.ranges" value=""/>
+        <property key="programoptions.preserveprogram.ranges" value=""/>
+        <property key="programoptions.preserveprogramrange" value="false"/>
+        <property key="programoptions.preserveuserid" value="false"/>
+        <property key="programoptions.programuserotp" value="false"/>
+        <property key="toolpack.updateoptions"
+                  value="toolpack.updateoptions.uselatestoolpack"/>
+        <property key="toolpack.updateoptions.packversion"
+                  value="Press to select which tool pack to use"/>
+        <property key="voltagevalue" value=""/>
+      </AtmelIceTool>
+      <Tool>
+        <property key="AutoSelectMemRanges" value="auto"/>
+        <property key="communication.activationmode" value="nohv"/>
+        <property key="communication.interface" value="isp"/>
+        <property key="communication.speed" value="0,125"/>
+        <property key="debugoptions.debug-startup" value="Use system settings"/>
+        <property key="debugoptions.reset-behaviour" value="Use system settings"/>
+        <property key="debugoptions.useswbreakpoints" value="false"/>
+        <property key="event.recorder.debugger.behavior" value="Running"/>
+        <property key="event.recorder.enabled" value="false"/>
+        <property key="event.recorder.scvd.files" value=""/>
+        <property key="firmware.path"
+                  value="Press to browse for a specific firmware version"/>
+        <property key="firmware.toolpack"
+                  value="Press to select which tool pack to use"/>
+        <property key="firmware.update.action" value="firmware.update.use.latest"/>
+        <property key="freeze.timers" value="false"/>
+        <property key="lastid" value=""/>
+        <property key="memories.aux" value="false"/>
+        <property key="memories.bootflash" value="true"/>
+        <property key="memories.configurationmemory" value="true"/>
+        <property key="memories.configurationmemory2" value="true"/>
+        <property key="memories.dataflash" value="true"/>
+        <property key="memories.eeprom" value="true"/>
+        <property key="memories.exclude.configurationmemory" value="true"/>
+        <property key="memories.flashdata" value="true"/>
+        <property key="memories.id" value="true"/>
+        <property key="memories.instruction.ram.ranges"
+                  value="${memories.instruction.ram.ranges}"/>
+        <property key="memories.programmemory" value="true"/>
+        <property key="memories.programmemory.ranges" value="0-3fff"/>
+        <property key="poweroptions.powerenable" value="false"/>
+        <property key="programoptions.eraseb4program" value="true"/>
+        <property key="programoptions.preservedataflash" value="false"/>
+        <property key="programoptions.preservedataflash.ranges" value="0-3ff"/>
+        <property key="programoptions.preserveeeprom" value="false"/>
+        <property key="programoptions.preserveeeprom.ranges" value=""/>
+        <property key="programoptions.preserveprogram.ranges" value=""/>
+        <property key="programoptions.preserveprogramrange" value="false"/>
+        <property key="programoptions.preserveuserid" value="false"/>
+        <property key="programoptions.programuserotp" value="false"/>
+        <property key="toolpack.updateoptions"
+                  value="toolpack.updateoptions.uselatestoolpack"/>
+        <property key="toolpack.updateoptions.packversion"
+                  value="Press to select which tool pack to use"/>
+        <property key="voltagevalue" value=""/>
+      </Tool>
+    </conf>
+  </confs>
+</configurationDescriptor>
