@@ -7,6 +7,7 @@ Hardware: Atmega324A
 	-PORTA - keypad
 	-PORTC - LCD
 	-PORTD5 - Oscillator output
+    -PORTD - HC05 (bluetooth uasrt0)
  ***************************************************************************/
 //Good practice initialize
 #define F_CPU 8000000UL
