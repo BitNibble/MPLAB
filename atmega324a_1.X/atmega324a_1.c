@@ -7,13 +7,12 @@ Hardware: Atmega324A
 	-PORTA - keypad
 	-PORTC - LCD
 	-PORTD5 - Oscillator output
-    -PORTD - HC05 (bluetooth uasrt0)
+	-PORTD - HC05 blue tooth (usart0)
  ***************************************************************************/
 //Good practice initialize
 #define F_CPU 8000000UL
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include <inttypes.h>
 #include "keypad.h"
 #include "lcd.h"
 #include "function.h"
@@ -21,6 +20,8 @@ Hardware: Atmega324A
 #include "atmegaeeprom.h"
 #include "atmega324timer.h"
 #include "atmega324_usart0.h"
+#include "atmega324_usart1.h"
+#include "watch.h"
 //Constant & macros
 #define True 1
 #define False 0
@@ -29,12 +30,14 @@ uint16_t N_off=10;
 uint16_t N_on=8000;
 volatile uint16_t counter=0;
 char* uartreceive = NULL; // capture
+WATCH watch;
+uint8_t increment = 0;
 //Prototype header
 void PORTINIT(void);
 /******/
-int main(int argc, char** argv)
+/******/
+int main(void)
 {
-    (void)argc;(void)argv;
 	PORTINIT();
 	//Local var
 	//uint8_t inc=0;
@@ -52,19 +55,20 @@ int main(int argc, char** argv)
 	LCD0 lcd = lcd0_enable(&DDRC,&PINC,&PORTC);
 	FUNC func = FUNCenable();
 	EEPROM eeprom = EEPROMenable();
+	WATCH watch = WATCHenable();
 	usart0_enable(38400,8,1,NONE);
     /* Init Values */
+	watch.preset(21,39,0);
 	
 	tc1_reg()->tcnt1->par.h.var = 55;
 	
-	lcd.gotoxy(0,0);
-	lcd.string_size("Bom dia !",12);
-	lcd.BF();
+	gpiod_reg()->port->par.b2 = 1;
+	
 	tcompare=compare=eeprom.read_word((uint16_t*)0);
 	prescaler=eeprom.read_word((uint16_t*)4);
 	tN_off=N_off=eeprom.read_word((uint16_t*)8);
 	tN_on=N_on=eeprom.read_word((uint16_t*)12);
-	switch(prescaler){
+	switch(prescaler) {
 		case 1:
 			steprescaler=1;
 			break;
@@ -89,29 +93,31 @@ int main(int argc, char** argv)
 	
 	char uartmsg[UART0_RX_BUFFER_SIZE] = {0}; // One shot
 	char uartmsgprint[UART0_RX_BUFFER_SIZE] = {0}; // triggered
-	
+	/******/
     while (True)
     {
 		lcd.gotoxy(0,0);
 	
 		input=keypad.getkey();
 		
+		if( increment ) { watch.increment(); increment = 0; }
+		
 		uartreceive = usart0_messageprint( usart0(), uartmsg, uartmsgprint, ".");
 		
 		lcd0()->string_size(uartmsgprint, 20);
 		
-		if(input){
-			lcd.BF();
+		lcd.gotoxy(1,8);
+		lcd.string_size(watch.show(),12);
+		
+		if(watch.start_delay(0,20)) { gpiod_reg()->port->par.b2 ^= 1; }
+		
+		if(input) {
 			lcd.gotoxy(1,0);
-			lcd.string("Key: ");
+			lcd.string_size("Key: ",5);
 			lcd.putch(input);
-			lcd.hspace(3);
-			lcd.BF();
-			lcd.gotoxy(0,0);
-			lcd.string_size("Running !",12);
-			lcd.BF();
+			//watch.increment();
 			//DEFAULT
-			if(input == 'D'){
+			if(input == 'D') {
 				tcompare=compare=2048;
 				prescaler=1024;
 				steprescaler=0;
@@ -124,14 +130,14 @@ int main(int argc, char** argv)
 			}
 			//Adjust Impulses off and impulses on
 			//off decrement
-			if(input=='*'){
+			if(input=='*') {
 				tN_on-=1;
 				if(tN_on>N_on)
 					tN_on=N_on=0;
 				else
 					N_on=tN_on;
 			}
-			if(input=='0'){
+			if(input=='0') {
 				tN_on-=10;
 				if(tN_on>N_on)
 					tN_on=N_on=0;
@@ -139,14 +145,14 @@ int main(int argc, char** argv)
 					N_on=tN_on;
 			}
 			//off increment
-			if(input=='7'){
+			if(input=='7') {
 				tN_on+=1;
 				if(tN_on<N_on)
 					tN_on=N_on=65535;
 				else
 					N_on=tN_on;
 			}
-			if(input=='8'){
+			if(input=='8') {
 				tN_on+=10;
 				if(tN_on<N_on)
 					tN_on=N_on=65535;
@@ -154,7 +160,7 @@ int main(int argc, char** argv)
 					N_on=tN_on;
 			}
 			//on decrement
-			if(input==35){
+			if(input==35) {
 				tN_off-=1;
 				if(tN_off>N_off)
 					tN_off=N_off=0;
@@ -162,7 +168,7 @@ int main(int argc, char** argv)
 					N_off=tN_off;
 			}
 			//on increment
-			if(input=='9'){
+			if(input=='9') {
 				tN_off+=1;
 				if(tN_off<N_off)
 					tN_off=N_off=65535;
@@ -171,7 +177,7 @@ int main(int argc, char** argv)
 			}
 			//Adjust compare OCR1A
 			//decrement
-			if(input=='4'){
+			if(input=='4') {
 				//tim1.stop();
 				tcompare-=1;
 				if(tcompare>compare || tcompare<3)
@@ -181,7 +187,7 @@ int main(int argc, char** argv)
 				tim1.compareA(compare);
 				//tim1.start(prescaler);
 			}
-			if(input=='5'){
+			if(input=='5') {
 				//tim1.stop();
 				tcompare-=10;
 				if(tcompare>compare)
@@ -191,7 +197,7 @@ int main(int argc, char** argv)
 				tim1.compareA(compare);
 				//tim1.start(prescaler);
 			}
-			if(input=='6'){
+			if(input=='6') {
 				//tim1.stop();
 				tcompare-=100;
 				if(tcompare>compare)
@@ -201,7 +207,7 @@ int main(int argc, char** argv)
 				tim1.compareA(compare);
 				//tim1.start(prescaler);
 			}
-			if(input=='B'){
+			if(input=='B') {
 				//tim1.stop();
 				tcompare-=1000;
 				if(tcompare>compare)
@@ -212,7 +218,7 @@ int main(int argc, char** argv)
 				//tim1.start(prescaler);
 			}
 			//increment
-			if(input=='1'){
+			if(input=='1') {
 				//tim1.stop();
 				tcompare+=1;
 				if(tcompare<compare)
@@ -222,7 +228,7 @@ int main(int argc, char** argv)
 				tim1.compareA(compare);
 				//tim1.start(prescaler);
 			}
-			if(input=='2'){
+			if(input=='2') {
 				//tim1.stop();
 					tcompare+=10;
 				if(tcompare<compare)
@@ -232,7 +238,7 @@ int main(int argc, char** argv)
 				tim1.compareA(compare);
 				//tim1.start(prescaler);
 			}
-			if(input=='3'){
+			if(input=='3') {
 				//tim1.stop();
 					tcompare+=100;
 				if(tcompare<compare)
@@ -242,7 +248,7 @@ int main(int argc, char** argv)
 				tim1.compareA(compare);
 				//tim1.start(prescaler);
 			}
-			if(input=='A'){
+			if(input=='A') {
 				//tim1.stop();
 					tcompare+=1000;
 				if(tcompare<compare)
@@ -253,7 +259,7 @@ int main(int argc, char** argv)
 				//tim1.start(prescaler);
 			}
 			//Adjust prescaler 'C' toggles between possible selections
-			if(input=='C'){
+			if(input=='C') {
 				switch(steprescaler){
 					case 0:
 						prescaler=1;
@@ -314,23 +320,25 @@ int main(int argc, char** argv)
 		//Default
 		
     }//endwhile
-    return (0);
 }//endmain
 /***Prototypes***/
 void PORTINIT(void){
-	DDRD = (1<<4) | (1<<5);
-	PORTD = (1<<4) | (1<<5);
+	gpiod_reg()->ddr->par.b2 = 1;
+	gpiod_reg()->ddr->var |= (1<<4) | (1<<5);
+	gpiod_reg()->port->var = (1<<4) | (1<<5);
 };
 /***Interrupts***/
 ISR(TIMER1_COMPA_vect)
 {
 	counter++;
-	if(counter>N_off)
+	if(counter>N_off) {
 		PORTD &= ~(1<<4);
-	if(counter>(N_off+N_on)){
+	}
+	if(counter>(N_off+N_on)) {
 		PORTD |=(1<<4);
 		counter=0;
 	}
+	increment = 1;
 }
 
 /***EOF***/

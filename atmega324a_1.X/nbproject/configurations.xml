@@ -14,6 +14,8 @@
       <itemPath>../User_Lib/atmega324a/inc/function.h</itemPath>
       <itemPath>../User_Lib/atmega324a/inc/keypad.h</itemPath>
       <itemPath>../User_Lib/atmega324a/inc/lcd.h</itemPath>
+      <itemPath>../User_Lib/atmega324a/inc/atmega324_twi.h</itemPath>
+      <itemPath>../User_Lib/atmega324a/inc/watch.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -36,6 +38,8 @@
       <itemPath>../User_Lib/atmega324a/src/function.c</itemPath>
       <itemPath>../User_Lib/atmega324a/src/keypad.c</itemPath>
       <itemPath>../User_Lib/atmega324a/src/lcd.c</itemPath>
+      <itemPath>../User_Lib/atmega324a/src/atmega324_twi.c</itemPath>
+      <itemPath>../User_Lib/atmega324a/src/watch.c</itemPath>
     </logicalFolder>
     <itemPath>atmega324a_1.c</itemPath>
   </logicalFolder>
