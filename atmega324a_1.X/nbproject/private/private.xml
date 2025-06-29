@@ -2,13 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/Embedded/MPLAB/User_Lib/atmega324a/inc/atmega324_usart0.h</file>
-            <file>file:/D:/Embedded/MPLAB/User_Lib/atmega324a/inc/atmega324timer.h</file>
-            <file>file:/D:/Embedded/MPLAB/User_Lib/atmega324a/src/atmega324timer.c</file>
-            <file>file:/D:/Embedded/MPLAB/User_Lib/atmega324a/inc/atmega324.h</file>
-            <file>file:/D:/Embedded/MPLAB/User_Lib/atmega324a/src/atmega324_usart0.c</file>
-            <file>file:/D:/Embedded/MPLAB/atmega324a_1.X/atmega324a_1.c</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
