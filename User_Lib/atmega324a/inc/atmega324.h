@@ -17,8 +17,14 @@ Date:     24/06/2025
 	#define F_CPU 8000000UL
 #endif
 
+#if defined(__AVR_ATmega324A__)
+	#include "atmega324_registers.h"
+#else
+	#error "Not ATmega 324A"
+#endif
+
 /*** Global Library ***/
-#include "atmega324_registers.h"
+
 
 /*** INSTANCE ***/
 // GPWR
