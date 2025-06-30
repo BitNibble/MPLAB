@@ -51,17 +51,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=../User_Lib/atmega324a/src/atmega324.c ../User_Lib/atmega324a/src/atmega324_usart0.c ../User_Lib/atmega324a/src/buffer.c ../User_Lib/atmega324a/src/function.c ../User_Lib/atmega324a/src/keypad.c ../User_Lib/atmega324a/src/lcd.c ../User_Lib/atmega324a/src/atmega324_twi.c ../User_Lib/atmega324a/src/watch.c ../User_Lib/atmega324a/src/atmega_eeprom.c ../User_Lib/atmega324a/src/atmega324_timer.c ../User_Lib/atmega324a/src/clock.c atmega324a_1.c
+SOURCEFILES_QUOTED_IF_SPACED=../User_Lib/atmega324a/src/atmega324.c ../User_Lib/atmega324a/src/atmega324_usart0.c ../User_Lib/atmega324a/src/buffer.c ../User_Lib/atmega324a/src/function.c ../User_Lib/atmega324a/src/keypad.c ../User_Lib/atmega324a/src/lcd.c ../User_Lib/atmega324a/src/atmega324_twi.c ../User_Lib/atmega324a/src/watch.c ../User_Lib/atmega324a/src/atmega_eeprom.c ../User_Lib/atmega324a/src/atmega324_timer.c ../User_Lib/atmega324a/src/clock.c atmega324a_1.c ../User_Lib/atmega324a/src/atmega324_analog.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1358146763/atmega324.o ${OBJECTDIR}/_ext/1358146763/atmega324_usart0.o ${OBJECTDIR}/_ext/1358146763/buffer.o ${OBJECTDIR}/_ext/1358146763/function.o ${OBJECTDIR}/_ext/1358146763/keypad.o ${OBJECTDIR}/_ext/1358146763/lcd.o ${OBJECTDIR}/_ext/1358146763/atmega324_twi.o ${OBJECTDIR}/_ext/1358146763/watch.o ${OBJECTDIR}/_ext/1358146763/atmega_eeprom.o ${OBJECTDIR}/_ext/1358146763/atmega324_timer.o ${OBJECTDIR}/_ext/1358146763/clock.o ${OBJECTDIR}/atmega324a_1.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1358146763/atmega324.o.d ${OBJECTDIR}/_ext/1358146763/atmega324_usart0.o.d ${OBJECTDIR}/_ext/1358146763/buffer.o.d ${OBJECTDIR}/_ext/1358146763/function.o.d ${OBJECTDIR}/_ext/1358146763/keypad.o.d ${OBJECTDIR}/_ext/1358146763/lcd.o.d ${OBJECTDIR}/_ext/1358146763/atmega324_twi.o.d ${OBJECTDIR}/_ext/1358146763/watch.o.d ${OBJECTDIR}/_ext/1358146763/atmega_eeprom.o.d ${OBJECTDIR}/_ext/1358146763/atmega324_timer.o.d ${OBJECTDIR}/_ext/1358146763/clock.o.d ${OBJECTDIR}/atmega324a_1.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/_ext/1358146763/atmega324.o ${OBJECTDIR}/_ext/1358146763/atmega324_usart0.o ${OBJECTDIR}/_ext/1358146763/buffer.o ${OBJECTDIR}/_ext/1358146763/function.o ${OBJECTDIR}/_ext/1358146763/keypad.o ${OBJECTDIR}/_ext/1358146763/lcd.o ${OBJECTDIR}/_ext/1358146763/atmega324_twi.o ${OBJECTDIR}/_ext/1358146763/watch.o ${OBJECTDIR}/_ext/1358146763/atmega_eeprom.o ${OBJECTDIR}/_ext/1358146763/atmega324_timer.o ${OBJECTDIR}/_ext/1358146763/clock.o ${OBJECTDIR}/atmega324a_1.o ${OBJECTDIR}/_ext/1358146763/atmega324_analog.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/_ext/1358146763/atmega324.o.d ${OBJECTDIR}/_ext/1358146763/atmega324_usart0.o.d ${OBJECTDIR}/_ext/1358146763/buffer.o.d ${OBJECTDIR}/_ext/1358146763/function.o.d ${OBJECTDIR}/_ext/1358146763/keypad.o.d ${OBJECTDIR}/_ext/1358146763/lcd.o.d ${OBJECTDIR}/_ext/1358146763/atmega324_twi.o.d ${OBJECTDIR}/_ext/1358146763/watch.o.d ${OBJECTDIR}/_ext/1358146763/atmega_eeprom.o.d ${OBJECTDIR}/_ext/1358146763/atmega324_timer.o.d ${OBJECTDIR}/_ext/1358146763/clock.o.d ${OBJECTDIR}/atmega324a_1.o.d ${OBJECTDIR}/_ext/1358146763/atmega324_analog.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/_ext/1358146763/atmega324.o ${OBJECTDIR}/_ext/1358146763/atmega324_usart0.o ${OBJECTDIR}/_ext/1358146763/buffer.o ${OBJECTDIR}/_ext/1358146763/function.o ${OBJECTDIR}/_ext/1358146763/keypad.o ${OBJECTDIR}/_ext/1358146763/lcd.o ${OBJECTDIR}/_ext/1358146763/atmega324_twi.o ${OBJECTDIR}/_ext/1358146763/watch.o ${OBJECTDIR}/_ext/1358146763/atmega_eeprom.o ${OBJECTDIR}/_ext/1358146763/atmega324_timer.o ${OBJECTDIR}/_ext/1358146763/clock.o ${OBJECTDIR}/atmega324a_1.o
+OBJECTFILES=${OBJECTDIR}/_ext/1358146763/atmega324.o ${OBJECTDIR}/_ext/1358146763/atmega324_usart0.o ${OBJECTDIR}/_ext/1358146763/buffer.o ${OBJECTDIR}/_ext/1358146763/function.o ${OBJECTDIR}/_ext/1358146763/keypad.o ${OBJECTDIR}/_ext/1358146763/lcd.o ${OBJECTDIR}/_ext/1358146763/atmega324_twi.o ${OBJECTDIR}/_ext/1358146763/watch.o ${OBJECTDIR}/_ext/1358146763/atmega_eeprom.o ${OBJECTDIR}/_ext/1358146763/atmega324_timer.o ${OBJECTDIR}/_ext/1358146763/clock.o ${OBJECTDIR}/atmega324a_1.o ${OBJECTDIR}/_ext/1358146763/atmega324_analog.o
 
 # Source Files
-SOURCEFILES=../User_Lib/atmega324a/src/atmega324.c ../User_Lib/atmega324a/src/atmega324_usart0.c ../User_Lib/atmega324a/src/buffer.c ../User_Lib/atmega324a/src/function.c ../User_Lib/atmega324a/src/keypad.c ../User_Lib/atmega324a/src/lcd.c ../User_Lib/atmega324a/src/atmega324_twi.c ../User_Lib/atmega324a/src/watch.c ../User_Lib/atmega324a/src/atmega_eeprom.c ../User_Lib/atmega324a/src/atmega324_timer.c ../User_Lib/atmega324a/src/clock.c atmega324a_1.c
+SOURCEFILES=../User_Lib/atmega324a/src/atmega324.c ../User_Lib/atmega324a/src/atmega324_usart0.c ../User_Lib/atmega324a/src/buffer.c ../User_Lib/atmega324a/src/function.c ../User_Lib/atmega324a/src/keypad.c ../User_Lib/atmega324a/src/lcd.c ../User_Lib/atmega324a/src/atmega324_twi.c ../User_Lib/atmega324a/src/watch.c ../User_Lib/atmega324a/src/atmega_eeprom.c ../User_Lib/atmega324a/src/atmega324_timer.c ../User_Lib/atmega324a/src/clock.c atmega324a_1.c ../User_Lib/atmega324a/src/atmega324_analog.c
 
 # Pack Options 
 PACK_COMPILER_OPTIONS=-I "${DFP_DIR}/include"
@@ -176,6 +176,12 @@ ${OBJECTDIR}/atmega324a_1.o: atmega324a_1.c  .generated_files/flags/atmega324a/d
 	@${RM} ${OBJECTDIR}/atmega324a_1.o 
 	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=atmega324a ${PACK_COMPILER_OPTIONS} ${PACK_COMMON_OPTIONS} -g -DDEBUG  -gdwarf-2  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums  -I "../User_Lib/atmega324a/inc" -Wall -MD -MP -MF "${OBJECTDIR}/atmega324a_1.o.d" -MT "${OBJECTDIR}/atmega324a_1.o.d" -MT ${OBJECTDIR}/atmega324a_1.o  -o ${OBJECTDIR}/atmega324a_1.o atmega324a_1.c  -DXPRJ_atmega324a=$(CND_CONF)  $(COMPARISON_BUILD) 
 	
+${OBJECTDIR}/_ext/1358146763/atmega324_analog.o: ../User_Lib/atmega324a/src/atmega324_analog.c  .generated_files/flags/atmega324a/287e0584ebb5800146a82373582acac5105593c5 .generated_files/flags/atmega324a/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}/_ext/1358146763" 
+	@${RM} ${OBJECTDIR}/_ext/1358146763/atmega324_analog.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1358146763/atmega324_analog.o 
+	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=atmega324a ${PACK_COMPILER_OPTIONS} ${PACK_COMMON_OPTIONS} -g -DDEBUG  -gdwarf-2  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums  -I "../User_Lib/atmega324a/inc" -Wall -MD -MP -MF "${OBJECTDIR}/_ext/1358146763/atmega324_analog.o.d" -MT "${OBJECTDIR}/_ext/1358146763/atmega324_analog.o.d" -MT ${OBJECTDIR}/_ext/1358146763/atmega324_analog.o  -o ${OBJECTDIR}/_ext/1358146763/atmega324_analog.o ../User_Lib/atmega324a/src/atmega324_analog.c  -DXPRJ_atmega324a=$(CND_CONF)  $(COMPARISON_BUILD) 
+	
 else
 ${OBJECTDIR}/_ext/1358146763/atmega324.o: ../User_Lib/atmega324a/src/atmega324.c  .generated_files/flags/atmega324a/cb89dea1eb20bb795e1b4659068385d0cf8fa16 .generated_files/flags/atmega324a/da39a3ee5e6b4b0d3255bfef95601890afd80709
 	@${MKDIR} "${OBJECTDIR}/_ext/1358146763" 
@@ -248,6 +254,12 @@ ${OBJECTDIR}/atmega324a_1.o: atmega324a_1.c  .generated_files/flags/atmega324a/8
 	@${RM} ${OBJECTDIR}/atmega324a_1.o.d 
 	@${RM} ${OBJECTDIR}/atmega324a_1.o 
 	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=atmega324a ${PACK_COMPILER_OPTIONS} ${PACK_COMMON_OPTIONS}  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums  -I "../User_Lib/atmega324a/inc" -Wall -MD -MP -MF "${OBJECTDIR}/atmega324a_1.o.d" -MT "${OBJECTDIR}/atmega324a_1.o.d" -MT ${OBJECTDIR}/atmega324a_1.o  -o ${OBJECTDIR}/atmega324a_1.o atmega324a_1.c  -DXPRJ_atmega324a=$(CND_CONF)  $(COMPARISON_BUILD) 
+	
+${OBJECTDIR}/_ext/1358146763/atmega324_analog.o: ../User_Lib/atmega324a/src/atmega324_analog.c  .generated_files/flags/atmega324a/655704a7252ab626935485eff1a91bd36585c5b5 .generated_files/flags/atmega324a/da39a3ee5e6b4b0d3255bfef95601890afd80709
+	@${MKDIR} "${OBJECTDIR}/_ext/1358146763" 
+	@${RM} ${OBJECTDIR}/_ext/1358146763/atmega324_analog.o.d 
+	@${RM} ${OBJECTDIR}/_ext/1358146763/atmega324_analog.o 
+	 ${MP_CC}  $(MP_EXTRA_CC_PRE) -mmcu=atmega324a ${PACK_COMPILER_OPTIONS} ${PACK_COMMON_OPTIONS}  -x c -c -D__$(MP_PROCESSOR_OPTION)__  -funsigned-char -funsigned-bitfields -O1 -ffunction-sections -fdata-sections -fpack-struct -fshort-enums  -I "../User_Lib/atmega324a/inc" -Wall -MD -MP -MF "${OBJECTDIR}/_ext/1358146763/atmega324_analog.o.d" -MT "${OBJECTDIR}/_ext/1358146763/atmega324_analog.o.d" -MT ${OBJECTDIR}/_ext/1358146763/atmega324_analog.o  -o ${OBJECTDIR}/_ext/1358146763/atmega324_analog.o ../User_Lib/atmega324a/src/atmega324_analog.c  -DXPRJ_atmega324a=$(CND_CONF)  $(COMPARISON_BUILD) 
 	
 endif
 

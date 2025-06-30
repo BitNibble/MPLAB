@@ -16,6 +16,7 @@
       <itemPath>../User_Lib/atmega324a/inc/atmega_eeprom.h</itemPath>
       <itemPath>../User_Lib/atmega324a/inc/atmega324_timer.h</itemPath>
       <itemPath>../User_Lib/atmega324a/inc/clock.h</itemPath>
+      <itemPath>../User_Lib/atmega324a/inc/atmega324_analog.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -40,6 +41,7 @@
       <itemPath>../User_Lib/atmega324a/src/atmega_eeprom.c</itemPath>
       <itemPath>../User_Lib/atmega324a/src/atmega324_timer.c</itemPath>
       <itemPath>../User_Lib/atmega324a/src/clock.c</itemPath>
+      <itemPath>../User_Lib/atmega324a/src/atmega324_analog.c</itemPath>
     </logicalFolder>
     <itemPath>atmega324a_1.c</itemPath>
   </logicalFolder>
