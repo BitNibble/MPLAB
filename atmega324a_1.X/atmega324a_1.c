@@ -11,17 +11,15 @@ Hardware: Atmega324A
  ***************************************************************************/
 //Good practice initialize
 #define F_CPU 8000000UL
-#include <avr/io.h>
-#include <avr/interrupt.h>
 #include <stdio.h>
-#include "keypad.h"
-#include "lcd.h"
-#include "function.h"
 #include "atmega324_analog.h"
 #include "atmega_eeprom.h"
 #include "atmega324_timer.h"
 #include "atmega324_usart0.h"
 #include "atmega324_usart1.h"
+#include "keypad.h"
+#include "lcd.h"
+#include "function.h"
 #include "watch.h"
 #include "clock.h"
 //Constant & macros

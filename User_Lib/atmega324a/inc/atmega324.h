@@ -17,14 +17,29 @@ Date:     24/06/2025
 	#define F_CPU 8000000UL
 #endif
 
+/*** Global Library ***/
+#include <avr/io.h>
+#include <avr/fuse.h>
+#include <avr/eeprom.h>
+#include <avr/pgmspace.h>
+#include <avr/interrupt.h>
+#include <util/delay.h>
+
 #if defined(__AVR_ATmega324A__)
 	#include "atmega324_registers.h"
 #else
 	#error "Not ATmega 324A"
 #endif
 
-/*** Global Library ***/
+#include <stddef.h>
+#include <stdint.h>
+#include <inttypes.h>
 
+// Macros for common operations
+#define SET_REG(REG, HBITS)		(REG |= HBITS)
+#define CLEAR_REG(REG, HBITS)	(REG &= ~HBITS)
+#define READ_BIT(REG, BIT)		((REG >> BIT) & 1)
+#define TOGGLE_REG(REG, HBITS)	(REG ^= HBITS)
 
 /*** INSTANCE ***/
 // GPWR
