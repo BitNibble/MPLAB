@@ -50,13 +50,13 @@ int main(void)
 	char input;
 	char* value;
 	//Initialize objects
-	TIMER_COUNTER1 tim1 = TIMER_COUNTER1_enable(4,3);//4,0
-	KEYPAD keypad = KEYPAD_enable(&DDRA,&PINA,&PORTA);
+	TIMER_COUNTER1 tim1 = tc1_enable(4,3);//4,0
+	KEYPAD keypad = keypad_enable(&DDRA,&PINA,&PORTA);
 	LCD0 lcd = lcd0_enable(&DDRC,&PINC,&PORTC);
-	FUNC func = FUNCenable();
-	EEPROM eeprom = EEPROM_enable();
-	WATCH watch = WATCH_enable();
-	ANALOG an = ANALOG_enable( 1, 16, 1, 0 );
+	FUNC func = func_enable();
+	EEPROM eeprom = eeprom_enable();
+	WATCH watch = watch_enable();
+	ANALOG an = adc_enable( 1, 16, 1, 0 );
 	usart0_enable(38400,8,1,NONE);
     /* Init Values */
 	watch.preset(15,12,0);
