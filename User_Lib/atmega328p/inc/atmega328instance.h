@@ -13,14 +13,8 @@ Comment:
 /*** Working Frequency ***/
 // User may change to conform to use
 #ifndef F_CPU
-	#define F_CPU 16000000UL
+	#define F_CPU 8000000UL
 #endif
-#define TWO 2
-#define NIBBLE_BITS 4
-#define BYTE_BITS 8
-#define WORD_BITS 16
-#define DWORD_BITS 32
-#define QWORD_BITS 64
 
 #include <avr/io.h>
 #include <avr/fuse.h>
