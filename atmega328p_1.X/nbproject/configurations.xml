@@ -16,7 +16,6 @@
       <itemPath>../User_Lib/atmega328p/inc/atmega328timer1.h</itemPath>
       <itemPath>../User_Lib/atmega328p/inc/atmega328timer2.h</itemPath>
       <itemPath>../User_Lib/atmega328p/inc/atmega328twi.h</itemPath>
-      <itemPath>../User_Lib/atmega328p/inc/atmega328usart0.h</itemPath>
       <itemPath>../User_Lib/atmega328p/inc/atmegaeeprom.h</itemPath>
       <itemPath>../User_Lib/atmega328p/inc/bt05atcommands.h</itemPath>
       <itemPath>../User_Lib/atmega328p/inc/buffer.h</itemPath>
@@ -35,6 +34,7 @@
       <itemPath>../User_Lib/atmega328p/inc/rotenc.h</itemPath>
       <itemPath>../User_Lib/atmega328p/inc/watch.h</itemPath>
       <itemPath>../User_Lib/atmega328p/inc/znpid.h</itemPath>
+      <itemPath>../User_Lib/atmega328p/inc/atmega328_usart0.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -58,7 +58,6 @@
       <itemPath>../User_Lib/atmega328p/src/atmega328timer1.c</itemPath>
       <itemPath>../User_Lib/atmega328p/src/atmega328timer2.c</itemPath>
       <itemPath>../User_Lib/atmega328p/src/atmega328twi.c</itemPath>
-      <itemPath>../User_Lib/atmega328p/src/atmega328usart0.c</itemPath>
       <itemPath>../User_Lib/atmega328p/src/atmegaeeprom.c</itemPath>
       <itemPath>../User_Lib/atmega328p/src/bt05atcommands.c</itemPath>
       <itemPath>../User_Lib/atmega328p/src/buffer.c</itemPath>
@@ -77,6 +76,7 @@
       <itemPath>../User_Lib/atmega328p/src/rotenc.c</itemPath>
       <itemPath>../User_Lib/atmega328p/src/watch.c</itemPath>
       <itemPath>../User_Lib/atmega328p/src/znpid.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/atmega328_usart0.c</itemPath>
     </logicalFolder>
     <itemPath>atmega328p_1.c</itemPath>
   </logicalFolder>
