@@ -313,5 +313,5 @@ uint8_t get_bit_block(volatile uint8_t* reg, uint8_t size_block, uint8_t bit_n);
 void set_bit_block(volatile uint8_t* reg, uint8_t size_block, uint8_t bit_n, uint8_t data);
 
 #endif
-/***EOF***/
+/*** EOF ***/
 
