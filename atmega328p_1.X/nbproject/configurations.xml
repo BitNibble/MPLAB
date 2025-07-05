@@ -8,7 +8,6 @@
       <itemPath>../User_Lib/atmega328p/inc/atcommands.h</itemPath>
       <itemPath>../User_Lib/atmega328p/inc/atmega328.h</itemPath>
       <itemPath>../User_Lib/atmega328p/inc/atmega328analog.h</itemPath>
-      <itemPath>../User_Lib/atmega328p/inc/atmega328instance.h</itemPath>
       <itemPath>../User_Lib/atmega328p/inc/atmega328interrupt.h</itemPath>
       <itemPath>../User_Lib/atmega328p/inc/atmega328mapping.h</itemPath>
       <itemPath>../User_Lib/atmega328p/inc/atmega328registers.h</itemPath>
@@ -51,7 +50,6 @@
       <itemPath>../User_Lib/atmega328p/src/74hc595.c</itemPath>
       <itemPath>../User_Lib/atmega328p/src/atcommands.c</itemPath>
       <itemPath>../User_Lib/atmega328p/src/atmega328analog.c</itemPath>
-      <itemPath>../User_Lib/atmega328p/src/atmega328instance.c</itemPath>
       <itemPath>../User_Lib/atmega328p/src/atmega328interrupt.c</itemPath>
       <itemPath>../User_Lib/atmega328p/src/atmega328mapping.c</itemPath>
       <itemPath>../User_Lib/atmega328p/src/atmega328timer0.c</itemPath>
@@ -77,6 +75,7 @@
       <itemPath>../User_Lib/atmega328p/src/watch.c</itemPath>
       <itemPath>../User_Lib/atmega328p/src/znpid.c</itemPath>
       <itemPath>../User_Lib/atmega328p/src/atmega328_usart0.c</itemPath>
+      <itemPath>../User_Lib/atmega328p/src/atmega328.c</itemPath>
     </logicalFolder>
     <itemPath>atmega328p_1.c</itemPath>
   </logicalFolder>
