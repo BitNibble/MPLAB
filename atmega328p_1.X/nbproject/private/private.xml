@@ -2,13 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/D:/Embedded/MPLAB/User_Lib/atmega328p/inc/atmega328.h</file>
-            <file>file:/D:/Embedded/MPLAB/User_Lib/atmega328p/inc/atmega328mapping.h</file>
-            <file>file:/D:/Embedded/MPLAB/atmega328p_1.X/atmega328p_1.c</file>
-            <file>file:/D:/Embedded/MPLAB/User_Lib/atmega328p/inc/atmega328timer1.h</file>
-            <file>file:/D:/Embedded/MPLAB/User_Lib/atmega328p/inc/atmega328_usart0.h</file>
-            <file>file:/D:/Embedded/MPLAB/User_Lib/atmega328p/inc/atmega328twi.h</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
