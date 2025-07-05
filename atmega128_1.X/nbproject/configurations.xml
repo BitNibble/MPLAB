@@ -7,7 +7,6 @@
       <itemPath>../User_Lib/atmega128/inc/74hc595.h</itemPath>
       <itemPath>../User_Lib/atmega128/inc/atmega128.h</itemPath>
       <itemPath>../User_Lib/atmega128/inc/atmega128analog.h</itemPath>
-      <itemPath>../User_Lib/atmega128/inc/atmega128instance.h</itemPath>
       <itemPath>../User_Lib/atmega128/inc/atmega128interrupt.h</itemPath>
       <itemPath>../User_Lib/atmega128/inc/atmega128mapping.h</itemPath>
       <itemPath>../User_Lib/atmega128/inc/atmega128spi.h</itemPath>
@@ -54,7 +53,6 @@
                    projectFiles="true">
       <itemPath>../User_Lib/atmega128/src/74hc595.c</itemPath>
       <itemPath>../User_Lib/atmega128/src/atmega128analog.c</itemPath>
-      <itemPath>../User_Lib/atmega128/src/atmega128instance.c</itemPath>
       <itemPath>../User_Lib/atmega128/src/atmega128interrupt.c</itemPath>
       <itemPath>../User_Lib/atmega128/src/atmega128mapping.c</itemPath>
       <itemPath>../User_Lib/atmega128/src/atmega128spi.c</itemPath>
@@ -86,6 +84,7 @@
       <itemPath>../User_Lib/atmega128/src/rotenc.c</itemPath>
       <itemPath>../User_Lib/atmega128/src/watch.c</itemPath>
       <itemPath>../User_Lib/atmega128/src/znpid.c</itemPath>
+      <itemPath>../User_Lib/atmega128/src/atmega128.c</itemPath>
     </logicalFolder>
     <itemPath>atmega128_1.c</itemPath>
   </logicalFolder>
