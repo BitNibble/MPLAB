@@ -412,7 +412,7 @@ switch(Menu){
 			mvalue=func()->strToInt(mstr);
 			if(mvalue >=0 && mvalue <16){
 				// PORTC = mvalue;
-				portc_reg()->port.var = mvalue;
+				gpioc_reg()->port.var = mvalue;
 				lcd1()->gotoxy(0,12);
 				lcd1()->hspace(4);
 			}else{
@@ -459,37 +459,37 @@ switch(Menu){
 			usart1()->rxflush();
 		}
 		if(!strcmp(uartmsg,"s00.\r\n")){
-			if(portc_reg()->port.var & 1)
-				portc_reg()->port.var &= ~1;
+			if(gpioc_reg()->port.var & 1)
+				gpioc_reg()->port.var &= ~1;
 			else
-				portc_reg()->port.var |= 1;
+				gpioc_reg()->port.var |= 1;
 		}
 		if(!strcmp(uartmsg,"s00 off.\r\n")){
-			portc_reg()->port.var &= ~1;
+			gpioc_reg()->port.var &= ~1;
 		}
 		if(!strcmp(uartmsg,"s01.\r\n")){
-			if(portc_reg()->port.var & 2)
-				portc_reg()->port.var &= ~2;
+			if(gpioc_reg()->port.var & 2)
+				gpioc_reg()->port.var &= ~2;
 			else
-				portc_reg()->port.var |= 2;
+				gpioc_reg()->port.var |= 2;
 		}
 		if(!strcmp(uartmsg,"s02.\r\n")){
-			if(portc_reg()->port.var & 4)
-				portc_reg()->port.var &= ~4;
+			if(gpioc_reg()->port.var & 4)
+				gpioc_reg()->port.var &= ~4;
 			else
-				portc_reg()->port.var |= 4;
+				gpioc_reg()->port.var |= 4;
 		}
 		if(!strcmp(uartmsg,"s03.\r\n")){
-			if(portc_reg()->port.var & 8)
-				portc_reg()->port.var &= ~8;
+			if(gpioc_reg()->port.var & 8)
+				gpioc_reg()->port.var &= ~8;
 			else
-				portc_reg()->port.var |= 8;
+				gpioc_reg()->port.var |= 8;
 		}
 		if(!strcmp(uartmsg,"all on.\r\n")){
-			portc_reg()->port.var |= 15;
+			gpioc_reg()->port.var |= 15;
 		}
 		if(!strcmp(uartmsg,"all off.\r\n")){
-			portc_reg()->port.var &= ~15;
+			gpioc_reg()->port.var &= ~15;
 		}
 		if(!strcmp(uartmsg,"Disconnect\r\n")){
 			Menu = '1';
@@ -593,13 +593,13 @@ switch(signal)
 void PORTINIT(void)
 {
 	// INPUT
-	portf_reg()->ddr.var = 0x00;
-	portf_reg()->port.var = 0x0F;
+	gpiof_reg()->ddr.var = 0x00;
+	gpiof_reg()->port.var = 0x0F;
 	// OUTPUT
-	portb_reg()->ddr.var |= (1<<5) | (1<<6) | (1<<7);
+	gpiob_reg()->ddr.var |= (1<<5) | (1<<6) | (1<<7);
 	// OUTPUT PULLUP
-	portc_reg()->ddr.var = 0xFF;
-	portc_reg()->port.var = 0x00;
+	gpioc_reg()->ddr.var = 0xFF;
+	gpioc_reg()->port.var = 0x00;
 }
 
 /*** File Interrupt ***/
