@@ -302,7 +302,7 @@ typedef volatile struct {
 Atmega324WatchdogTimer_TypeDef* wdt_reg(void);
 
 /*********************************************************************/
-/********** Atmega 128 Procedure and Function declaration ************/
+/*************** Procedure and Function declaration ******************/
 /*********************************************************************/
 uint16_t swapbyte(uint16_t num);
 uint16_t BAUDRATEnormal(uint32_t BAUD);
