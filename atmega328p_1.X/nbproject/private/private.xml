@@ -3,7 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Embedded/MPLAB/atmega328p_1.X/atmega328p_1.c</file>
+            <file>file:/D:/Embedded/MPLAB/User_Lib/atmega328p/inc/lcd2p.h</file>
+            <file>file:/D:/Embedded/MPLAB/User_Lib/atmega328p/inc/lcd.h</file>
+            <file>file:/D:/Embedded/MPLAB/User_Lib/atmega328p/src/lcd.c</file>
         </group>
     </open-files>
 </project-private>
