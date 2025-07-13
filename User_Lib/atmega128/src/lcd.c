@@ -210,9 +210,7 @@ uint8_t LCD0_BF(void)
 }
 char LCD0_getch(void)
 {
-	char c;
-	c = LCD0_read(DATA);
-	return c;
+	return LCD0_read(DATA);
 }
 void LCD0_putch(char c)
 {
@@ -220,22 +218,18 @@ void LCD0_putch(char c)
 }
 void LCD0_string(const char* s)
 {
-	char tmp;
 	while(*s){
-		tmp = *(s++);
-		LCD0_putch(tmp);
+		LCD0_putch(*(s++));
 	}
 }
 void LCD0_string_size(const char* s, uint8_t size)
 {
-	char tmp;
 	uint8_t pos = 0;
 	while(*s){
-		tmp=*(s++);
 		pos++;
 		if(pos > size) // 1 TO SIZE+1
 			break;
-		LCD0_putch(tmp);
+		LCD0_putch(*(s++));
 	}
 	while(pos < size){ // TO SIZE
 		LCD0_putch(' ');
@@ -261,10 +255,8 @@ void LCD0_gotoxy(unsigned int y, unsigned int x)
 void LCD0_reboot(void)
 {
 	// low high detect pin NC
-	uint8_t i;
-	uint8_t tmp;
-	tmp = *lcd0_PIN & (1 << NC);
-	i = tmp ^ lcd0_detect;
+	uint8_t tmp = *lcd0_PIN & (1 << NC);
+	uint8_t i = tmp ^ lcd0_detect;
 	i &= tmp;
 	if(i)
 		LCD0_inic();
@@ -404,9 +396,7 @@ uint8_t LCD1_BF(void)
 }
 char LCD1_getch(void)
 {
-	char c;
-	c = LCD1_read(DATA);
-	return c;
+	return LCD1_read(DATA);
 }
 void LCD1_putch(char c)
 {
@@ -414,22 +404,18 @@ void LCD1_putch(char c)
 }
 void LCD1_string(const char* s)
 {
-	char tmp;
 	while(*s){
-		tmp = *(s++);
-		LCD1_putch(tmp);
+		LCD1_putch(*(s++));
 	}
 }
 void LCD1_string_size(const char* s, uint8_t size)
 {
-	char tmp;
 	uint8_t pos = 0;
 	while(*s){
-		tmp = *(s++);
 		pos++;
 		if(pos > size)
 			break;
-		LCD1_putch(tmp);
+		LCD1_putch(*(s++));
 	}
 	while(pos < size){
 		LCD1_putch(' ');
@@ -455,10 +441,8 @@ void LCD1_gotoxy(unsigned int y, unsigned int x)
 void LCD1_reboot(void)
 {
 	// low high detect pin NC
-	uint8_t i;
-	uint8_t tmp;
-	tmp = *lcd1_PIN & (1 << NC);
-	i = tmp ^ lcd1_detect;
+	uint8_t tmp = *lcd1_PIN & (1 << NC);
+	uint8_t i = tmp ^ lcd1_detect;
 	i &= tmp;
 	if(i)
 		LCD1_inic();

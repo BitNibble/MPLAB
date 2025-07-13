@@ -235,10 +235,8 @@ void lcd02p_clear_reg(volatile uint8_t* reg, uint8_t hbits){
 void LCD02P_reboot(void)
 {
 	// low high detect pin NC
-	uint8_t i;
-	uint8_t tmp;
-	tmp = *lcd02pcmd_PIN & (1 << LCD02P_NC);
-	i = tmp ^ lcd02p_detect;
+	uint8_t tmp = *lcd02pcmd_PIN & (1 << LCD02P_NC);
+	uint8_t i = tmp ^ lcd02p_detect;
 	i &= tmp;
 	if(i)
 		LCD02P_inic();
