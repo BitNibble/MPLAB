@@ -3,7 +3,7 @@
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: PCF8575
-Date:     24012024
+Date:     13072025
 ***************************************************************************************************/
 /****** Comment:
 	
@@ -11,7 +11,7 @@ Date:     24012024
 #ifndef _PCF8575_H_
 	#define _PCF8575_H_
 
-/*** Global Library ***/
+/*** Library ***/
 #include <inttypes.h>
 
 #if defined __AVR_Atmega328__ || defined __AVR_ATmega328P__
@@ -22,7 +22,7 @@ Date:     24012024
 	#error "MCU Lib not available"
 #endif
 
-/*** Global Constant & Macro ***/
+/*** Constant & Macro ***/
 #ifndef HIGH
 	#define HIGH 0xFF
 #endif
@@ -33,18 +33,18 @@ Date:     24012024
 #define PCF8575_BASE_ADDRESS 32
 
 typedef struct{
-	TWI0 twi;
+	TWI0* twi;
 	uint8_t pcf8575_id;
 	uint16_t state;
 }pcf8575_parameter;
 
+/*** Handler ***/
 typedef struct{
 	pcf8575_parameter par;
 	void (*writehbits)( pcf8575_parameter *par, uint16_t hbits, uint8_t state );
 	uint16_t (*readhbits)( pcf8575_parameter *par, uint16_t hbits );
 }PCF8575;
 
-/*** Global Header ***/
 PCF8575 pcf8575_enable( uint8_t pcf8575_id, uint8_t twi_prescaler );
 
 #endif

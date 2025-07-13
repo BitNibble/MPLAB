@@ -3,12 +3,12 @@
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: ATmega128
-Date:   07/01/2024
+Date:   13/07/2025
 ***************************************************************************************************/
 #include "atmega128twi.h"
 #include <util/delay.h>
 
-/*** File Header ***/
+/*** Procedure and Function declaratiom ***/
 void TWI_start(void);
 uint8_t TWI_connect(uint8_t address, uint8_t rw);
 uint8_t TWI_master_write(uint8_t var_twiData_u8);
@@ -28,7 +28,8 @@ static TWI0 atmega128_twi = {
 	// .slave_enable = NULL, // optional stub
 };
 
-TWI0 twi_enable(uint8_t atmega_id,  uint8_t prescaler)
+/*** Handler ***/
+void twi_enable(uint8_t atmega_id,  uint8_t prescaler)
 {
 	if(atmega_id > 0 && atmega_id < 128){
 		twi_reg()->twar.par.twa = atmega_id;
@@ -57,11 +58,11 @@ TWI0 twi_enable(uint8_t atmega_id,  uint8_t prescaler)
 		break;
 	}
 	twi_reg()->twbr.var = ((F_CPU / TWI_SCL_CLOCK) - 16) / (2 * prescaler);
-	return atmega128_twi;
 }
 
 TWI0* twi(void){ return &atmega128_twi; }
 
+/*** Procedure and Function definition ***/
 void TWI_start(void)
 {
 	uint8_t cmd = (1 << TWINT) | (1 << TWSTA) | (1 << TWEN);
@@ -157,5 +158,5 @@ void TWI_wait_twint(uint16_t nticks)
 	}
 }
 
-/***EOF***/
+/*** EOF ***/
 

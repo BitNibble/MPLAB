@@ -173,7 +173,6 @@ typedef struct {
 	/***TWI***/
 	Atmega128TwoWireSerialInterface_TypeDef* twi_reg;
 	#ifdef _TWI_MODULE_
-		TWI0 (*twi_enable)(uint8_t atmega_ID,  uint8_t prescaler);
 		TWI0* twi;
 	#endif
 	/***USART0***/

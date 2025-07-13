@@ -92,7 +92,6 @@ ATMEGA128 atmega128_enable(void){
 	/***TWI***/
 	setup_atmega128.twi_reg = twi_reg();
 	#ifdef _TWI_MODULE_
-		setup_atmega128.twi_enable = twi_enable;
 		setup_atmega128.twi = twi();
 	#endif
 	/***USART0***/

@@ -3,7 +3,7 @@
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: ATmega128
-Date:   12/07/2025
+Date:   13/07/2025
  **************************************************************************************************/
 #ifndef _ATMEGA128TWI_H_
 #define _ATMEGA128TWI_H_
@@ -69,7 +69,7 @@ Date:   12/07/2025
 #define TWI_ADDRESS_REGISTER_MASK 0xFE
 #define Nticks 1023 // anti polling freeze.
 
-/*** Global Variable ***/
+/*** Handler ***/
 typedef struct{
 	// prototype pointers
 	void (*start)(void);
@@ -83,8 +83,8 @@ typedef struct{
 	// void (*slave_enable)(uint8_t address);
 }TWI0;
 
+void twi_enable(uint8_t atmega_ID, uint8_t prescaler);
 TWI0* twi(void);
-TWI0 twi_enable(uint8_t atmega_ID, uint8_t prescaler);
 
 #endif
 /*** EOF ***/
