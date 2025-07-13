@@ -114,7 +114,7 @@ void LCD02P_inic(void)
 	_delay_us(50);
 	LCD02P_write(0x01, LCD02P_INST); // 0x01 Display clear
 	_delay_ms(2);
-	LCD02P_write(0x06, LCD02P_INST); // 0x04 Cursor dir, Display shift
+	LCD02P_write(0x06, LCD02P_INST); // 0x06 Cursor dir, Display shift
 	_delay_us(50);
 	LCD02P_clear();
 	LCD02P_gotoxy(0,0);
@@ -184,9 +184,7 @@ uint8_t LCD02P_BF(void)
 }
 char LCD02P_getch(void)
 {
-	char c;
-	c = LCD02P_read(LCD02P_DATA);
-	return c;
+	return LCD02P_read(LCD02P_DATA);
 }
 void LCD02P_putch(char c)
 {
@@ -194,24 +192,20 @@ void LCD02P_putch(char c)
 }
 void LCD02P_string(const char* s)
 {
-	char tmp;
 	while(*s){
-		tmp = *(s++);
-		LCD02P_putch(tmp);
+		LCD02P_putch(*(s++));
 	}
 }
 void LCD02P_string_size(const char* s, uint8_t size)
 {
-	char tmp;
 	uint8_t pos = 0;
 	while(*s){
-		tmp=*(s++);
 		pos++;
 		if(pos > size) // 1 TO SIZE+1
 			break;
-		LCD02P_putch(tmp);
+		LCD02P_putch(*(s++));
 	}
-	while(pos<size){ // TO SIZE
+	while(pos < size){ // TO SIZE
 		LCD02P_putch(' ');
 		pos++;
 	}

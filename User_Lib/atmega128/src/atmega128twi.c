@@ -5,19 +5,18 @@ License:  GNU General Public License
 Hardware: ATmega128
 Date:   07/01/2024
 ***************************************************************************************************/
-/*** File Library ***/
 #include "atmega128twi.h"
 #include <util/delay.h>
 
 /*** File Header ***/
 void TWI_start(void);
-void TWI_connect(uint8_t address, uint8_t rw);
-void TWI_master_write(uint8_t var_twiData_u8);
+uint8_t TWI_connect(uint8_t address, uint8_t rw);
+uint8_t TWI_master_write(uint8_t var_twiData_u8);
 uint8_t TWI_master_read(uint8_t ack_nack);
 void TWI_stop(void);
 // auxiliary
 uint8_t TWI_status(void);
-void TWI_wait_twint( uint16_t nticks );
+void TWI_wait_twint(uint16_t nticks);
 
 static TWI0 atmega128_twi = {
 	.start = TWI_start,
@@ -25,10 +24,10 @@ static TWI0 atmega128_twi = {
 	.stop = TWI_stop,
 	.master_write = TWI_master_write,
 	.master_read = TWI_master_read,
-	.status = TWI_status
+	.status = TWI_status,
+	// .slave_enable = NULL, // optional stub
 };
 
-/*** Procedure & Function ***/
 TWI0 twi_enable(uint8_t atmega_id,  uint8_t prescaler)
 {
 	if(atmega_id > 0 && atmega_id < 128){
@@ -58,130 +57,105 @@ TWI0 twi_enable(uint8_t atmega_id,  uint8_t prescaler)
 		break;
 	}
 	twi_reg()->twbr.var = ((F_CPU / TWI_SCL_CLOCK) - 16) / (2 * prescaler);
-	// Standard Config begin
-	// atmega128()->twi->twsr = 0x00; //set presca1er bits to zero
-	// atmega128()->twi->twbr = 0x46; //SCL frequency is 50K for 16Mhz
-	// atmega128()->twi->twcr = 0x04; //enab1e TWI module
-	// Standard Config end
-	
 	return atmega128_twi;
 }
 
 TWI0* twi(void){ return &atmega128_twi; }
 
-// void TWI_Start(void)
-void TWI_start(void) // $08
-{	
+void TWI_start(void)
+{
 	uint8_t cmd = (1 << TWINT) | (1 << TWSTA) | (1 << TWEN);
 	twi_reg()->twcr.var = cmd;
-	
-	TWI_wait_twint( Nticks );
-	
-	switch( TWI_status( ) ){
+
+	TWI_wait_twint(Nticks);
+
+	switch(TWI_status()){
 		case TWI_T_START:
-			// Do nothing
+		// OK
 		break;
 		default:
-			TWI_stop( ); // error
+		TWI_stop(); // error recovery
 		break;
 	}
 }
 
-// void TWI_Connect(uint8_t address, uint8_t rw)
-void TWI_connect( uint8_t address, uint8_t rw )
+uint8_t TWI_connect(uint8_t address, uint8_t rw)
 {
-	uint8_t cmd = 0;
-	if( rw ){ cmd = (address << 1) | (1 << 0); }
-	else{ cmd = (address << 1) | (0 << 0); }
+	uint8_t cmd = (address << 1) | (rw & 0x01);
 	twi_reg()->twdr.var = cmd;
-	
+
 	cmd = (1 << TWINT) | (1 << TWEN);
 	twi_reg()->twcr.var = cmd;
-	
-	TWI_wait_twint( Nticks );
-	
-	switch( TWI_status( ) ){
+
+	TWI_wait_twint(Nticks);
+
+	switch(TWI_status()){
 		case TWI_M_SLAW_R_ACK:
-			// Do nothing
-		break;
 		case TWI_M_SLAR_R_ACK:
-			// Do nothing
-		break;
+		return 0; // success
 		default:
-			TWI_stop( ); // error
-		break;
+		TWI_stop(); // error recovery
+		return 1; // error
 	}
 }
 
-// void TWI_Write(uint8_t var_twiData_u8)
-void TWI_master_write( uint8_t var_twiData_u8 )
+uint8_t TWI_master_write(uint8_t var_twiData_u8)
 {
-	uint8_t cmd = var_twiData_u8;
-	twi_reg()->twdr.var = cmd;
-	
-	cmd = (1 << TWINT) | (1 << TWEN);
+	twi_reg()->twdr.var = var_twiData_u8;
+
+	uint8_t cmd = (1 << TWINT) | (1 << TWEN);
 	twi_reg()->twcr.var = cmd;
-	
-	TWI_wait_twint( Nticks );
-	
-	switch( TWI_status( ) ){
-		case TWI_M_DATABYTE_R_ACK:
-			// Do nothing
-		break;
+
+	TWI_wait_twint(Nticks);
+
+	switch(TWI_status()){
+		case TWI_M_DATABYTE_T_ACK:
+		return 0; // success
 		default:
-			TWI_stop( ); // error
-		break;
+		TWI_stop(); // error recovery
+		return 1; // error
 	}
 }
 
-// uint8_t TWI_Read(uint8_t ack_nack)
-uint8_t TWI_master_read( uint8_t ack_nack )
+uint8_t TWI_master_read(uint8_t ack_nack)
 {
-	uint8_t cmd = 0x00;
-	if( ack_nack ){ cmd |= ( 1 << TWEA ); }
-	cmd |= ( 1 << TWINT ) | ( 1 << TWEN );
+	uint8_t cmd = (1 << TWINT) | (1 << TWEN);
+	if(ack_nack)
+	cmd |= (1 << TWEA);
 	twi_reg()->twcr.var = cmd;
-	
-	TWI_wait_twint( Nticks );
-	
-	switch( TWI_status( ) ){
-		case TWI_ARBLSLARNACK:
-			TWI_stop( );
-		break;
-		default:
-		break;
+
+	TWI_wait_twint(Nticks);
+
+	if(TWI_status() == TWI_ARB_LOST){
+		TWI_stop();
+		// can return special error value? For now just 0
 	}
-	
-	cmd = twi_reg()->twdr.var;
-	return cmd;
+
+	return twi_reg()->twdr.var;
 }
 
-// void TWI_Stop(void)
-void TWI_stop( void )
+void TWI_stop(void)
 {
 	uint8_t cmd = (1 << TWINT) | (1 << TWEN) | (1 << TWSTO);
-	twi_reg()->twcr.var = cmd; 
-	
-	_delay_us(100); // wait for a short time
+	twi_reg()->twcr.var = cmd;
+
+	_delay_us(100); // small delay to ensure stop completes
 }
 
-// auxiliary
-uint8_t TWI_status( void )
+uint8_t TWI_status(void)
 {
-	uint8_t cmd = twi_reg()->twsr.var & TWI_STATUS_MASK;
-	return cmd;
+	return twi_reg()->twsr.var & TWI_STATUS_MASK;
 }
 
-void TWI_wait_twint( uint16_t nticks ) // hardware triggered
+void TWI_wait_twint(uint16_t nticks)
 {
 	unsigned int i;
-	for(i = 0; !( twi_reg()->twcr.var & (1 << TWINT)); i++ ){ // wait for acknowledgment confirmation bit.
-		if( i > nticks ) // timeout
-			break;
+	for(i = 0; !(twi_reg()->twcr.var & (1 << TWINT)); i++){
+		_delay_us(1);
+		if(i > nticks) // timeout
+		break;
 	}
 }
-
-/*** File Interrupt ***/
 
 /***EOF***/
 

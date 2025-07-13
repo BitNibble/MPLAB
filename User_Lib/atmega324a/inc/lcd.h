@@ -18,8 +18,10 @@ Date:     12072025
 #include <inttypes.h>
 
 /*** Global Constant & Macro ***/
-#define LCD_WIRING_1
+#define LCD_WIRING_3
 #if defined(LCD_WIRING_1)
+	
+#elif defined(LCD_WIRING_2)
 	#define RS 0
 	#define RW 1
 	#define EN 2
@@ -28,7 +30,7 @@ Date:     12072025
 	#define DB5 5
 	#define DB6 6
 	#define DB7 7
-#elif defined(LCD_WIRING_2)
+#elif defined(LCD_WIRING_3)
 	#define RS 7
 	#define RW 6
 	#define EN 5

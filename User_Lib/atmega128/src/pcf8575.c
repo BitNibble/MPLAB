@@ -53,7 +53,5 @@ uint16_t PCF8575_readhbits(pcf8575_parameter *par, uint16_t hbits)
 	return (readHLbyte(data) & hbits);
 }
 
-/***File Interrupt***/
-
 /*** EOF ***/
 

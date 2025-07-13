@@ -18,16 +18,35 @@ Date:     12072025
 #include <inttypes.h>
 
 /*** Global Constant & Macro ***/
-// ASIGN PORT PINS TO LCD (can be setup in any way)
-#define LCD02P_RS 0
-#define LCD02P_RW 1
-#define LCD02P_EN 2
-#define LCD02P_NC 3
-#define LCD02P_DB4 0 // 4
-#define LCD02P_DB5 1 // 5
-#define LCD02P_DB6 2 // 6
-#define LCD02P_DB7 3 // 7
-/***************/
+#define LCD_WIRING_3
+#if defined(LCD_WIRING_1)
+	#define LCD02P_RS 0
+	#define LCD02P_RW 1
+	#define LCD02P_EN 2
+	#define LCD02P_NC 3
+	#define LCD02P_DB4 0
+	#define LCD02P_DB5 1
+	#define LCD02P_DB6 2
+	#define LCD02P_DB7 3
+#elif defined(LCD_WIRING_2)
+	#define LCD02P_RS 0
+	#define LCD02P_RW 1
+	#define LCD02P_EN 2
+	#define LCD02P_NC 3
+	#define LCD02P_DB4 4
+	#define LCD02P_DB5 5
+	#define LCD02P_DB6 6
+	#define LCD02P_DB7 7
+#elif defined(LCD_WIRING_3)
+	#define LCD02P_RS 7
+	#define LCD02P_RW 6
+	#define LCD02P_EN 5
+	#define LCD02P_NC 4
+	#define LCD02P_DB4 3
+	#define LCD02P_DB5 2
+	#define LCD02P_DB6 1
+	#define LCD02P_DB7 0
+#endif
 
 /*** Handler ***/
 typedef struct{

@@ -200,7 +200,7 @@ void TIMER_COUNTER0_compoutmodeA(uint8_t compoutmode)
 		/*** Compare Output mode, Phase Correct PWM mode. ***/
 		// WGM02 = 0: Normal Port Operation, OC0A Disconnected.
 		// WGM02 = 1: Toggle OC0A on Compare Match.
-		gpiob_reg()->ddr->par.b3 = 1;
+		gpiob_reg()->ddr->par.bit3 = 1;
 		tc0_reg()->tccr0a->var|=(1<<COM0A0);
 		break;
 		case 2:
@@ -210,7 +210,7 @@ void TIMER_COUNTER0_compoutmodeA(uint8_t compoutmode)
 		// Clear OC0A on Compare Match, set OC0A at BOTTOM, (non-inverting mode).
 		/*** Compare Output mode, Phase Correct PWM mode. ***/
 		// Clear OC0A on Compare Match when up-counting. Set OC0A on Compare Match when down-counting.
-		gpiob_reg()->ddr->par.b3 = 1;
+		gpiob_reg()->ddr->par.bit3 = 1;
 		tc0_reg()->tccr0a->var|=(1<<COM0A1);
 		break;
 		case 3:
@@ -220,7 +220,7 @@ void TIMER_COUNTER0_compoutmodeA(uint8_t compoutmode)
 		// Set OC0A on Compare Match, clear OC0A at BOTTOM, (inverting mode).
 		/*** Compare Output mode, Phase Correct PWM mode. ***/
 		// Set OC0A on Compare Match when up-counting. Clear OC0A on Compare Match when down-counting.
-		gpiob_reg()->ddr->par.b3 = 1;
+		gpiob_reg()->ddr->par.bit3 = 1;
 		tc0_reg()->tccr0a->var|=((1<<COM0A0) | (1<<COM0A1));
 		break;
 		default:
@@ -244,7 +244,7 @@ void TIMER_COUNTER0_compoutmodeB(uint8_t compoutmode)
 		// Reserved
 		/*** Compare Output mode, Phase Correct PWM mode ***/
 		// Reserved
-		gpiob_reg()->ddr->par.b4 = 1;
+		gpiob_reg()->ddr->par.bit4 = 1;
 		tc0_reg()->tccr0a->var|=(1<<COM0B0);
 		break;
 		case 2:
@@ -254,7 +254,7 @@ void TIMER_COUNTER0_compoutmodeB(uint8_t compoutmode)
 		// Clear OC0B on Compare Match, set OC0B at BOTTOM, (non-inverting mode).
 		/*** Compare Output mode, Phase Correct PWM mode ***/
 		// Clear OC0B on Compare Match when up-counting. Set OC0B on Compare Match when down-counting.
-		gpiob_reg()->ddr->par.b4 = 1;
+		gpiob_reg()->ddr->par.bit4 = 1;
 		tc0_reg()->tccr0a->var|=(1<<COM0B1);
 		break;
 		case 3:
@@ -264,7 +264,7 @@ void TIMER_COUNTER0_compoutmodeB(uint8_t compoutmode)
 		// Set OC0B on Compare Match, clear OC0B at BOTTOM, (inverting mode).
 		/*** Compare Output mode, Phase Correct PWM mode ***/
 		// Set OC0B on Compare Match when up-counting. Clear OC0B on Compare Match when down-counting.
-		gpiob_reg()->ddr->par.b4 = 1;
+		gpiob_reg()->ddr->par.bit4 = 1;
 		tc0_reg()->tccr0a->var|=((1<<COM0B0) | (1<<COM0B1));
 		break;
 		default:
@@ -466,7 +466,7 @@ void TIMER_COUNTER1_compoutmodeA(uint8_t compoutmode)
 			/*** Compare Output mode, phase correct and phase and frequency correct PWM. ***/
 			// WGMn3:0 = 9 or 11: Toggle OCnA on Compare Match, OCnB disconnected (normal port operation).
 			// For all other WGM1 settings, normal port operation, OC1A/OC1B disconnected.
-			gpiod_reg()->ddr->par.b5 = 1;
+			gpiod_reg()->ddr->par.bit5 = 1;
 			tc1_reg()->tccr1a->var|=(1<<COM1A0);
 			break;
 		case 2:
@@ -477,7 +477,7 @@ void TIMER_COUNTER1_compoutmodeA(uint8_t compoutmode)
 			/*** Compare Output mode, phase correct and phase and frequency correct PWM. ***/
 			// Clear OCnA/OCnB on Compare Match when up-counting.
 			// Set OCnA/OCnB on Compare Match when down counting.
-			gpiod_reg()->ddr->par.b5 = 1;
+			gpiod_reg()->ddr->par.bit5 = 1;
 			tc1_reg()->tccr1a->var|=(1<<COM1A1);
 			break;
 		case 3:
@@ -488,7 +488,7 @@ void TIMER_COUNTER1_compoutmodeA(uint8_t compoutmode)
 			/*** Compare Output mode, phase correct and phase and frequency correct PWM. ***/
 			// Set OCnA/OCnB on Compare Match when up-counting.
 			// Clear OCnA/OCnB on Compare Match when down counting.
-			gpiod_reg()->ddr->par.b5 = 1;
+			gpiod_reg()->ddr->par.bit5 = 1;
 			tc1_reg()->tccr1a->var|=((1<<COM1A0) | (1<<COM1A1));
 			break;
 		default:
@@ -514,7 +514,7 @@ void TIMER_COUNTER1_compoutmodeB(uint8_t compoutmode)
 		/*** Compare Output mode, phase correct and phase and frequency correct PWM. ***/
 		// WGMn3:0 = 9 or 11: Toggle OCnA on Compare Match, OCnB disconnected (normal port operation).
 		// For all other WGM1 settings, normal port operation, OC1A/OC1B disconnected.
-		gpiod_reg()->ddr->par.b4 = 1;
+		gpiod_reg()->ddr->par.bit4 = 1;
 		tc1_reg()->tccr1a->var|=(1<<COM1B0);
 		break;
 		case 2:
@@ -525,7 +525,7 @@ void TIMER_COUNTER1_compoutmodeB(uint8_t compoutmode)
 		/*** Compare Output mode, phase correct and phase and frequency correct PWM. ***/
 		// Clear OCnA/OCnB on Compare Match when up-counting.
 		// Set OCnA/OCnB on Compare Match when down counting.
-		gpiod_reg()->ddr->par.b4 = 1;
+		gpiod_reg()->ddr->par.bit4 = 1;
 		tc1_reg()->tccr1a->var|=(1<<COM1B1);
 		break;
 		case 3:
@@ -536,7 +536,7 @@ void TIMER_COUNTER1_compoutmodeB(uint8_t compoutmode)
 		/*** Compare Output mode, phase correct and phase and frequency correct PWM. ***/
 		// Set OCnA/OCnB on Compare Match when up-counting.
 		// Clear OCnA/OCnB on Compare Match when down counting.
-		gpiod_reg()->ddr->par.b4 = 1;
+		gpiod_reg()->ddr->par.bit4 = 1;
 		tc1_reg()->tccr1a->var|=((1<<COM1B0) | (1<<COM1B1));
 		break;
 		default:
@@ -692,7 +692,7 @@ void TIMER_COUNTER2_compoutmodeA(uint8_t compoutmode)
 		/*** Compare Output mode, Phase Correct PWM mode. ***/
 		// WGM02 = 0: Normal Port Operation, OC2A Disconnected.
 		// WGM02 = 1: Toggle OC2A on Compare Match.
-		gpiod_reg()->ddr->par.b7 = 1;
+		gpiod_reg()->ddr->par.bit7 = 1;
 		tc2_reg()->tccr2a->var|=(1<<COM2A0);
 		break;
 		case 2:
@@ -702,7 +702,7 @@ void TIMER_COUNTER2_compoutmodeA(uint8_t compoutmode)
 		// Clear OC2A on Compare Match, set OC2A at BOTTOM, (non-inverting mode).
 		/*** Compare Output mode, Phase Correct PWM mode. ***/
 		// Clear OC2A on Compare Match when up-counting. Set OC2A on Compare Match when down-counting.
-		gpiod_reg()->ddr->par.b7 = 1;
+		gpiod_reg()->ddr->par.bit7 = 1;
 		tc2_reg()->tccr2a->var|=(1<<COM2A1);
 		break;
 		case 3:
@@ -712,7 +712,7 @@ void TIMER_COUNTER2_compoutmodeA(uint8_t compoutmode)
 		// Set OC2A on Compare Match, clear OC2A at BOTTOM, (inverting mode).
 		/*** Compare Output mode, Phase Correct PWM mode. ***/
 		// Set OC2A on Compare Match when up-counting. Clear OC2A on Compare Match when down-counting.
-		gpiod_reg()->ddr->par.b7 = 1;
+		gpiod_reg()->ddr->par.bit7 = 1;
 		tc2_reg()->tccr2a->var|=((1<<COM2A0) | (1<<COM2A1));
 		break;
 		default:
@@ -736,7 +736,7 @@ void TIMER_COUNTER2_compoutmodeB(uint8_t compoutmode)
 		// Reserved
 		/*** Compare Output mode, Phase Correct PWM mode ***/
 		// Reserved
-		gpiod_reg()->ddr->par.b6 = 1;
+		gpiod_reg()->ddr->par.bit6 = 1;
 		tc2_reg()->tccr2a->var|=(1<<COM2B0);
 		break;
 		case 2:
@@ -746,7 +746,7 @@ void TIMER_COUNTER2_compoutmodeB(uint8_t compoutmode)
 		// Clear OC2B on Compare Match, set OC2B at BOTTOM, (non-inverting mode).
 		/*** Compare Output mode, Phase Correct PWM mode ***/
 		// Clear OC2B on Compare Match when up-counting. Set OC2B on Compare Match when down-counting.
-		gpiod_reg()->ddr->par.b6 = 1;
+		gpiod_reg()->ddr->par.bit6 = 1;
 		tc2_reg()->tccr2a->var|=(1<<COM2B1);
 		break;
 		case 3:
@@ -756,7 +756,7 @@ void TIMER_COUNTER2_compoutmodeB(uint8_t compoutmode)
 		// Set OC2B on Compare Match, clear OC2B at BOTTOM, (inverting mode).
 		/*** Compare Output mode, Phase Correct PWM mode ***/
 		// Set OC2B on Compare Match when up-counting. Clear OC2B on Compare Match when down-counting.
-		gpiod_reg()->ddr->par.b6 = 1;
+		gpiod_reg()->ddr->par.bit6 = 1;
 		tc2_reg()->tccr2a->var|=((1<<COM2B0) | (1<<COM2B1));
 		break;
 		default:
@@ -958,7 +958,7 @@ void TIMER_COUNTER3_compoutmodeA(uint8_t compoutmode)
 		/*** Compare Output mode, phase correct and phase and frequency correct PWM. ***/
 		// WGMn3:0 = 9 or 11: Toggle OCnA on Compare Match, OCnB disconnected (normal port operation).
 		// For all other WGM1 settings, normal port operation, OC3A/OC3B disconnected.
-		gpiob_reg()->ddr->par.b6 = 1;
+		gpiob_reg()->ddr->par.bit6 = 1;
 		tc3_reg()->tccr3a->var|=(1<<COM1A0);
 		break;
 		case 2:
@@ -969,7 +969,7 @@ void TIMER_COUNTER3_compoutmodeA(uint8_t compoutmode)
 		/*** Compare Output mode, phase correct and phase and frequency correct PWM. ***/
 		// Clear OCnA/OCnB on Compare Match when up-counting.
 		// Set OCnA/OCnB on Compare Match when down counting.
-		gpiob_reg()->ddr->par.b6 = 1;
+		gpiob_reg()->ddr->par.bit6 = 1;
 		tc3_reg()->tccr3a->var|=(1<<COM1A1);
 		break;
 		case 3:
@@ -980,7 +980,7 @@ void TIMER_COUNTER3_compoutmodeA(uint8_t compoutmode)
 		/*** Compare Output mode, phase correct and phase and frequency correct PWM. ***/
 		// Set OCnA/OCnB on Compare Match when up-counting.
 		// Clear OCnA/OCnB on Compare Match when down counting.
-		gpiob_reg()->ddr->par.b6 = 1;
+		gpiob_reg()->ddr->par.bit6 = 1;
 		tc3_reg()->tccr3a->var|=((1<<COM1A0) | (1<<COM1A1));
 		break;
 		default:
@@ -1006,7 +1006,7 @@ void TIMER_COUNTER3_compoutmodeB(uint8_t compoutmode)
 		/*** Compare Output mode, phase correct and phase and frequency correct PWM. ***/
 		// WGMn3:0 = 9 or 11: Toggle OCnA on Compare Match, OCnB disconnected (normal port operation).
 		// For all other WGM1 settings, normal port operation, OC3A/OC3B disconnected.
-		gpiob_reg()->ddr->par.b7 = 1;
+		gpiob_reg()->ddr->par.bit7 = 1;
 		tc3_reg()->tccr3a->var|=(1<<COM1B0);
 		break;
 		case 2:
@@ -1017,7 +1017,7 @@ void TIMER_COUNTER3_compoutmodeB(uint8_t compoutmode)
 		/*** Compare Output mode, phase correct and phase and frequency correct PWM. ***/
 		// Clear OCnA/OCnB on Compare Match when up-counting.
 		// Set OCnA/OCnB on Compare Match when down counting.
-		gpiob_reg()->ddr->par.b7 = 1;
+		gpiob_reg()->ddr->par.bit7 = 1;
 		tc3_reg()->tccr3a->var|=(1<<COM1B1);
 		break;
 		case 3:
@@ -1028,7 +1028,7 @@ void TIMER_COUNTER3_compoutmodeB(uint8_t compoutmode)
 		/*** Compare Output mode, phase correct and phase and frequency correct PWM. ***/
 		// Set OCnA/OCnB on Compare Match when up-counting.
 		// Clear OCnA/OCnB on Compare Match when down counting.
-		gpiob_reg()->ddr->par.b7 = 1;
+		gpiob_reg()->ddr->par.bit7 = 1;
 		tc3_reg()->tccr3a->var|=((1<<COM1B0) | (1<<COM1B1));
 		break;
 		default:

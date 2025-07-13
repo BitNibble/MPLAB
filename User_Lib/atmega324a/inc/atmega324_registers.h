@@ -21,7 +21,7 @@ Date:     04/07/2025
 /*** Base Typedef ***/
 typedef union {
 	struct { 
-		uint8_t b0:1,b1:1,b2:1,b3:1,b4:1,b5:1,b6:1,b7:1; 
+		uint8_t bit0:1,bit1:1,bit2:1,bit3:1,bit4:1,bit5:1,bit6:1,bit7:1; 
 	} par;
 	uint8_t var;
 } U_byte;
