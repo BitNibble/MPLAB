@@ -18,6 +18,7 @@ void TWI_stop(void);
 uint8_t TWI_status(void);
 void TWI_wait_twint(uint16_t nticks);
 
+/*** Internal State ***/
 static TWI0 atmega128_twi = {
 	.start = TWI_start,
 	.connect = TWI_connect,

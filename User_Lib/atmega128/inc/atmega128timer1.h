@@ -1,5 +1,5 @@
 /************************************************************************
-	ATMEGA128TIMER1
+    ATMEGA128TIMER1
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: ATmega128
@@ -11,45 +11,42 @@ Date:     14/07/2025
 /*** Library ***/
 #include "atmega128.h"
 
-/*** Constant & Macro ***/
+/*** Constant and Macro ***/
 #ifndef ATMEGA_128_TIMER_COUNTER
 	#define ATMEGA_128_TIMER_COUNTER
 #endif
 
-#ifndef GLOBAL_INTERRUPT_ENABLE
-	#define GLOBAL_INTERRUPT_ENABLE 7
+#if !defined(__AVR_ATmega64__) && !defined(__AVR_ATmega128__)
+	#error "Not ATmega128"
 #endif
 
-#if defined(__AVR_ATmega64__) || defined(__AVR_ATmega128__)
-#else
-	#error "Not Atmega 128"
-#endif
-
+/*** Callback ***/
 typedef struct {
-	void (*capt_vect)(void);
-	void (*compa_vect)(void);
-	void (*compb_vect)(void);
-	void (*compc_vect)(void);
-	void (*ovf_vect)(void);
-}TC1_callback;
+    void (*capt_vect)(void);
+    void (*compa_vect)(void);
+    void (*compb_vect)(void);
+    void (*compc_vect)(void);
+    void (*ovf_vect)(void);
+} TC1_Callback;
 
 /*** Handler ***/
-typedef struct{
-	TC1_callback callback;
-	// V-table
-	void (*compoutmodeA)(unsigned char compoutmode);
-	void (*compoutmodeB)(unsigned char compoutmode);
-	void (*compoutmodeC)(unsigned char compoutmode);
-	void (*compareA)(uint16_t compareA);
-	void (*compareB)(uint16_t compareB);
-	void (*compareC)(uint16_t compareC);
-	uint8_t (*start)(unsigned int prescaler);
-	uint8_t (*stop)(void);
-}TC1;
+typedef struct {
+    TC1_Callback callback;
 
+    /*** V-Table ***/
+    void    (*compoutmodeA)(uint8_t mode);
+    void    (*compoutmodeB)(uint8_t mode);
+    void    (*compoutmodeC)(uint8_t mode);
+    void    (*compareA)(uint16_t value);
+    void    (*compareB)(uint16_t value);
+    void    (*compareC)(uint16_t value);
+    uint8_t (*start)(uint16_t prescaler);
+    uint8_t (*stop)(void);
+} TC1;
+
+void  tc1_enable(uint8_t wavegenmode, uint8_t interrupt);
 TC1* tc1(void);
-TC1 tc1_enable(unsigned char wavegenmode, unsigned char interrupt);
+
 
 #endif
 /*** EOF ***/
-

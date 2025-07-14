@@ -3,31 +3,28 @@
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: all
-Date:     31122023
-Update:   07012024
-Comment:
-	Very Stable
-	Tested Atemga128 16Mhz and Atmega328 8Mhz and STM32F446RE
+Date:   07012024
 ************************************************************************/
 #ifndef _FUNCTION_H_
 	#define _FUNCTION_H_
 
-/*** Global Library ***/
+/*** Library ***/
 /*******pc use*******
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <errno.h>
 ********************/
+#include <stdint.h>
 #include <inttypes.h>
 
-/*** Global Constant & Macro ***/
+/*** Constant & Macro ***/
 #define FUNCSTRSIZE 31
 
-/*** Global Variable ***/
+/*** Handler ***/
 typedef struct
 {
-	// PROTOTYPES VTABLE
+	// V-table
 	int (*stringlength)(const char string[]);
 	void (*reverse)(char s[]);
 	unsigned int (*mayia)(unsigned int xi, unsigned int xf, uint8_t nbits);
@@ -70,11 +67,8 @@ typedef struct
 	**************************************************/
 }FUNC;
 
-/*** Global Header ***/
 FUNC* func(void);
-FUNC func_enable(void);
 
 #endif
-
-/***EOF***/
+/*** EOF ***/
 

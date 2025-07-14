@@ -14,6 +14,7 @@ void TIMER_COUNTER2_compare(unsigned char compare);
 uint8_t TIMER_COUNTER2_start(unsigned int prescaler);
 uint8_t TIMER_COUNTER2_stop(void);
 
+/*** Internal State ***/
 static TC2 atmega128_tc2 = {
 	.callback = {
 		.comp_vect = NULL,
@@ -27,7 +28,7 @@ static TC2 atmega128_tc2 = {
 uint8_t timer2_state;
 
 /*** Handler ***/
-TC2 tc2_enable(unsigned char wavegenmode, unsigned char interrupt)
+void tc2_enable(unsigned char wavegenmode, unsigned char interrupt)
 // PARAMETER SETTING
 // wavegen mode: Normal; PWM phase correct; Fast PWM; default-Normasl;
 // interrupt: off; overflow; output compare; both; default - non.
@@ -56,23 +57,21 @@ TC2 tc2_enable(unsigned char wavegenmode, unsigned char interrupt)
 		break;
 		case 1:
 			tc2_reg()->timsk.var |= (1 << TOIE2);
-			cpu_reg()->sreg.var |= 1 << GLOBAL_INTERRUPT_ENABLE;
+			cpu_reg()->sreg.var |= 1 << 7;
 		break;
 		case 2:
 			tc2_reg()->timsk.var |= (1 << OCIE2);
-			cpu_reg()->sreg.var |= 1 << GLOBAL_INTERRUPT_ENABLE;
+			cpu_reg()->sreg.var |= 1 << 7;
 		break;
 		case 3:
 			tc2_reg()->timsk.var |= (1 << TOIE2);
 			tc2_reg()->timsk.var |= (1 << OCIE2);
-			cpu_reg()->sreg.var |= 1 << GLOBAL_INTERRUPT_ENABLE;
+			cpu_reg()->sreg.var |= 1 << 7;
 		break;
 		default:
 		break;
 	}
 	tc2_reg()->ocr2.var = ~0;
-	
-	return atmega128_tc2;
 }
 
 TC2* tc2(void){ return &atmega128_tc2; }
@@ -160,7 +159,7 @@ uint8_t TIMER_COUNTER2_stop(void)
 	return timer2_state;
 }
 
-/*** interrupt ***/
+/*** Interrupt ***/
 ISR(TIMER2_COMP_vect)
 {
 	if(atmega128_tc2.callback.comp_vect){ atmega128_tc2.callback.comp_vect(); }

@@ -16,15 +16,11 @@ Date:     14/07/2025
 	#define ATMEGA_128_TIMER_COUNTER
 #endif
 
-#ifndef GLOBAL_INTERRUPT_ENABLE
-	#define GLOBAL_INTERRUPT_ENABLE 7
-#endif
-
-#if defined(__AVR_ATmega64__) || defined(__AVR_ATmega128__)
-#else
+#if !defined(__AVR_ATmega64__) && !defined(__AVR_ATmega128__)
 	#error "Not Atmega 128"
 #endif
 
+/*** Callback ***/
 typedef struct {
 	void (*capt_vect)(void);
 	void (*compa_vect)(void);
@@ -47,8 +43,8 @@ typedef struct{
 	uint8_t (*stop)(void);
 }TC3;
 
+void tc3_enable(unsigned char wavegenmode, unsigned char interrupt);
 TC3* tc3(void);
-TC3 tc3_enable(unsigned char wavegenmode, unsigned char interrupt);
 
 #endif
 /*** EOF ***/

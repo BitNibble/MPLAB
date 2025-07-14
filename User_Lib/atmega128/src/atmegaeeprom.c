@@ -8,7 +8,7 @@ Date:   07/01/2024
 /*** File Library ***/
 #include "atmegaeeprom.h"
 
-/*** File Variable ***/
+/*** Internal State ***/
 static EEPROM0 atmega128_eeprom = {
 	.read_byte = eeprom_read_byte,
 	.write_byte = eeprom_write_byte,
@@ -27,6 +27,7 @@ static EEPROM0 atmega128_eeprom = {
 	.update_block = eeprom_update_block
 };
 
+/*** Handler ***/
 EEPROM0* eeprom(void){ return &atmega128_eeprom; }
 
 /*** EOF ***/

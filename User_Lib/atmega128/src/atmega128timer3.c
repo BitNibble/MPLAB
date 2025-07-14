@@ -18,6 +18,7 @@ void TIMER_COUNTER3_compareC(uint16_t compare);
 uint8_t TIMER_COUNTER3_start(unsigned int prescaler);
 uint8_t TIMER_COUNTER3_stop(void);
 
+/*** Internal State ***/
 static TC3 atmega128_tc3 = {
 	.callback = {
 		.capt_vect = NULL,
@@ -38,7 +39,7 @@ static TC3 atmega128_tc3 = {
 uint8_t timer3_state;
 
 /*** Handler ***/
-TC3 tc3_enable(unsigned char wavegenmode, unsigned char interrupt)
+void tc3_enable(unsigned char wavegenmode, unsigned char interrupt)
 // PARAMETER SETTING
 // wavegen mode: Normal; PWM, Phase Correct, 8-bit; PWM, Phase Correct, 9-bit; PWM, Phase Correct, 10-bit;
 // CTC; Fast PWM, 8-bit; Fast PWM, 9-bit; Fast PWM, 10-bit; PWM, Phase and Frequency Correct; PWM, Phase and Frequency Correct;
@@ -117,51 +118,51 @@ TC3 tc3_enable(unsigned char wavegenmode, unsigned char interrupt)
 		break;
 		case 1:
 			tc3_reg()->etimsk.var |= (1 << TOIE3);
-			cpu_reg()->sreg.var |= 1 << GLOBAL_INTERRUPT_ENABLE;
+			cpu_reg()->sreg.var |= 1 << 7;
 		break;
 		case 2:
 			tc3_reg()->etimsk.var |= (1 << OCIE3A);
-			cpu_reg()->sreg.var |= 1 << GLOBAL_INTERRUPT_ENABLE;
+			cpu_reg()->sreg.var |= 1 << 7;
 		break;
 		case 3:
 			tc3_reg()->etimsk.var |= (1 << OCIE3B);
-			cpu_reg()->sreg.var |= 1 << GLOBAL_INTERRUPT_ENABLE;
+			cpu_reg()->sreg.var |= 1 << 7;
 		break;
 		case 4:
 			tc3_reg()->etimsk.var |= (1 << OCIE3C);
-			cpu_reg()->sreg.var |= 1 << GLOBAL_INTERRUPT_ENABLE;
+			cpu_reg()->sreg.var |= 1 << 7;
 		break;
 		case 5:
 			tc3_reg()->etimsk.var |= (1 << TICIE3);
-			cpu_reg()->sreg.var |= 1 << GLOBAL_INTERRUPT_ENABLE;
+			cpu_reg()->sreg.var |= 1 << 7;
 		break;
 		case 6:
 			tc3_reg()->etimsk.var |= (1 << OCIE3A) | (1 << TOIE3);
-			cpu_reg()->sreg.var |= 1 << GLOBAL_INTERRUPT_ENABLE;
+			cpu_reg()->sreg.var |= 1 << 7;
 		break;
 		case 7:
 			tc3_reg()->etimsk.var |= (1 << OCIE3B) | (1 << TOIE3);
-			cpu_reg()->sreg.var |= 1 << GLOBAL_INTERRUPT_ENABLE;
+			cpu_reg()->sreg.var |= 1 << 7;
 		break;
 		case 8:
 			tc3_reg()->etimsk.var |= (1 << TOIE3) | (1 << OCIE3C);
-			cpu_reg()->sreg.var |= 1 << GLOBAL_INTERRUPT_ENABLE;
+			cpu_reg()->sreg.var |= 1 << 7;
 		break;
 		case 9:
 			tc3_reg()->etimsk.var |= (1 << TICIE3) | (1 << TOIE3);
-			cpu_reg()->sreg.var |= 1 << GLOBAL_INTERRUPT_ENABLE;
+			cpu_reg()->sreg.var |= 1 << 7;
 		break;
 		case 10:
 			tc3_reg()->etimsk.var |= (1 << OCIE3A) | (1 << OCIE3B) | (1 << TOIE3);
-			cpu_reg()->sreg.var |= 1 << GLOBAL_INTERRUPT_ENABLE;
+			cpu_reg()->sreg.var |= 1 << 7;
 		break;
 		case 11:
 			tc3_reg()->etimsk.var |= (1 << OCIE3A) | (1 << OCIE3B) | (1 << TOIE3) | (1 << OCIE3C);
-			cpu_reg()->sreg.var |= 1 << GLOBAL_INTERRUPT_ENABLE;
+			cpu_reg()->sreg.var |= 1 << 7;
 		break;
 		case 12:
 			tc3_reg()->etimsk.var |= (1 << OCIE3A) | (1 << OCIE3B) | (1 << OCIE3C);
-			cpu_reg()->sreg.var |= 1 << GLOBAL_INTERRUPT_ENABLE;
+			cpu_reg()->sreg.var |= 1 << 7;
 		break;
 		default:
 		break;
@@ -169,8 +170,6 @@ TC3 tc3_enable(unsigned char wavegenmode, unsigned char interrupt)
 	tc3_reg()->ocr3a = writeHLbyte(~0);
 	tc3_reg()->ocr3b = writeHLbyte(~0);
 	tc3_reg()->ocr3c = writeHLbyte(~0);
-	
-	return atmega128_tc3;
 }
 
 TC3* tc3(void){ return &atmega128_tc3;}
@@ -312,7 +311,7 @@ uint8_t TIMER_COUNTER3_stop(void)
 	return timer3_state;
 }
 
-/*** interrupt ***/
+/*** Interrupt ***/
 ISR(TIMER3_CAPT_vect)
 {
 	if(atmega128_tc3.callback.capt_vect){ atmega128_tc3.callback.capt_vect(); }

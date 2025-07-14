@@ -66,9 +66,8 @@ uint16_t counter1;
 
 /*** File Header ***/
 void PORTINIT(void);
-ISR(TIMER0_COMP_vect);
-ISR(TIMER2_COMP_vect);
-
+void tc0_comp(void);
+void tc2_comp(void);
 /**** Procedure & Function ****/
 int main(void)
 {
@@ -81,7 +80,6 @@ tc1_enable(9,0); // PWM Positioning
 tc2_enable(2,2);
 usart1_enable(38400,8,1,NONE); // UART 103 para 9600 (ESP01), 68 para 14400, 25 para 38400 (HC05), 8 para 115200
 
-func_enable(); // Function Library
 lcd1_enable(&DDRA,&PINA,&PORTA); // LCD Display 4X20
 keypad_enable(&DDRE,&PINE,&PORTE); // Keyboard
 rtc = pcf8563rtc_enable( 16 ); // RTC with I2C
@@ -114,10 +112,12 @@ uint8_t tnum = 170;
 // RAMSTART
 
 // Parameters timers
+tc0()->callback.comp_vect = tc0_comp;
 tc0()->compare(249);
 tc0()->start(64);
 tc1()->compoutmodeB(2);
 tc1()->compareA(20000);
+tc2()->callback.comp_vect = tc2_comp;
 tc1()->start(8);
 tc2()->start(0);
 
@@ -603,7 +603,7 @@ void PORTINIT(void)
 }
 
 /*** File Interrupt ***/
-ISR(TIMER0_COMP_vect) // 1Hz and usart Tx
+void tc0_comp(void)// 1Hz and usart Tx
 {
 	uint8_t Sreg;
 	Sreg = cpu_reg()->sreg.var;
@@ -623,7 +623,7 @@ ISR(TIMER0_COMP_vect) // 1Hz and usart Tx
 	cpu_reg()->sreg.var = Sreg;
 }
 
-ISR(TIMER2_COMP_vect)
+void tc2_comp(void)
 {
 	uint8_t Sreg;
 	Sreg = cpu_reg()->sreg.var;

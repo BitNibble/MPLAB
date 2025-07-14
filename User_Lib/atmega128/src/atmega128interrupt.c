@@ -8,12 +8,13 @@ Date:   07/01/2024
 /*** File Library ***/
 #include "atmega128interrupt.h"
 
-/*** File Header ***/
+/*** Procedure and Function declaration ***/
 void INTERRUPT_set(uint8_t channel, uint8_t sense);
 void INTERRUPT_off(uint8_t channel);
 void INTERRUPT_on(uint8_t channel);
 uint8_t INTERRUPT_reset_status(void);
 
+/*** Internal State ***/
 static EXINT0 atmega128_exint = {
 	// V-table
 	.set = INTERRUPT_set,
@@ -22,8 +23,10 @@ static EXINT0 atmega128_exint = {
 	.reset_status = INTERRUPT_reset_status	
 };
 
+/*** Handler ***/
 EXINT0* exint(void){ return &atmega128_exint; }
 
+/*** Procedure and Function definition ***/
 uint8_t INTERRUPT_reset_status(void)
 {
 	uint8_t reset, ret = 0;

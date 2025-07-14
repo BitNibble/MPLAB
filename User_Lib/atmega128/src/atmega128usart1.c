@@ -18,7 +18,7 @@ static uint16_t uart1_rx_buffer_size = UART1_RX_BUFFER_SIZE - 1;
 static uint8_t UART1_LastRxError;
 static uint8_t uart1flag;
 
-/*** File Header ***/
+/*** Procedure and Function declaration ***/
 UARTvar uart1_read(void);
 UARTvar uart1_getch(void);
 UARTvar* uart1_gets(void);
@@ -26,7 +26,7 @@ void uart1_rxflush(void);
 void uart1_write(UARTvar data);
 void uart1_putch(UARTvar c);
 void uart1_puts(UARTvar* s);
-/*** Complimentary functions ***/
+/*** Auxiliar ***/
 uint8_t USART1ReceiveComplete(void);
 uint8_t USART1TransmitComplete(void);
 uint8_t USART1DataRegisterEmpty(void);
@@ -37,6 +37,7 @@ uint8_t USART1ReadErrors(void);
 void USART1ClearErrors(void);
 void USART1DoubleTransmissionSpeed(void);
 
+/*** Internal State ***/
 static USART1 atmega128_usart1 = {
 	.read = uart1_read,
 	.getch = uart1_getch,
@@ -47,7 +48,7 @@ static USART1 atmega128_usart1 = {
 	.puts = uart1_puts
 };
 
-/*** Procedure & Function ***/
+/*** Handler ***/
 USART1 usart1_enable( uint32_t baud, unsigned int FDbits, unsigned int Stopbits, unsigned int Parity )
 {
 	uart1flag = 1;
@@ -130,6 +131,7 @@ USART1 usart1_enable( uint32_t baud, unsigned int FDbits, unsigned int Stopbits,
 
 USART1* usart1(void){ return &atmega128_usart1; }
 
+/*** Procedure and Function definition ***/
 UARTvar uart1_read(void)
 {
 	UARTvar c;
@@ -170,28 +172,6 @@ void uart1_puts(UARTvar* s)
 		uart1_putch(tmp);
 	}
 }
-
-/*** Interrupts ***/
-SIGNAL(UART1_RECEIVE_INTERRUPT)
-{
-	unsigned char bit9;
-	unsigned char usr;
-	
-	usr  = USART1ReadErrors();
-	bit9 = usart1_reg()->ucsr1b.var;
-	bit9 = 0x01 & (bit9 >> 1);
- 	   
-	if(usr){ UART1_LastRxError = usr; }
-	
-	UART1_Rx = usart1_reg()->udr1.var;
-	rx1buff.push(&rx1buff.par, UART1_Rx);
-}
-
-SIGNAL(UART1_TRANSMIT_INTERRUPT)
-{
-	usart1_reg()->ucsr1b.var &= ~(1 << UDRIE1);
-}
-
 /*** Complimentary functions ***/
 char* usart1_messageprint(USART1* uart, char* oneshot, char* msg, const char* endl)
 {
@@ -209,7 +189,6 @@ char* usart1_messageprint(USART1* uart, char* oneshot, char* msg, const char* en
 	}
 	return ptr;
 }
-/***/
 /*** Auxiliar ***/
 uint8_t USART1ReceiveComplete(void)
 {
@@ -246,6 +225,25 @@ void USART1ClearErrors(void)
 void USART1DoubleTransmissionSpeed(void)
 {
 	set_reg_block(&UCSR1A,4,1,1);
+}
+/*** Interrupt ***/
+SIGNAL(UART1_RECEIVE_INTERRUPT)
+{
+	unsigned char bit9;
+	unsigned char usr;
+	
+	usr  = USART1ReadErrors();
+	bit9 = usart1_reg()->ucsr1b.var;
+	bit9 = 0x01 & (bit9 >> 1);
+	
+	if(usr){ UART1_LastRxError = usr; }
+	
+	UART1_Rx = usart1_reg()->udr1.var;
+	rx1buff.push(&rx1buff.par, UART1_Rx);
+}
+SIGNAL(UART1_TRANSMIT_INTERRUPT)
+{
+	usart1_reg()->ucsr1b.var &= ~(1 << UDRIE1);
 }
 
 /*** EOF ***/

@@ -5,7 +5,7 @@ License:  GNU General Public License
 Hardware: ATmega128
 Date:   07/01/2024
 *************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "atmega128analog.h"
 #include <avr/interrupt.h>
 #include <stdio.h>
@@ -18,15 +18,16 @@ static volatile int adc_sample;
 uint16_t adc_tmp;
 static volatile unsigned char adc_n_sample;
 
-/*** File Header ***/
+/*** Procedure and Function declaration ***/
 int ANALOG_read(int selection);
 
+/*** Internal State ***/
 static ADC0 atmega128_adc = {
 	// V-table
 	.read = ANALOG_read	
 };
 
-/*** Procedure & Function ***/
+/*** Handler ***/
 ADC0 adc_enable( uint8_t Vreff, uint8_t Divfactor, int n_channel, ... )
 // Interrupt running mode setup, and list of channels to be probed
 {
@@ -136,6 +137,7 @@ ADC0 adc_enable( uint8_t Vreff, uint8_t Divfactor, int n_channel, ... )
 
 ADC0* adc(void){ return &atmega128_adc; }
 
+/*** Procedure and Function definition ***/
 int ANALOG_read(int selection)
 // Returns selected Channel ADC_VALUE
 {
@@ -150,7 +152,7 @@ int ANALOG_read(int selection)
 	return ADC_VALUE[selection];
 }
 
-/*** File Interrupt ***/
+/*** Interrupt ***/
 ISR(ADC_vect)
 // Function: ANALOG interrupt
 // Purpose:  Read Analog Input
@@ -177,5 +179,5 @@ ISR(ADC_vect)
 	}
 }
 
-/***EOF***/
+/*** EOF ***/
 

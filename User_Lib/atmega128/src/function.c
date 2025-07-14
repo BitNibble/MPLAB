@@ -3,10 +3,7 @@
 Author:   <sergio.salazar.santos@gmail.com> 
 License:  GNU General Public License
 Hardware: all
-Date:     31122023
-Update :  07012024
-Comment:
-	Tested Atemga128 16Mhz and Atmega328 8Mhz and STM32F446RE
+Date :  07012024
 *************************************************************************/
 /*** File Library ***/
 #include "function.h"
@@ -16,11 +13,9 @@ Comment:
 #include <stdarg.h>
 #include <math.h>
 
-/*** File Variable ***/
-static FUNC setup_func;
-static char FUNCstr[FUNCSTRSIZE + 1];
+static char FUNCstr[FUNCSTRSIZE + 1] = {0};
 
-/*** File Header ***/
+/*** Procedure and Function declaration ***/
 int StringLength (const char string[]);
 void Reverse(char s[]);
 uint8_t FUNCintinvstr(uint32_t num, uint8_t index);
@@ -68,58 +63,55 @@ unsigned int FUNCgetnumv2(char* x);
 int FUNCreadint(int nmin, int nmax);
 ******************************/
 
-/*** Procedure & Function ***/
-FUNC func_enable( void )
-{
-	FUNCstr[FUNCSTRSIZE] = '\0';
-	// function pointers
-	setup_func.stringlength = StringLength;
-	setup_func.reverse = Reverse;
-	setup_func.mayia = FUNCmayia;
-	setup_func.swap = FUNC_swap;
-	setup_func.copy = FUNCcopy;
-	setup_func.squeeze = FUNCsqueeze;
-	setup_func.shellsort = FUNCshellsort;
-	setup_func.i16toa = FUNCi16toa;
-	setup_func.ui16toa = FUNCui16toa;
-	setup_func.i32toa = FUNCi32toa;
-	setup_func.ui32toa = FUNCui32toa;
-	setup_func.trim = FUNCtrim;
-	setup_func.pmax = FUNCpmax;
-	setup_func.gcd = FUNCgcd;
-	setup_func.strToInt = FUNCstrToInt;
-	setup_func.twocomptoint8bit = FUNCtwocomptoint8bit;
-	setup_func.twocomptoint10bit = FUNCtwocomptoint10bit;
-	setup_func.twocomptointnbit = FUNCtwocomptointnbit;
-	setup_func.dec2bcd = FUNCdec2bcd;
-	setup_func.bcd2dec = FUNCbcd2dec;
-	setup_func.resizestr = FUNCresizestr;
-	setup_func.trimmer = FUNCtrimmer;
-	setup_func.bcd2bin = FUNCbcd2bin;
-	setup_func.bin2bcd = FUNCbin2bcd;
-	setup_func.gcd1 = FUNCgcd1;
-	setup_func.print_binary = FUNCprint_binary;
-	setup_func.ftoa = FUNCftoa;
-	setup_func.dectohex = FUNCdectohex;
-	setup_func.SwapByte = FUNCSwapByte;
-	setup_func.print = FUNCprint;
-	setup_func.strtovec = FUNCstrtovec;
+/*** Internal State ***/
+static FUNC setup_func = {
+	// V-table
+	.stringlength = StringLength,
+	.reverse = Reverse,
+	.mayia = FUNCmayia,
+	.swap = FUNC_swap,
+	.copy = FUNCcopy,
+	.squeeze = FUNCsqueeze,
+	.shellsort = FUNCshellsort,
+	.i16toa = FUNCi16toa,
+	.ui16toa = FUNCui16toa,
+	.i32toa = FUNCi32toa,
+	.ui32toa = FUNCui32toa,
+	.trim = FUNCtrim,
+	.pmax = FUNCpmax,
+	.gcd = FUNCgcd,
+	.strToInt = FUNCstrToInt,
+	.twocomptoint8bit = FUNCtwocomptoint8bit,
+	.twocomptoint10bit = FUNCtwocomptoint10bit,
+	.twocomptointnbit = FUNCtwocomptointnbit,
+	.dec2bcd = FUNCdec2bcd,
+	.bcd2dec = FUNCbcd2dec,
+	.resizestr = FUNCresizestr,
+	.trimmer = FUNCtrimmer,
+	.bcd2bin = FUNCbcd2bin,
+	.bin2bcd = FUNCbin2bcd,
+	.gcd1 = FUNCgcd1,
+	.print_binary = FUNCprint_binary,
+	.ftoa = FUNCftoa,
+	.dectohex = FUNCdectohex,
+	.SwapByte = FUNCSwapByte,
+	.print = FUNCprint,
+	.strtovec = FUNCstrtovec
 	/***********pc use************
-	setup_func.fltos = FUNCfltos;
-	setup_func.ftos = FUNCftos;
-	setup_func.strtotok = FUNCstrtotok;
-	setup_func.putstr = FUNCputstr;
-	setup_func.getnum = FUNCgetnum;
-	setup_func.getnumv2 = FUNCgetnumv2;
-	setup_func.readint = FUNCreadint;
+	.fltos = FUNCfltos,
+	.ftos = FUNCftos,
+	.strtotok = FUNCstrtotok,
+	.putstr = FUNCputstr,
+	.getnum = FUNCgetnum,
+	.getnumv2 = FUNCgetnumv2,
+	.readint = FUNCreadint
 	*****************************/
-	
-	return setup_func;
-}
+};
 
+/*** Handler ***/
 FUNC* func(void){ return &setup_func; }
 
-// mayia
+/*** Procedure and Function definition ***/
 unsigned int FUNCmayia(unsigned int xi, unsigned int xf, uint8_t nbits)
 {
 	unsigned int diff;

@@ -147,27 +147,23 @@ typedef struct {
 	Atmega128TimerCounter1_TypeDef* tc1_reg;
 	Atmega128OtherRegisters_TypeDef* tc1_misc_reg;
 	#ifdef _TIMER1_MODULE_
-		TC1 (*tc1_enable)( unsigned char wavegenmode, unsigned char interrupt );
 		TC1* tc1;
 	#endif
 	/***TC3***/
 	Atmega128TimerCounter3_TypeDef* tc3_reg;
 	Atmega128OtherRegisters_TypeDef* tc3_misc_reg;
 	#ifdef _TIMER3_MODULE_
-		TC3 (*tc3_enable)( unsigned char wavegenmode, unsigned char interrupt );
 		TC3* tc3;
 	#endif
 	/***TC2***/
 	Atmega128TimerCounter2_TypeDef* tc2_reg;
 	#ifdef _TIMER2_MODULE_
-		TC2 (*tc2_enable)( unsigned char wavegenmode, unsigned char interrupt );
 		TC2* tc2;
 	#endif
 	/***TC0***/
 	Atmega128TimerCounter0_TypeDef* tc0_reg;
 	Atmega128OtherRegisters_TypeDef* tc0_misc_reg;
 	#ifdef _TIMER0_MODULE_
-		TC0 (*tc0_enable)( unsigned char wavegenmode, unsigned char interrupt );
 		TC0* tc0;
 	#endif
 	/***TWI***/

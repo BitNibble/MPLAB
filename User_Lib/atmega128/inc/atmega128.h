@@ -18,7 +18,7 @@ Date:	  14072025
 	#define F_CPU 16000000UL
 #endif
 
-/*** Global Library ***/
+/*** Library ***/
 #include <avr/io.h>
 #include <avr/boot.h>
 #include <avr/fuse.h>
@@ -30,7 +30,7 @@ Date:	  14072025
 #include <util/delay.h>
 #include "atmega128_registers.h"
 
-/*** Global Constant & Macro ***/
+/*** Constant & Macro ***/
 #define TWO 2
 #define NIBBLE_BITS 4
 #define BYTE_BITS 8
@@ -384,7 +384,7 @@ typedef volatile struct {
 Atmega128WatchdogTimer_TypeDef* wdt_reg(void);
 
 /*********************************************************************/
-/********** Atmega 128 Procedure and Function declaration ************/
+/**************** Procedure and Function declaration *****************/
 /*********************************************************************/
 uint16_t readHLbyte(U_word reg);
 uint16_t readLHbyte(U_word reg);
@@ -415,32 +415,6 @@ int ftdelayCycles(uint8_t lock_ID, unsigned int n_cycle);
 void ftdelayReset(uint8_t ID);
 
 #endif
-
-/*** Interrupt Vectors FLASH ***
-typedef struct { // IVSEL = 0
-	U_word RESET_vect; // 0x0000
-	U_word EXT_INT0_vect; // 0x0002
-	U_word EXT_INT1_vect; // 0x0004
-	U_word EXT_INT2_vect; // 0x0006
-	U_word EXT_INT3_vect; // 0x0008
-	U_word EXT_INT4_vect; // 0x000A
-	U_word EXT_INT5_vect; // 0x000C
-	U_word EXT_INT6_vect; // 0x000E
-	U_word EXT_INT7_vect; // 0x0010
-	U_word SPI_STC_vect; // 0x0022
-	U_word USART0_RXC_vect; // 0x0024
-	U_word USART0_DRE_vect; // 0x0026
-	U_word USART0_TXC_vect; // 0x0028
-	U_word ADC_vect; // 0x002A
-	U_word EE_RDY_vect; // 0x002C
-	U_word ANA_COMP_vect; // 0x002E
-	U_word USART1_RXC_vect; // 0x003C
-	U_word USART1_DRE_vect; // 0x003E
-	U_word USART1_TXC_vect; // 0x0040
-	U_word TWI_vect; // 0x0042
-	U_word SPM_RDY_vect; // 0x0044
-} Atmega128InterruptVectors_TypeDef;
-********************************/
 
 /*** EOF ***/
 
