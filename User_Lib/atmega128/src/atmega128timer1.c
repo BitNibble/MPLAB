@@ -3,12 +3,12 @@
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: ATmega128
-Date:   07/01/2024
+Date:     14/07/2025
 *************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "atmega128timer1.h"
 
-/*** File Header ***/
+/*** Procedure and Function declaration ***/
 void TIMER_COUNTER1_compoutmodeA(unsigned char compoutmode);
 void TIMER_COUNTER1_compoutmodeB(unsigned char compoutmode);
 void TIMER_COUNTER1_compoutmodeC(unsigned char compoutmode);
@@ -19,6 +19,13 @@ uint8_t TIMER_COUNTER1_start(unsigned int prescaler);
 uint8_t TIMER_COUNTER1_stop(void);
 
 static TC1 atmega128_tc1 = {
+	.callback = {
+		.capt_vect = NULL,
+		.compa_vect = NULL,
+		.compb_vect = NULL,
+		.compc_vect = NULL,
+		.ovf_vect = NULL
+	},
 	.compoutmodeA = TIMER_COUNTER1_compoutmodeA,
 	.compoutmodeB = TIMER_COUNTER1_compoutmodeB,
 	.compoutmodeC = TIMER_COUNTER1_compoutmodeC,
@@ -30,7 +37,7 @@ static TC1 atmega128_tc1 = {
 };
 uint8_t timer1_state;
 
-/*** Procedure & Function ***/
+/*** Handler ***/
 TC1 tc1_enable(unsigned char wavegenmode, unsigned char interrupt)
 // PARAMETER SETTING
 // wavegen mode: Normal; PWM, Phase Correct, 8-bit; PWM, Phase Correct, 9-bit; PWM, Phase Correct, 10-bit;
@@ -172,6 +179,7 @@ TC1 tc1_enable(unsigned char wavegenmode, unsigned char interrupt)
 
 TC1* tc1(void){ return &atmega128_tc1; }
 
+/*** Procedure and Function definition ***/
 uint8_t TIMER_COUNTER1_start(unsigned int prescaler)
 // PARAMETER SETTING
 // Frequency oscillator devision factor or prescaler.
@@ -308,5 +316,27 @@ uint8_t TIMER_COUNTER1_stop(void)
 	return timer1_state;
 }
 
-/***EOF***/
+/*** interrupt ***/
+ISR(TIMER1_CAPT_vect)
+{
+	if(atmega128_tc1.callback.capt_vect){ atmega128_tc1.callback.capt_vect(); }
+}
+ISR(TIMER1_COMPA_vect)
+{
+	if(atmega128_tc1.callback.compa_vect){ atmega128_tc1.callback.compa_vect(); }
+}
+ISR(TIMER1_COMPB_vect)
+{
+	if(atmega128_tc1.callback.compb_vect){ atmega128_tc1.callback.compb_vect(); }
+}
+ISR(TIMER1_COMPC_vect)
+{
+	if(atmega128_tc1.callback.compc_vect){ atmega128_tc1.callback.compc_vect(); }
+}
+ISR(TIMER1_OVF_vect)
+{
+	if(atmega128_tc1.callback.ovf_vect){ atmega128_tc1.callback.ovf_vect(); }
+}
+	
+/*** EOF ***/
 

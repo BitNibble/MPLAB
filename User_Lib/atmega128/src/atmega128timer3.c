@@ -3,12 +3,12 @@
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: ATmega128
-Date:   07/01/2024
+Date:     14/07/2025
 *************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "atmega128timer3.h"
 
-/*** File Header ***/
+/*** Procedure and Function declaration ***/
 void TIMER_COUNTER3_compoutmodeA(unsigned char compoutmode);
 void TIMER_COUNTER3_compoutmodeB(unsigned char compoutmode);
 void TIMER_COUNTER3_compoutmodeC(unsigned char compoutmode);
@@ -19,6 +19,13 @@ uint8_t TIMER_COUNTER3_start(unsigned int prescaler);
 uint8_t TIMER_COUNTER3_stop(void);
 
 static TC3 atmega128_tc3 = {
+	.callback = {
+		.capt_vect = NULL,
+		.compa_vect = NULL,
+		.compb_vect = NULL,
+		.compc_vect = NULL,
+		.ovf_vect = NULL
+	},
 	.compoutmodeA = TIMER_COUNTER3_compoutmodeA,
 	.compoutmodeB = TIMER_COUNTER3_compoutmodeB,
 	.compoutmodeC = TIMER_COUNTER3_compoutmodeC,
@@ -30,7 +37,7 @@ static TC3 atmega128_tc3 = {
 };
 uint8_t timer3_state;
 
-/*** Procedure & Function ***/
+/*** Handler ***/
 TC3 tc3_enable(unsigned char wavegenmode, unsigned char interrupt)
 // PARAMETER SETTING
 // wavegen mode: Normal; PWM, Phase Correct, 8-bit; PWM, Phase Correct, 9-bit; PWM, Phase Correct, 10-bit;
@@ -168,6 +175,7 @@ TC3 tc3_enable(unsigned char wavegenmode, unsigned char interrupt)
 
 TC3* tc3(void){ return &atmega128_tc3;}
 
+/*** Procedure and Function definition ***/
 uint8_t TIMER_COUNTER3_start(unsigned int prescaler)
 // PARAMETER SETTING
 // Frequency oscillator devision factor or prescaler.
@@ -302,6 +310,28 @@ uint8_t TIMER_COUNTER3_stop(void)
 	tc3_reg()->tccr3b.var &= ~(7 << CS30); // No clock source. (Timer/Counter stopped)
 	timer3_state = 0;
 	return timer3_state;
+}
+
+/*** interrupt ***/
+ISR(TIMER3_CAPT_vect)
+{
+	if(atmega128_tc3.callback.capt_vect){ atmega128_tc3.callback.capt_vect(); }
+}
+ISR(TIMER3_COMPA_vect)
+{
+	if(atmega128_tc3.callback.compa_vect){ atmega128_tc3.callback.compa_vect(); }
+}
+ISR(TIMER3_COMPB_vect)
+{
+	if(atmega128_tc3.callback.compb_vect){ atmega128_tc3.callback.compb_vect(); }
+}
+ISR(TIMER3_COMPC_vect)
+{
+	if(atmega128_tc3.callback.compc_vect){ atmega128_tc3.callback.compc_vect(); }
+}
+ISR(TIMER3_OVF_vect)
+{
+	if(atmega128_tc3.callback.ovf_vect){ atmega128_tc3.callback.ovf_vect(); }
 }
 
 /*** EOF ***/

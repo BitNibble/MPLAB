@@ -19,7 +19,7 @@ Date:     25/10/2020
 /*** File Library ***/
 #include <inttypes.h>
 
-/*** File TypeDef ***/
+/*** TypeDef ***/
 typedef struct{
 	uint8_t HC595_datapin;
 	uint8_t HC595_clkpin;

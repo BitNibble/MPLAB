@@ -3,18 +3,22 @@
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: ATmega128
-Date:   07/01/2024
+Date:     14/07/2025
 *************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "atmega128timer0.h"
 
-/*** File Header ***/
+/*** Procedure and Function declaration ***/
 void TIMER_COUNTER0_compoutmode(unsigned char compoutmode);
 void TIMER_COUNTER0_compare(unsigned char compare);
 uint8_t TIMER_COUNTER0_start(unsigned int prescaler);
 uint8_t TIMER_COUNTER0_stop(void);
 
 static TC0 atmega128_tc0 = {
+	.callback = {
+		.comp_vect = NULL,
+		.ovf_vect = NULL
+	},
 	.compoutmode = TIMER_COUNTER0_compoutmode,
 	.compare = TIMER_COUNTER0_compare,
 	.start = TIMER_COUNTER0_start,
@@ -22,7 +26,7 @@ static TC0 atmega128_tc0 = {
 };
 uint8_t timer0_state;
 
-/*** Procedure & Function ***/
+/*** Handler ***/
 TC0 tc0_enable(unsigned char wavegenmode, unsigned char interrupt)
 // PARAMETER SETTING
 // wavegen mode: Normal; PWM phase correct; Fast PWM; default-Normasl;
@@ -73,6 +77,7 @@ TC0 tc0_enable(unsigned char wavegenmode, unsigned char interrupt)
 
 TC0* tc0(void){ return &atmega128_tc0; }
 
+/*** Procedure and Function definition ***/
 uint8_t TIMER_COUNTER0_start(unsigned int prescaler)
 // PARAMETER SETTING
 // Frequency oscillator devision factor or prescaler.
@@ -155,5 +160,15 @@ uint8_t TIMER_COUNTER0_stop(void)
 	return timer0_state;
 }
 
-/***EOF***/
+/*** interrupt ***/
+ISR(TIMER0_COMP_vect)
+{
+	if(atmega128_tc0.callback.comp_vect){ atmega128_tc0.callback.comp_vect(); }
+}
+ISR(TIMER0_OVF_vect)
+{
+	if(atmega128_tc0.callback.ovf_vect){ atmega128_tc0.callback.ovf_vect(); }
+}
+	
+/*** EOF ***/
 

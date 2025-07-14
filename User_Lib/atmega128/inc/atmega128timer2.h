@@ -3,18 +3,18 @@
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: ATmega128
-Date:   07/01/2024
+Date:     14/07/2025
 ************************************************************************/
-/*** Preamble Inic ***/
 #ifndef _ATMEGA128TIMER2_H_
 	#define _ATMEGA128TIMER2_H_
 
-/*** Global Library ***/
+/*** Library ***/
 #include "atmega128.h"
 
 /*** Constant & Macro ***/
 #ifndef ATMEGA_128_TIMER_COUNTER
 	#define ATMEGA_128_TIMER_COUNTER
+#endif
 
 #ifndef GLOBAL_INTERRUPT_ENABLE
 	#define GLOBAL_INTERRUPT_ENABLE 7
@@ -25,22 +25,24 @@ Date:   07/01/2024
 	#error "Not Atmega 128"
 #endif
 
-#endif
+typedef struct {
+	void (*comp_vect)(void);
+	void (*ovf_vect)(void);
+}TC2_callback;
 
-
-/*** Global Variable ***/
+/*** Handler ***/
 typedef struct{
-	// prototype pointers
+	TC2_callback callback;
+	// V-table
 	void (*compoutmode)(unsigned char compoutmode);
 	void (*compare)(unsigned char compare);
 	uint8_t (*start)(unsigned int prescaler);
 	uint8_t (*stop)(void);
 }TC2;
 
-/*** Global Header ***/
 TC2* tc2(void);
 TC2 tc2_enable(unsigned char wavegenmode, unsigned char interrupt);
 
 #endif
-/***EOF***/
+/*** EOF ***/
 

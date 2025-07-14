@@ -3,18 +3,22 @@
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: ATmega128
-Date:   07/01/2024
+Date:     14/07/2025
 *************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "atmega128timer2.h"
 
-/*** File Header ***/
+/*** Procedure and Function declaration ***/
 void TIMER_COUNTER2_compoutmode(unsigned char compoutmode);
 void TIMER_COUNTER2_compare(unsigned char compare);
 uint8_t TIMER_COUNTER2_start(unsigned int prescaler);
 uint8_t TIMER_COUNTER2_stop(void);
 
 static TC2 atmega128_tc2 = {
+	.callback = {
+		.comp_vect = NULL,
+		.ovf_vect = NULL
+	},
 	.compoutmode = TIMER_COUNTER2_compoutmode,
 	.compare = TIMER_COUNTER2_compare,
 	.start = TIMER_COUNTER2_start,
@@ -22,7 +26,7 @@ static TC2 atmega128_tc2 = {
 };
 uint8_t timer2_state;
 
-/*** Procedure & Function ***/
+/*** Handler ***/
 TC2 tc2_enable(unsigned char wavegenmode, unsigned char interrupt)
 // PARAMETER SETTING
 // wavegen mode: Normal; PWM phase correct; Fast PWM; default-Normasl;
@@ -73,6 +77,7 @@ TC2 tc2_enable(unsigned char wavegenmode, unsigned char interrupt)
 
 TC2* tc2(void){ return &atmega128_tc2; }
 
+/*** Procedure and Function definition ***/
 uint8_t TIMER_COUNTER2_start(unsigned int prescaler)
 // PARAMETER SETTING
 // Frequency oscillator devision factor or prescaler.
@@ -155,5 +160,15 @@ uint8_t TIMER_COUNTER2_stop(void)
 	return timer2_state;
 }
 
-/***EOF***/
+/*** interrupt ***/
+ISR(TIMER2_COMP_vect)
+{
+	if(atmega128_tc2.callback.comp_vect){ atmega128_tc2.callback.comp_vect(); }
+}
+ISR(TIMER2_OVF_vect)
+{
+	if(atmega128_tc2.callback.ovf_vect){ atmega128_tc2.callback.ovf_vect(); }
+}
+
+/*** EOF ***/
 

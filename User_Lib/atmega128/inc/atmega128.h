@@ -3,7 +3,7 @@
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: Atmega128 by ETT ET-BASE
-Date:	  05072025
+Date:	  14072025
 ***********************************************************************/
 #ifndef _ATMEGA128_H_
 	#define _ATMEGA128_H_
@@ -427,14 +427,6 @@ typedef struct { // IVSEL = 0
 	U_word EXT_INT5_vect; // 0x000C
 	U_word EXT_INT6_vect; // 0x000E
 	U_word EXT_INT7_vect; // 0x0010
-	U_word TIM2_COMP_vect; // 0x0012
-	U_word TIM2_OVF_vect; // 0x0014
-	U_word TIM1_CAPT_vect; // 0x0016
-	U_word TIM1_COMPA_vect; // 0x0018
-	U_word TIM1_COMPB_vect; // 0x001A
-	U_word TIM1_OVF_vect; // 0x001C
-	U_word TIM0_COMP_vect; // 0x001E
-	U_word TIM0_OVF_vect; // 0x0020
 	U_word SPI_STC_vect; // 0x0022
 	U_word USART0_RXC_vect; // 0x0024
 	U_word USART0_DRE_vect; // 0x0026
@@ -442,12 +434,6 @@ typedef struct { // IVSEL = 0
 	U_word ADC_vect; // 0x002A
 	U_word EE_RDY_vect; // 0x002C
 	U_word ANA_COMP_vect; // 0x002E
-	U_word TIM1_COMPC_vect; // 0x0030
-	U_word TIM3_CAPT_vect; // 0x0032
-	U_word TIM3_COMPA_vect; // 0x0034
-	U_word TIM3_COMPB_vect; // 0x0036
-	U_word TIM3_COMPC_vect; // 0x0038
-	U_word TIM3_OVF_vect; // 0x003A
 	U_word USART1_RXC_vect; // 0x003C
 	U_word USART1_DRE_vect; // 0x003E
 	U_word USART1_TXC_vect; // 0x0040
