@@ -81,7 +81,7 @@ HX711 hx711_enable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile uint8_
 	setup_hx711.cal_data.divfactor_128 = HX711_Default_50Kg.divfactor_128; // to divide
 	setup_hx711.cal_data.status = HX711_Default_50Kg.status;
 	HX711_Default = &HX711_Default_50Kg;
-	// Direccionar apontadores para PROTOTIPOS
+	// V-table
 	setup_hx711.get_amplify=HX711_get_amplify;
 	setup_hx711.read_bit=HX711_read_bit;
 	setup_hx711.set_amplify=HX711_set_amplify;

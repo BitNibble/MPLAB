@@ -50,6 +50,7 @@ Date:     12072025
 
 /*** Handler ***/
 typedef struct{
+	// V-table
 	void (*write)(char c, unsigned short D_I);
 	char (*read)(unsigned short D_I);
 	uint8_t (*BF)(void);

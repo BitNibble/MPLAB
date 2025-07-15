@@ -68,7 +68,7 @@ Date:     13/07/2025
 
 /*** Handler ***/
 typedef struct{
-	// prototype pointers
+	// V-table
 	void (*start)(void);
 	uint8_t (*connect)(uint8_t address, uint8_t rw);  // now returns uint8_t status
 	uint8_t (*master_write)(uint8_t var_twiData_u8);  // now returns uint8_t status

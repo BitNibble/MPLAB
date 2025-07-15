@@ -24,6 +24,7 @@ Date:
 
 /*** Handler ***/
 typedef struct{
+	// V-table
 	void (*activate)(void);
 	char (*getch)(void);
 	char* (*gets)(void);

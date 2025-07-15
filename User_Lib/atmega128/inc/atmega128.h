@@ -415,6 +415,5 @@ int ftdelayCycles(uint8_t lock_ID, unsigned int n_cycle);
 void ftdelayReset(uint8_t ID);
 
 #endif
-
 /*** EOF ***/
 

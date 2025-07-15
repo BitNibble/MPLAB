@@ -11,6 +11,7 @@ Date:     07/01/2024
 #include <avr/interrupt.h>
 #include <string.h>
 
+/*** Variable ***/
 static BUFF rx1buff;
 static UARTvar UART1_Rx;
 static UARTvar UART1_RxBuf[UART1_RX_BUFFER_SIZE];
@@ -39,6 +40,7 @@ void USART1DoubleTransmissionSpeed(void);
 
 /*** Internal State ***/
 static USART1 atmega128_usart1 = {
+	// V-table
 	.read = uart1_read,
 	.getch = uart1_getch,
 	.gets = uart1_gets,

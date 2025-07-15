@@ -93,7 +93,7 @@ Date:     15/07/2025
 /*******************************************************************/
 typedef struct {
 	/***GPWR***/
-	
+	// removed, no user permission.
 	/***AC***/
 	Atmega128AnalogComparator_TypeDef* ac_reg;
 	/***ADC***/

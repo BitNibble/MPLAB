@@ -34,6 +34,7 @@ Date:     11042024
 
 /*** Handler ***/
 typedef struct{
+	// V-table
 	void (*write)(char c, unsigned short D_I);
 	char (*read)(unsigned short D_I);
 	void (*BF)(void);

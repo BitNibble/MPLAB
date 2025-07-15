@@ -23,7 +23,7 @@ PCF8575 pcf8575_enable(uint8_t pcf8575_id, uint8_t twi_prescaler)
 			.pcf8575_id = pcf8575_id,
 			.state = 0xFFFF
 		},
-		// Vtable
+		// V-table
 		.writehbits = PCF8575_writehbits,
 		.readhbits = PCF8575_readhbits
 	};

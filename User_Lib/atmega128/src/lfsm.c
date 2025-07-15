@@ -49,7 +49,7 @@ LFSM lfsm_enable(EEPROM0* eeprom, const uint16_t sizeeeprom)
 	r.sizeblock = sizeblock;
 	r.page = 0;
 	r.output = 0; // Output
-	// Function V table
+	// V-table
 	r.read = LFSMread;
 	r.learn = LFSMlearn;
 	r.quant = LFSMquant;

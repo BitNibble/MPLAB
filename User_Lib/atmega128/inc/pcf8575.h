@@ -38,6 +38,7 @@ typedef struct{
 
 /*** Handler ***/
 typedef struct{
+	// V-table
 	pcf8575_parameter par;
 	void (*writehbits)( pcf8575_parameter *par, uint16_t hbits, uint8_t state );
 	uint16_t (*readhbits)( pcf8575_parameter *par, uint16_t hbits );

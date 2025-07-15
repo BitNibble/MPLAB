@@ -51,7 +51,7 @@ struct model_hx711{
 	uint8_t av_n;
 	float raw_mean;
 	HX711_calibration cal_data;
-	
+	// V-table
 	uint8_t (*get_amplify)(struct model_hx711* self);
 	uint8_t (*read_bit)(void);
 	void (*set_amplify)(struct model_hx711* self, uint8_t amplify);

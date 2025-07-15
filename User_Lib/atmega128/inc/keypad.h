@@ -37,6 +37,8 @@ typedef struct {
 /*** Handler ***/
 typedef struct{
 	keypadata* data;
+	
+	// V-table
 	char (*getkey)(void);
 	void (*read)(void);
 	void (*flush)(void);

@@ -18,7 +18,7 @@ IO_var EXPLODEhl(explode_parameter* par);
 /*** Handler ***/
 EXPLODE explode_enable( void )
 {
-	// struct object
+	// Parameter
 	EXPLODE setup_explode = {
 		.par = {
 			.HH = 0,
@@ -28,6 +28,7 @@ EXPLODE explode_enable( void )
 			.XF = 0,
 			.XI = 0
 		},
+		// V-table
 		.update = EXPLODEupdate
 	};
 

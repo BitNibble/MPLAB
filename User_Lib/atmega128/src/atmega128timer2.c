@@ -16,10 +16,12 @@ uint8_t TIMER_COUNTER2_stop(void);
 
 /*** Internal State ***/
 static TC2 atmega128_tc2 = {
+	// Callback
 	.callback = {
 		.comp_vect = NULL,
 		.ovf_vect = NULL
 	},
+	// V-table
 	.compoutmode = TIMER_COUNTER2_compoutmode,
 	.compare = TIMER_COUNTER2_compare,
 	.start = TIMER_COUNTER2_start,

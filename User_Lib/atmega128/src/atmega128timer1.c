@@ -20,6 +20,7 @@ uint8_t TIMER_COUNTER1_stop(void);
 
 /*** Internal State ***/
 static TC1 atmega128_tc1 = {
+	// Callback
 	.callback = {
 		.capt_vect = NULL,
 		.compa_vect = NULL,
@@ -27,6 +28,7 @@ static TC1 atmega128_tc1 = {
 		.compc_vect = NULL,
 		.ovf_vect = NULL
 	},
+	// V-table
 	.compoutmodeA = TIMER_COUNTER1_compoutmodeA,
 	.compoutmodeB = TIMER_COUNTER1_compoutmodeB,
 	.compoutmodeC = TIMER_COUNTER1_compoutmodeC,

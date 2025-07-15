@@ -11,7 +11,7 @@ Date:     29112022
 /*** Library ***/
 #include <inttypes.h>
 
-/*** Global Constant & Macro ***/
+/*** Constant & Macro ***/
 #define PCF8563   0x51  // PCF8563 ID
 #define PCF8563ReadMode_U8   0xA3  // PCF8563 ID
 #define PCF8563WriteMode_U8  0xA2  // PCF8563 ID
@@ -46,6 +46,7 @@ struct alarm{
 
 /*** Handler ***/
 typedef struct{
+	// V-table
 	void (*SetTime)(uint8_t var_hour_u8, uint8_t var_min_u8, uint8_t var_sec_u8);
 	void (*SetHour)(uint8_t var_hour_u8);
 	void (*SetMinute)(uint8_t var_min_u8);

@@ -11,7 +11,7 @@ Date:     14/07/2025
 /*** Library ***/
 #include "atmega128.h"
 
-/*** Constant & Macro ***/
+/*** Constant and  Macro ***/
 #ifndef ATMEGA_128_TIMER_COUNTER
 	#define ATMEGA_128_TIMER_COUNTER
 #endif
@@ -29,6 +29,7 @@ typedef struct {
 /*** Handler ***/
 typedef struct{
 	TC2_callback callback;
+	
 	// V-table
 	void (*compoutmode)(unsigned char compoutmode);
 	void (*compare)(unsigned char compare);

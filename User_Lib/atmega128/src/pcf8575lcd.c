@@ -10,7 +10,7 @@ Date:     11042024
 #include "pcf8575.h"
 #include <util/delay.h>
 
-// CMD RS
+/*** Constant & Macro **/
 #define PCF_INST 0
 #define PCF_DATA 1
 // ticks depends on CPU frequency 16Mhz -> 0 8Mhz -> 0

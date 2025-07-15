@@ -19,12 +19,12 @@ ROTENC rotenc_enable( uint8_t ChnApin, uint8_t ChnBpin )
 	// struct object
 	ROTENC setup_rtnc;
 	
-	// Initialize variables
+	// Parameter
 	setup_rtnc.par.PinChnA = ChnApin;
 	setup_rtnc.par.PinChnB = ChnBpin;
 	setup_rtnc.par.pchn = setup_rtnc.par.chn = (1 << ChnBpin) | (1 << ChnApin);
 	setup_rtnc.par.num = 0;
-	// function pointers
+	// V-table
 	setup_rtnc.rte = RotEnc_rte;
 	
 	return setup_rtnc;

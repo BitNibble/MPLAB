@@ -16,6 +16,7 @@ uint8_t spi_fast_shift (uint8_t data);
 
 /*** Internal State ***/
 static SPI0 atmega128_spi = {
+	// V-table
 	.transfer_sync = spi_transfer_sync,
 	.transmit_sync = spi_transmit_sync,
 	.fast_shift = spi_fast_shift

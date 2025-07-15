@@ -47,6 +47,5 @@ typedef struct {
 void  tc1_enable(uint8_t wavegenmode, uint8_t interrupt);
 TC1* tc1(void);
 
-
 #endif
 /*** EOF ***/

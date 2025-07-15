@@ -23,6 +23,7 @@ struct CLOCKTIME{
 
 /*** Handler ***/
 typedef struct{
+	// V-table
 	void (*set)(uint8_t hour, uint8_t minute, uint8_t second);
 	void (*increment)(void);
 	void (*decrement)(void);

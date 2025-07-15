@@ -30,7 +30,6 @@ struct lfsmdata{
 
 /*** Handler ***/
 struct model_lfsm{
-	// Local Variables
 	EEPROM0* eprom;
 	uint16_t sizeeeprom;
 	uint8_t sizeblock;

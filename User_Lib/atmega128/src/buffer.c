@@ -60,7 +60,5 @@ void BUFF_flush( buffer_parameter* par ){
 	*head = 0;
 }
 
-/*** File Interrupt ***/
-
 /***EOF***/
 

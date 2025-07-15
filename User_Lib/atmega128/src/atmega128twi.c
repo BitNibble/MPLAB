@@ -20,6 +20,7 @@ void TWI_wait_twint(uint16_t nticks);
 
 /*** Internal State ***/
 static TWI0 atmega128_twi = {
+	// V-table
 	.start = TWI_start,
 	.connect = TWI_connect,
 	.stop = TWI_stop,

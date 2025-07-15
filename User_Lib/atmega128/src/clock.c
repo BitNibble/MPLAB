@@ -38,6 +38,7 @@ CLOCK clock_enable(uint8_t hour, uint8_t minute, uint8_t second)
 	time.second = second;
 	CLOCK_alarm_flag = 0X0F;
 	CLOCK_compare_active = 0X0F;
+	// V-table
 	setup_clock.set = CLOCK_set;
 	setup_clock.increment = CLOCK_increment;
 	setup_clock.decrement = CLOCK_decrement;
