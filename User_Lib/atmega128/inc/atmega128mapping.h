@@ -3,7 +3,7 @@
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: Atmega128 by ETT ET-BASE
-Date:   07/01/2024
+Date:     15/07/2025
 **********************************************************/
 #ifndef _ATMEGA128MAPPING_H_
 	#define _ATMEGA128MAPPING_H_
@@ -28,7 +28,7 @@ Date:   07/01/2024
 #define _USART1_MODULE_
 
 /*********************************************************/
-/****************** Hardware Includes ********************/
+/******************* Hardware Library ********************/
 /*********************************************************/
 // MODULES
 #ifdef _ANALOG_MODULE_
@@ -93,15 +93,13 @@ Date:   07/01/2024
 /*******************************************************************/
 typedef struct {
 	/***GPWR***/
-	Atmega128GPWR_TypeDef* gpwr_reg;
+	
 	/***AC***/
 	Atmega128AnalogComparator_TypeDef* ac_reg;
-	Atmega128OtherRegisters_TypeDef* ac_misc_reg;
 	/***ADC***/
 	Atmega128AnalogToDigitalConverter_TypeDef* adc_reg;
 	#ifdef _ANALOG_MODULE_
-		ADC0 (*adc_enable)( uint8_t Vreff, uint8_t Divfactor, int n_channel, ... );
-		ADC0* adc;
+		void (*adc_enable)( uint8_t Vreff, uint8_t Divfactor, int n_channel, ... );
 	#endif
 	/***BOOTLOAD***/
 	Atmega128BootLoader_TypeDef* bootload_reg;
@@ -109,16 +107,8 @@ typedef struct {
 	Atmega128CPURegister_TypeDef* cpu_reg;
 	/***EEPROM***/
 	Atmega128Eeprom_TypeDef* eeprom_reg;
-	#ifdef _EEPROM_MODULE_
-		EEPROM0 (*eeprom_enable)( void );
-		EEPROM0* eeprom;
-	#endif
 	/***EXINT***/
 	Atmega128ExternalInterrupts_TypeDef* exint_reg;
-	#ifdef _INTERRUPT_MODULE_
-		EXINT0 (*exint_enable)( void );
-		EXINT0* exint;
-	#endif
 	/***PORTA***/
 	Atmega128PORTA_TypeDef* gpioa_reg;
 	/***PORTB***/
@@ -140,48 +130,42 @@ typedef struct {
 	/***SPI***/
 	Atmega128SerialPeripheralInterface_TypeDef* spi_reg;
 	#ifdef _SPI_MODULE_
-		SPI0 (*spi_enable)( uint8_t master_slave_select, uint8_t data_order,  uint8_t data_modes, uint8_t prescaler );
-		SPI0* spi;
+		void (*spi_enable)( uint8_t master_slave_select, uint8_t data_order,  uint8_t data_modes, uint8_t prescaler );
 	#endif
 	/***TC1***/
 	Atmega128TimerCounter1_TypeDef* tc1_reg;
-	Atmega128OtherRegisters_TypeDef* tc1_misc_reg;
 	#ifdef _TIMER1_MODULE_
-		TC1* tc1;
+		void  (*tc1_enable)(uint8_t wavegenmode, uint8_t interrupt);
 	#endif
 	/***TC3***/
 	Atmega128TimerCounter3_TypeDef* tc3_reg;
-	Atmega128OtherRegisters_TypeDef* tc3_misc_reg;
 	#ifdef _TIMER3_MODULE_
-		TC3* tc3;
+		void (*tc3_enable)(unsigned char wavegenmode, unsigned char interrupt);
 	#endif
 	/***TC2***/
 	Atmega128TimerCounter2_TypeDef* tc2_reg;
 	#ifdef _TIMER2_MODULE_
-		TC2* tc2;
+		void (*tc2_enable)(unsigned char wavegenmode, unsigned char interrupt);
 	#endif
 	/***TC0***/
 	Atmega128TimerCounter0_TypeDef* tc0_reg;
-	Atmega128OtherRegisters_TypeDef* tc0_misc_reg;
 	#ifdef _TIMER0_MODULE_
-		TC0* tc0;
+		void (*tc0_enable)(unsigned char wavegenmode, unsigned char interrupt);
 	#endif
 	/***TWI***/
 	Atmega128TwoWireSerialInterface_TypeDef* twi_reg;
 	#ifdef _TWI_MODULE_
-		TWI0* twi;
+		void (*twi_enable)(uint8_t atmega_id,  uint8_t prescaler);
 	#endif
 	/***USART0***/
 	Atmega128Usart0_TypeDef* usart0_reg;
 	#ifdef _USART0_MODULE_
-		USART0 (*usart0_enable)( uint32_t baudrate, unsigned int FDbits, unsigned int Stopbits, unsigned int Parity );
-		USART0* usart0;
+		void (*usart0_enable)( uint32_t baudrate, unsigned int FDbits, unsigned int Stopbits, unsigned int Parity );
 	#endif
 	/***USART1***/
 	Atmega128Usart1_TypeDef* usart1_reg;
 	#ifdef _USART1_MODULE_
-		USART1 (*usart1_enable)( uint32_t baud, unsigned int FDbits, unsigned int Stopbits, unsigned int Parity );
-		USART1* usart1;
+		void (*usart1_enable)( uint32_t baud, unsigned int FDbits, unsigned int Stopbits, unsigned int Parity );
 	#endif
 	/***WDT***/
 	Atmega128WatchdogTimer_TypeDef* wdt_reg;
@@ -190,11 +174,8 @@ typedef struct {
 	void (*Move_Interrupts_To_Boot)( void );
 }ATMEGA128;
 
-/*** Global ***/
 ATMEGA128* atmega128( void );
-ATMEGA128 atmega128_enable( void );
 
 #endif
-
-/***EOF***/
+/*** EOF ***/
 

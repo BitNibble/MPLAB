@@ -5,7 +5,7 @@ License:  GNU General Public License
 Hardware: PCF8575
 Date:     13072025
 ***************************************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "pcf8575.h"
 
 /*** Procedure and Function declaration ***/

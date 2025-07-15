@@ -4,20 +4,18 @@ Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: Atmega 128
 Date:     17022021_start
-Comment:
-
 ************************************************************************/
 #ifndef _ZNPID_H_
 	#define _ZNPID_H_
 
-/*** Global Library ***/
+/*** Library ***/
 #include <inttypes.h>
 
 /*** Constant & Macro ***/
 #define ZNPID_outMAX 1023
 #define ZNPID_outMIN -1023
 
-/*** Global Variable ***/
+/*** Parameter ***/
 typedef struct {
 	double kc; // constant p
 	double ki; // constant i
@@ -32,9 +30,11 @@ typedef struct {
 	double OP; // output signal
 }znpid_parameter;
 
+/*** Handler ***/
 typedef struct{
 	znpid_parameter par;
-	/******/
+	
+	// V-table
 	void (*set_kc)(znpid_parameter* par, double kc);
 	void (*set_ki)(znpid_parameter* par, double ki);
 	void (*set_kd)(znpid_parameter* par, double kd);
@@ -42,10 +42,8 @@ typedef struct{
 	double (*output)(znpid_parameter* par, double PV, double timelapse);
 }ZNPID;
 
-/*** Global Header ***/
 ZNPID znpid_enable(void);
 
 #endif
-
-/***EOF***/
+/*** EOF ***/
 

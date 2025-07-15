@@ -8,19 +8,19 @@ Comment:
 	page=1 is dedicated for global logic, if page>1 is for local logic.
 	purpose is for machine programming, and encoders. General purpose algorithm.
 *************************************************************************/
-/*** File library ***/
+/*** library ***/
 #include "lfsm.h"
 
-/*** File Constant & Macro ***/
+/*** Constant & Macro ***/
 #define NPAGES 255 // 1 to 254 possible pages
 #define BYTEL 0
 #define BYTEH 65535
 
-/*** File Variable ***/
+/*** Variable ***/
 struct lfsmdata data, tmp1, tmp2;
 const uint16_t tmask = 0xFFFF;
 
-/*** File Header ***/
+/*** Procedure and Function declaration ***/
 uint8_t LFSMread(struct model_lfsm *r, uint8_t input);
 uint8_t LFSMlearn(struct model_lfsm *r, const uint8_t input, const uint16_t next, const uint16_t mask, const uint8_t page);
 uint16_t LFSMquant(struct model_lfsm *r);
@@ -36,8 +36,7 @@ uint16_t LFSMlh(uint16_t xi, uint16_t xf);
 uint16_t LFSMhl(uint16_t xi, uint16_t xf);
 uint16_t LFSMoutputcalc(uint16_t feedback, uint16_t hl, uint16_t lh, uint16_t mask);
 
-/*** Procedure & Function ***/
-// LFSM LFSMenable(EEPROM* eeprom, const uint16_t sizeeeprom)
+/*** Handler ***/
 LFSM lfsm_enable(EEPROM0* eeprom, const uint16_t sizeeeprom)
 {
 	// Local Variable
@@ -65,6 +64,8 @@ LFSM lfsm_enable(EEPROM0* eeprom, const uint16_t sizeeeprom)
 	
 	return r;
 }
+
+/*** Procedure and Function definition ***/
 // uint8_t LFSMread(struct lfsm *r, uint8_t input)
 uint8_t LFSMread(struct model_lfsm *r, uint8_t input)
 {
@@ -451,7 +452,5 @@ uint16_t LFSMoutputcalc(uint16_t feedback, uint16_t hl, uint16_t lh, uint16_t ma
 	return feedback;
 }
 
-/***File Interrupt***/
-
-/***EOF***/
+/*** EOF ***/
 

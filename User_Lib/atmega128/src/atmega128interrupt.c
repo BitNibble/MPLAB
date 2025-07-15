@@ -2,10 +2,10 @@
 	ATMEGA128INTERRUPT
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
-Hardware: ATmega128
-Date:   07/01/2024
+Hardware: Atmega128 by ETT ET-BASE
+Date:     07/01/2024
 *************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "atmega128interrupt.h"
 
 /*** Procedure and Function declaration ***/
@@ -78,7 +78,7 @@ void INTERRUPT_set(uint8_t channel, uint8_t sense)
 				break;
 			}
 			exint_reg()->eimsk.var |= (1 << INT0);
-			cpu_reg()->sreg.var |= (1 << GLOBAL_INTERRUPT_ENABLE);
+			cpu_reg()->sreg.var |= (1 << 7);
 		break;
 		case 1: // PD1
 			exint_reg()->eimsk.var &= ~(1 << INT1);
@@ -97,7 +97,7 @@ void INTERRUPT_set(uint8_t channel, uint8_t sense)
 				break;
 			}
 			exint_reg()->eimsk.var |= (1 << INT1);
-			cpu_reg()->sreg.var |= (1 << GLOBAL_INTERRUPT_ENABLE);
+			cpu_reg()->sreg.var |= (1 << 7);
 		break;
 		case 2: // PD2
 			exint_reg()->eimsk.var &= ~(1 << INT2);
@@ -116,7 +116,7 @@ void INTERRUPT_set(uint8_t channel, uint8_t sense)
 				break;
 			}
 			exint_reg()->eimsk.var |= (1 << INT2);
-			cpu_reg()->sreg.var |= (1 << GLOBAL_INTERRUPT_ENABLE);
+			cpu_reg()->sreg.var |= (1 << 7);
 		break;
 		case 3: // PD3
 			exint_reg()->eimsk.var &= ~(1 << INT3);
@@ -135,7 +135,7 @@ void INTERRUPT_set(uint8_t channel, uint8_t sense)
 				break;
 			}
 			exint_reg()->eimsk.var |= (1 << INT3);
-			cpu_reg()->sreg.var |= (1 << GLOBAL_INTERRUPT_ENABLE);
+			cpu_reg()->sreg.var |= (1 << 7);
 		break;
 		case 4: // PE4
 			exint_reg()->eimsk.var &= ~(1 << INT4);
@@ -156,7 +156,7 @@ void INTERRUPT_set(uint8_t channel, uint8_t sense)
 				break;
 			}
 			exint_reg()->eimsk.var |= (1 << INT4);
-			cpu_reg()->sreg.var |= (1 << GLOBAL_INTERRUPT_ENABLE);
+			cpu_reg()->sreg.var |= (1 << 7);
 		break;
 		case 5: // PE5
 			exint_reg()->eimsk.var &= ~(1 << INT5);
@@ -177,7 +177,7 @@ void INTERRUPT_set(uint8_t channel, uint8_t sense)
 				break;
 			}
 			exint_reg()->eimsk.var |= (1 << INT5);
-			cpu_reg()->sreg.var |= (1 << GLOBAL_INTERRUPT_ENABLE);
+			cpu_reg()->sreg.var |= (1 << 7);
 		break;
 		case 6: // PE6
 			exint_reg()->eimsk.var &= ~(1 << INT6);
@@ -198,7 +198,7 @@ void INTERRUPT_set(uint8_t channel, uint8_t sense)
 				break;
 			}
 			exint_reg()->eimsk.var |= (1 << INT6);
-			cpu_reg()->sreg.var |= (1 << GLOBAL_INTERRUPT_ENABLE);
+			cpu_reg()->sreg.var |= (1 << 7);
 		break;
 		case 7: // PE7
 			exint_reg()->eimsk.var &= ~(1 << INT7);
@@ -219,7 +219,7 @@ void INTERRUPT_set(uint8_t channel, uint8_t sense)
 				break;
 			}
 			exint_reg()->eimsk.var |= (1 << INT7);
-			cpu_reg()->sreg.var |= (1 << GLOBAL_INTERRUPT_ENABLE);
+			cpu_reg()->sreg.var |= (1 << 7);
 		break;
 		default:
 			exint_reg()->eimsk.var = 0X00;
@@ -263,35 +263,35 @@ void INTERRUPT_on(uint8_t channel)
 	switch( channel ){
 		case 0:
 			exint_reg()->eimsk.var |= (1<<INT0);
-			cpu_reg()->sreg.var |= (1 << GLOBAL_INTERRUPT_ENABLE);
+			cpu_reg()->sreg.var |= (1 << 7);
 		break;
 		case 1:
 			exint_reg()->eimsk.var |= (1 << INT1);
-			cpu_reg()->sreg.var |= (1 << GLOBAL_INTERRUPT_ENABLE);
+			cpu_reg()->sreg.var |= (1 << 7);
 		break;
 		case 2:
 			exint_reg()->eimsk.var |= (1 << INT2);
-			cpu_reg()->sreg.var |= (1 << GLOBAL_INTERRUPT_ENABLE);
+			cpu_reg()->sreg.var |= (1 << 7);
 		break;
 		case 3:
 			exint_reg()->eimsk.var |= (1 << INT3);
-			cpu_reg()->sreg.var |= (1 << GLOBAL_INTERRUPT_ENABLE);
+			cpu_reg()->sreg.var |= (1 << 7);
 		break;
 		case 4:
 			exint_reg()->eimsk.var |= (1 << INT4);
-			cpu_reg()->sreg.var |= (1 << GLOBAL_INTERRUPT_ENABLE);
+			cpu_reg()->sreg.var |= (1 << 7);
 		break;
 		case 5:
 			exint_reg()->eimsk.var |= (1 << INT5);
-			cpu_reg()->sreg.var |= (1 << GLOBAL_INTERRUPT_ENABLE);
+			cpu_reg()->sreg.var |= (1 << 7);
 		break;
 		case 6:
 			exint_reg()->eimsk.var |= (1 << INT6);
-			cpu_reg()->sreg.var |= (1 << GLOBAL_INTERRUPT_ENABLE);
+			cpu_reg()->sreg.var |= (1 << 7);
 		break;
 		case 7:
 			exint_reg()->eimsk.var |= (1 << INT7);
-			cpu_reg()->sreg.var |= (1 << GLOBAL_INTERRUPT_ENABLE);
+			cpu_reg()->sreg.var |= (1 << 7);
 		break;
 		default:
 		break;

@@ -2,7 +2,7 @@
 	ATMEGA 128 REGISTERS
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
-Hardware: Atmega324 by ETT ET-BASE
+Hardware: Atmega 128
 Date:     05072025
 ************************************************************************/
 #ifndef _ATMEGA128_REGISTERS_H_
@@ -13,7 +13,7 @@ Date:     05072025
 	#error "This library requires AVR-GCC 3.4 or later, update to newer AVR-GCC compiler !"
 #endif
 
-/*** Gloabl Library ***/
+/*** Library ***/
 #include <stdint.h>
 #include <inttypes.h>
 #include <stddef.h>
@@ -35,7 +35,7 @@ typedef union {
 } U_word;
 
 /*****************************/
-/****      REGISTERS      ****/
+/*****      REGISTER      ****/
 /*****************************/
 // PINF 0x20 (U_byte)
 // PINE 0x21 (U_byte)

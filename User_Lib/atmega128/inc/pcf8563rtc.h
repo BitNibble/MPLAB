@@ -4,13 +4,11 @@ Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: PCF8563
 Date:     29112022
-Comment:
-	Stable
  **************************************************************************************************/
 #ifndef _PCF8563RTC_H_
 	#define _PCF8563RTC_H_
 
-/*** Global Library ***/
+/*** Library ***/
 #include <inttypes.h>
 
 /*** Global Constant & Macro ***/
@@ -27,7 +25,7 @@ Comment:
 #define PCF8563ControlRegAddress_U8  0x00    // Address to access PC8563 CONTROL register
 #define PCF8563CLKOUT_control_U8     0x0D	 // External oscillating pin
 
-/*** Global Variable ***/
+/*** Parameter ***/
 struct date{
 	uint8_t years;
 	uint8_t century_months;
@@ -45,6 +43,8 @@ struct alarm{
 	uint8_t day_alarm;
 	uint8_t weekday_alarm;
 };
+
+/*** Handler ***/
 typedef struct{
 	void (*SetTime)(uint8_t var_hour_u8, uint8_t var_min_u8, uint8_t var_sec_u8);
 	void (*SetHour)(uint8_t var_hour_u8);
@@ -62,10 +62,8 @@ typedef struct{
 	uint8_t (*bintobcd)(uint8_t bin);
 }PCF8563RTC;
 
-/*** Global Header ***/
 PCF8563RTC pcf8563rtc_enable(uint8_t prescaler);
 
 #endif
-
-/***EOF***/
+/*** EOF ***/
 

@@ -2,7 +2,7 @@
 	ATMEGA128TIMER3
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
-Hardware: ATmega128
+Hardware: Atmega128 by ETT ET-BASE
 Date:     14/07/2025
 ************************************************************************/
 #ifndef _ATMEGA128TIMER3_H_

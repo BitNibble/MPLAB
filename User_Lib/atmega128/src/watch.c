@@ -4,10 +4,10 @@ Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Date:     03072025
 *************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "watch.h"
 
-/*** File Constant & Macro***/
+/*** Constant & Macro***/
 #define N_DELAY 16
 #define N_DELAY_MASK 0X0F
 #define W12HOUR 12
@@ -16,7 +16,7 @@ Date:     03072025
 #define W24_HOUR_SECONDS 86400
 const uint32_t w12_hour_seconds = (W12_HOUR_SECONDS - 1);
 const uint32_t w24_hour_seconds = (W24_HOUR_SECONDS - 1);
-/*** File Variable ***/
+/*** Variable ***/
 static WATCH_TIME wtime;
 static char WATCH_vector[9] = {0};
 static uint32_t WATCH_trigger[N_DELAY] = {0};
@@ -147,5 +147,5 @@ char* WATCH_show(void)
 	return WATCH_vector;
 }
 
-/***EOF***/
+/*** EOF ***/
 

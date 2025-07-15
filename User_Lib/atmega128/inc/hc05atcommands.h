@@ -3,25 +3,17 @@
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: ALL
-Update:   29/12/2023
-Comment:
-	Stable
+Date:   29/12/2023
 ************************************************************************/
 #ifndef _HC05ATCOMMANDS_H_
 	#define _HC05ATCOMMANDS_H_
 
-/*** Global Library ***/
+/*** Library ***/
 #include <inttypes.h>
 
-/*** Global Constant & Macro ***/
-
-/*** Global Variable ***/
-
-/*** Global Header ***/
+/*** Handler ***/
 char* hc05at_cmd(uint16_t num);
 
 #endif
-
-/***EOF***/
-
+/*** EOF ***/
 

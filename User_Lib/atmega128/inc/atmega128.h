@@ -2,7 +2,7 @@
 	ATMEGA 128
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
-Hardware: Atmega128 by ETT ET-BASE
+Hardware: Atmega 128
 Date:	  14072025
 ***********************************************************************/
 #ifndef _ATMEGA128_H_
@@ -81,7 +81,7 @@ typedef volatile struct {
 	uint16_t Z; // 0x1E 0x1F
 } Atmega128GPWR_TypeDef;
 
-Atmega128GPWR_TypeDef* gpwr_reg(void);
+//Atmega128GPWR_TypeDef* gpwr_reg(void);
 
 // Analog Comparator (AC)
 typedef volatile struct {

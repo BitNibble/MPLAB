@@ -2,16 +2,16 @@
 	eeprom wrapper
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
-Hardware: ATmega
-Date:   07/01/2024
+Hardware: Atmega128 by ETT ET-BASE
+Date:     07/01/2024
 *************************************************************************/
 #ifndef _ATMEGAEEPROM_H_
 	#define _ATMEGAEEPROM_H_
 
-/*** Global Library ***/
+/*** Library ***/
 #include "atmega128.h"
 
-/*** Global Variable ***/
+/*** Handler ***/
 typedef struct{
 	// V-table
 	uint8_t (*read_byte) ( const uint8_t * addr );
@@ -34,6 +34,5 @@ typedef struct{
 EEPROM0* eeprom(void);
 
 #endif
-
 /*** EOF ***/
 

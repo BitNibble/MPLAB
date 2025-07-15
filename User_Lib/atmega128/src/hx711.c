@@ -4,14 +4,12 @@ Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License     
 Hardware: Atmega 128
 Date:     08032021_start
-Comment:
-	Nice
 ************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "hx711.h"
 #include <avr/io.h>
 
-/*** File Variable ***/
+/*** Variable ***/
 HX711_calibration HX711_Default_50Kg = {
 	.offset_32 = 35800,
 	.offset_64 = 71600,
@@ -29,7 +27,7 @@ uint8_t hx711_datapin;
 uint8_t hx711_clkpin;
 int32_t* ptr;
 
-/*** File Header ***/
+/*** Procedure and Function declaration ***/
 uint8_t HX711_get_amplify(HX711* self);
 void HX711_reset_readflag(HX711* self);
 uint8_t HX711_read_bit(void);
@@ -40,13 +38,13 @@ float HX711_raw_average(HX711* self, uint8_t n);
 uint8_t HX711_get_readflag(HX711* self);
 HX711_calibration* HX711_get_cal(HX711* self);
 
-/*** Procedure & Function ***/
+/*** Handler ***/
 HX711 hx711_enable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile uint8_t *port, uint8_t datapin, uint8_t clkpin)
 {
 	//LOCAL VARIABLES
 	uint8_t tSREG;
 	tSREG = STATUS_instanceISTER;
-	STATUS_instanceISTER &= ~(1<<GLOBAL_INTERRUPT_ENABLE);
+	STATUS_instanceISTER &= ~(1<<7);
 	
 	HX711 setup_hx711;
 	
@@ -96,6 +94,8 @@ HX711 hx711_enable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile uint8_
 	
 	return setup_hx711;
 }
+
+/*** Procedure and Function definition ***/
 uint8_t HX711_get_amplify(HX711* self)
 {
 	return self->amplify;
@@ -214,5 +214,5 @@ HX711_calibration* HX711_get_cal(HX711* self)
 	return &(self->cal_data);
 }
 
-/***EOF***/
+/*** EOF ***/
 

@@ -2,10 +2,10 @@
 	ATMEGA128USART1
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
-Hardware: ATmega128
-Date:   07/01/2024
+Hardware: Atmega128 by ETT ET-BASE
+Date:     07/01/2024
 *************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "atmega128usart1.h"
 #include "buffer.h"
 #include <avr/interrupt.h>
@@ -49,7 +49,7 @@ static USART1 atmega128_usart1 = {
 };
 
 /*** Handler ***/
-USART1 usart1_enable( uint32_t baud, unsigned int FDbits, unsigned int Stopbits, unsigned int Parity )
+void usart1_enable( uint32_t baud, unsigned int FDbits, unsigned int Stopbits, unsigned int Parity )
 {
 	uart1flag = 1;
 	uint16_t ubrr = 0;
@@ -125,8 +125,6 @@ USART1 usart1_enable( uint32_t baud, unsigned int FDbits, unsigned int Stopbits,
 		}
 	#endif
 	cpu_reg()->sreg.par.i = 1;
-	
-	return atmega128_usart1;
 }
 
 USART1* usart1(void){ return &atmega128_usart1; }

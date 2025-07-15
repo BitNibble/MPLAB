@@ -2,10 +2,10 @@
 	ATMEGA128SPI
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
-Hardware: ATmega128
-Date:   07/01/2024
+Hardware: Atmega128 by ETT ET-BASE
+Date:     07/01/2024
 *************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "atmega128spi.h"
 
 /*** Procedure and Function declaration ***/
@@ -22,7 +22,7 @@ static SPI0 atmega128_spi = {
 };
 
 /*** Handler ***/
-SPI0 spi_enable(uint8_t master_slave_select, uint8_t data_order,  uint8_t data_modes, uint8_t prescaler)
+void spi_enable(uint8_t master_slave_select, uint8_t data_order,  uint8_t data_modes, uint8_t prescaler)
 {
 	gpiob_reg()->ddr.var &= ~((1 << DD_MOSI) | (1 << DD_MISO) | (1 << DD_SS) | (1 << DD_SCK));
 	switch(master_slave_select){
@@ -103,14 +103,12 @@ SPI0 spi_enable(uint8_t master_slave_select, uint8_t data_order,  uint8_t data_m
 		break;
 	}
 	spi_reg()->spcr.var |= (1 << SPE);
-	
-	return atmega128_spi;
 }
 
 SPI0* spi(void){ return &atmega128_spi; }
 
 /*** Procedure and Function definition***/
-void spi_default()
+void spi_default(void)
 // Initialize pins for spi communication
 {
 	gpiob_reg()->ddr.var &= ~((1 << DD_MOSI) | (1 << DD_MISO) | (1 << DD_SS) | (1 << DD_SCK));
@@ -152,7 +150,7 @@ uint8_t spi_fast_shift (uint8_t data)
 	return spi_reg()->spdr.var;
 }
 
-/***EOF***/
+/*** EOF ***/
 
 
 /**************************** Comment *******************************

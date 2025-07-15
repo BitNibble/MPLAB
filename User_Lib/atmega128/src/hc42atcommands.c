@@ -4,10 +4,8 @@ Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: ALL
 Date:     24042023
-Comment:
-	Stable
 *************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "hc42atcommands.h"
 //#include <util/delay.h>
 //#include <stdio.h>
@@ -16,15 +14,10 @@ Comment:
 //#include <stdarg.h>
 //#include <math.h>
 
-/*** File Constant & Macro ***/
-
-/*** File Variable ***/
+/*** Variable ***/
 char HC42ATstr[32];
 
-
-/*** File Header ***/
-
-/*** Procedure & Function ***/
+/*** Procedure and Function definition ***/
 char* hc42at_cmd(uint16_t num){
 	switch(num)
 	{
@@ -123,5 +116,5 @@ char* hc42at_cmd(uint16_t num){
 	return HC42ATstr;
 }
 
-/***EOF***/
+/*** EOF ***/
 

@@ -5,7 +5,7 @@ License:  GNU General Public License
 Hardware: all
 Date:     11042024                
 ************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "pcf8575lcd.h"
 #include "pcf8575.h"
 #include <util/delay.h>
@@ -17,12 +17,12 @@ Date:     11042024
 #define PCF_LCD_W_N_TICKS 0
 #define PCF_LCD_R_N_TICKS 0
 
-/*** File Variable ***/
+/*** Variable ***/
 static PCF8575_LCD0 pcf8575_setup_lcd0;
 static PCF8575 pcf8575_lcd0_com;
 static uint16_t pcf8575_lcd0_detect;
 
-/*** File Header ***/
+/*** Procedure and Function declaration ***/
 void PCF8575_LCD0_inic(void);
 void PCF8575_LCD0_write(char c, unsigned short D_I);
 char PCF8575_LCD0_read(unsigned short D_I);
@@ -37,7 +37,7 @@ void PCF8575_LCD0_gotoxy(unsigned int y, unsigned int x);
 void PCF8575_LCD0_reboot(void);
 void PCF8575_LCD_ticks(uint16_t num);
 
-/*** Procedure & Function ***/
+/*** Handler ***/
 PCF8575_LCD0 pcf8575_lcd0_enable( uint8_t pcf8575_id, uint8_t twi_prescaler )
 {
 	// LOCAL VARIABLES
@@ -67,6 +67,7 @@ PCF8575_LCD0 pcf8575_lcd0_enable( uint8_t pcf8575_id, uint8_t twi_prescaler )
 
 PCF8575_LCD0* pcf8575_lcd0(void){ return &pcf8575_setup_lcd0; }
 
+/*** Procedure and Function definition ***/
 void PCF8575_LCD0_inic(void)
 {
 	uint16_t mask;

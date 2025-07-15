@@ -7,12 +7,11 @@ Date:     03072025
 #ifndef _WATCH_H_
 	#define _WATCH_H_
 
-/*** Global library ***/
+/*** Library ***/
+#include <stdint.h>
 #include <inttypes.h>
 
-/*** Global Constant & Macro ***/
-
-/*** Global Variable ***/
+/*** Parameter ***/
 typedef struct {
 	uint8_t hour;
 	uint8_t minute;
@@ -20,6 +19,7 @@ typedef struct {
 	volatile uint32_t seconds;
 } WATCH_TIME;
 
+/*** Handler ***/
 typedef struct {
 	void (*preset)(uint8_t hour, uint8_t minute, uint8_t second);
 	uint8_t (*start_delay)(uint8_t n_delay, uint32_t seconds);
@@ -27,12 +27,12 @@ typedef struct {
 	char* (*show)(void);
 } WATCH;
 
-/*** Global Header ***/
 WATCH watch_enable(void);
+
+/*** Procedure and Funtion declaration ***/
 extern void WATCH_increment(void);
 extern void WATCH_decrement(void);
 
 #endif
-
-/***EOF***/
+/*** EOF ***/
 

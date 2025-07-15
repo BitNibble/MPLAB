@@ -4,13 +4,11 @@ Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: Atmel
 Date:     25102020
-Comment:
-	very stable
 ************************************************************************/
 #ifndef _LFSM_H_
 	#define _LFSM_H_
 
-/*** Global Library ***/
+/*** Library ***/
 #include "atmegaeeprom.h"
 #include <inttypes.h>
 
@@ -19,7 +17,7 @@ Comment:
 #define BYTEL 0
 #define BYTEH 65535
 
-/*** Global Variable ***/
+/*** Parameter ***/
 struct lfsmdata{
 	uint8_t page;
 	uint16_t feedback;
@@ -30,6 +28,7 @@ struct lfsmdata{
 	uint16_t outlh;
 };
 
+/*** Handler ***/
 struct model_lfsm{
 	// Local Variables
 	EEPROM0* eprom;
@@ -39,7 +38,7 @@ struct model_lfsm{
 	uint8_t input;
 	uint16_t output;
 	uint8_t status;
-	// Function Pointers
+	// V-table
 	uint8_t (*read)(struct model_lfsm *r, uint8_t input);
 	uint8_t (*learn)(struct model_lfsm *r, const uint8_t input, const uint16_t next, const uint16_t mask, const uint8_t page);
 	uint16_t (*quant)(struct model_lfsm *r);
@@ -55,10 +54,8 @@ struct model_lfsm{
 
 typedef struct model_lfsm LFSM;
 
-/*** Global Header ***/
 LFSM lfsm_enable(EEPROM0* eeprom, const uint16_t sizeeeprom);
 
 #endif
-
-/***EOF***/
+/*** EOF ***/
 

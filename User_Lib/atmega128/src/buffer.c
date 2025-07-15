@@ -4,22 +4,18 @@ Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: all
 Date:     17112022
-Comment:
-	Buffer
 ******************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "buffer.h"
 #include <stdio.h>
 #include <string.h>
 
-/*** File Variable ***/
-
-/*** File Header ***/
+/*** Procedure and Function declaration ***/
 void BUFF_push(buffer_parameter* par, BUFFvar data);
 BUFFvar* BUFF_raw(buffer_parameter* par);
 void BUFF_flush(buffer_parameter* par);
 
-/*** Procedure & Function ***/
+/*** Handler ***/
 BUFF buff_enable( uint16_t size_buff, BUFFvar* buff )
 {
 	// OBJECT STRUCT
@@ -28,7 +24,7 @@ BUFF buff_enable( uint16_t size_buff, BUFFvar* buff )
 	setup_buffer.par.orig = buff;
 	setup_buffer.par.head = buff;
 	setup_buffer.par.end = buff + ( size_buff ); // generic
-	// function pointers
+	// V-table
 	setup_buffer.push = BUFF_push;
 	setup_buffer.raw = BUFF_raw;
 	setup_buffer.flush = BUFF_flush;
@@ -36,6 +32,7 @@ BUFF buff_enable( uint16_t size_buff, BUFFvar* buff )
 	return setup_buffer; // return copy
 }
 
+/*** Procedure and Function definition ***/
 void BUFF_push( buffer_parameter* par, BUFFvar data ){
 	BUFFvar* head; BUFFvar* next;
 	head = par->head;

@@ -4,22 +4,15 @@ Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: ALL
 Update:   29/12/2023
-Comment:
-	Stable
 *************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "esp01atcommands.h"
 #include <string.h>
 
-/*** File Constant & Macro ***/
-
-/*** File Variable ***/
+/*** Variable ***/
 char ESP01ATstr[32];
 
-
-/*** File Header ***/
-
-/*** Procedure & Function ***/
+/*** Procedure and Function definition ***/
 char* esp01at_cmd(uint16_t num){
 	switch(num)
 	{
@@ -94,5 +87,5 @@ char* esp01at_cmd(uint16_t num){
 	return ESP01ATstr;
 }
 
-/***EOF***/
+/*** EOF ***/
 

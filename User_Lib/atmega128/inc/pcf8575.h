@@ -5,9 +5,6 @@ License:  GNU General Public License
 Hardware: PCF8575
 Date:     13072025
 ***************************************************************************************************/
-/****** Comment:
-	
- **************************************************************************************************/
 #ifndef _PCF8575_H_
 	#define _PCF8575_H_
 
@@ -32,6 +29,7 @@ Date:     13072025
 
 #define PCF8575_BASE_ADDRESS 32
 
+/*** Parameter ***/
 typedef struct{
 	TWI0* twi;
 	uint8_t pcf8575_id;
@@ -48,6 +46,5 @@ typedef struct{
 PCF8575 pcf8575_enable( uint8_t pcf8575_id, uint8_t twi_prescaler );
 
 #endif
-
 /*** EOF ***/
 

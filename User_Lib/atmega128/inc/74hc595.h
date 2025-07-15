@@ -8,7 +8,7 @@ Date:     25/10/2020
 #ifndef _74HC595_H_
 	#define _74HC595_H_
 	
-/*** Global Constant & Macro ***/
+/*** Constant & Macro ***/
 //#define STM32F4
 #if defined (STM32F4)
 	#define IO_var uint32_t
@@ -16,10 +16,11 @@ Date:     25/10/2020
 	#define IO_var uint8_t
 #endif
 
-/*** File Library ***/
+/*** Library ***/
+#include <stdint.h>
 #include <inttypes.h>
 
-/*** TypeDef ***/
+/*** Parameter ***/
 typedef struct{
 	uint8_t HC595_datapin;
 	uint8_t HC595_clkpin;

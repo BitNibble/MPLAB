@@ -2,10 +2,10 @@
 	eeprom wrapper
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
-Hardware: ATmega
-Date:   07/01/2024
+Hardware: Atmega128 by ETT ET-BASE
+Date:     07/01/2024
 *************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "atmegaeeprom.h"
 
 /*** Internal State ***/

@@ -3,18 +3,15 @@
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: all
-Date:     27/11/2022
-Update    09/01/2024
-Comment:
-	Stable
+Date    09/01/2024
 *************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "keypad.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdarg.h>
 
-/*** File Variable ***/
+/*** Variable ***/
 static KEYPAD setup_keypad;
 volatile uint8_t *keypad_DDR;
 volatile uint8_t *keypad_PIN;
@@ -42,7 +39,7 @@ static keypadata data;
 char endstr[2];
 // can not assign something outside a function
 
-/*** File Header ***/
+/*** Procedure and Function declaration ***/
 // getkey
 char KEYPAD_getkey(void);
 // read
@@ -56,14 +53,12 @@ uint8_t KEYPADlh(uint8_t xi, uint8_t xf);
 // hl
 uint8_t KEYPADhl(uint8_t xi, uint8_t xf);
 
-/*** Procedure & Function ***/
+/*** Handler ***/
 KEYPAD keypad_enable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile uint8_t *port)
 {
 	// LOCAL VARIABLE
 	data.character = ' ';
 	endstr[0] = ' ';endstr[1] = '\0';
-	// ALLOCAÇÂO MEMORIA PARA Estrutura
-	// KEYPAD setup_keypad;
 	
 	// import parameters
 	keypad_DDR = ddr;
@@ -77,7 +72,7 @@ KEYPAD keypad_enable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile uint
 	keypad_datai.line_3 = keypad_dataf.line_3 = (1 << KEYPADDATA_1) | (1 << KEYPADDATA_2) | (1 << KEYPADDATA_3) | (1 << KEYPADDATA_4);
 	keypad_datai.line_4 = keypad_dataf.line_4 = (1 << KEYPADDATA_1) | (1 << KEYPADDATA_2) | (1 << KEYPADDATA_3) | (1 << KEYPADDATA_4);
 	KEYPADSTRINGINDEX = 0;
-	// Vtable
+	// V-table
 	setup_keypad.data = KEYPAD_data();
 	setup_keypad.getkey = KEYPAD_getkey;
 	setup_keypad.read = KEYPAD_read;
@@ -91,6 +86,7 @@ KEYPAD keypad_enable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile uint
 
 KEYPAD* keypad(void){ return &setup_keypad; }
 
+/*** Procedure and Function definition ***/
 char KEYPAD_getkey(void)
 {
 	uint8_t HL;
@@ -243,5 +239,5 @@ uint8_t KEYPADhl(uint8_t xi, uint8_t xf)
 	return i;
 }
 
-/***EOF***/
+/*** EOF ***/
 

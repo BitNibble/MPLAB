@@ -3,115 +3,96 @@
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: Atmega128 by ETT ET-BASE
-Date:   07/01/2024
+Date:     15/07/2025
 **********************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "atmega128mapping.h"
 
-/*** File Variables ***/
-static ATMEGA128 setup_atmega128;
-
-/*** Procedure & Function ***/
-ATMEGA128 atmega128_enable(void){ 
+/*** Handler ***/
+static const ATMEGA128 setup_atmega128 = { 
 	/***GPWR***/
-	setup_atmega128.gpwr_reg = gpwr_reg();
+	// removed due to be restricted to user.
 	/***AC***/
-	setup_atmega128.ac_reg = ac_reg();
-	setup_atmega128.ac_misc_reg = misc_reg();
+	.ac_reg = (Atmega128AnalogComparator_TypeDef*) 0x0028,
 	/***ADC***/
-	setup_atmega128.adc_reg = adc_reg();
+	.adc_reg = (Atmega128AnalogToDigitalConverter_TypeDef*) 0x0024,
 	#ifdef _ANALOG_MODULE_
-		setup_atmega128.adc_enable = adc_enable;
-		setup_atmega128.adc = adc();
+		.adc_enable = adc_enable,
 	#endif
 	/***BOOTLOAD***/
-	setup_atmega128.bootload_reg = bootload_reg();
+	.bootload_reg = (Atmega128BootLoader_TypeDef*) 0x0068,
 	/***CPU***/
-	setup_atmega128.cpu_reg = cpu_reg();
+	.cpu_reg = (Atmega128CPURegister_TypeDef*) 0x0054,
 	/***EEPROM***/
-	setup_atmega128.eeprom_reg = eeprom_reg();
-	#ifdef _EEPROM_MODULE_
-		setup_atmega128.eeprom = eeprom();
-	#endif
+	.eeprom_reg = (Atmega128Eeprom_TypeDef*) 0x003C,
 	/***EXINT***/
-	setup_atmega128.exint_reg = exint_reg();
-	#ifdef _INTERRUPT_MODULE_
-		setup_atmega128.exint = exint();
-	#endif
+	.exint_reg = (Atmega128ExternalInterrupts_TypeDef*) 0x0058,
 	/***PORTA***/
-	setup_atmega128.gpioa_reg = gpioa_reg();
+	.gpioa_reg = (Atmega128PORTA_TypeDef*) 0x0039,
 	/***PORTB***/
-	setup_atmega128.gpiob_reg = gpiob_reg();
+	.gpiob_reg = (Atmega128PORTB_TypeDef*) 0x0036,
 	/***PORTC***/
-	setup_atmega128.gpioc_reg = gpioc_reg();
+	.gpioc_reg = (Atmega128PORTC_TypeDef*) 0x0033,
 	/***PORTD***/
-	setup_atmega128.gpiod_reg = gpiod_reg();
+	.gpiod_reg = (Atmega128PORTD_TypeDef*) 0x0030,
 	/***PORTE***/
-	setup_atmega128.gpioe_reg = gpioe_reg();
+	.gpioe_reg = (Atmega128PORTE_TypeDef*) 0x0021,
 	/***PORTF***/
-	setup_atmega128.gpiof_reg = gpiof_reg();
+	.gpiof_reg = (Atmega128PORTF_TypeDef*) 0x0020,
 	/***PORTG***/
-	setup_atmega128.gpiog_reg = gpiog_reg();
+	.gpiog_reg = (Atmega128PORTG_TypeDef*) 0x0063,
 	/***JTAG***/
-	setup_atmega128.jtag_reg = jtag_reg();
+	.jtag_reg = (Atmega128JtagInterface_TypeDef*) 0x0042,
 	/***MISC***/
-	setup_atmega128.misc_reg = misc_reg();
+	.misc_reg = (Atmega128OtherRegisters_TypeDef*) 0x0040,
 	/***SPI***/
-	setup_atmega128.spi_reg = spi_reg();
+	.spi_reg = (Atmega128SerialPeripheralInterface_TypeDef*) 0x002D,
 	#ifdef _SPI_MODULE_
-		setup_atmega128.spi_enable = spi_enable;
-		setup_atmega128.spi = spi();
+		.spi_enable = spi_enable,
 	#endif
 	/***TC1***/
-	setup_atmega128.tc1_reg = tc1_reg();
-	setup_atmega128.tc1_misc_reg = misc_reg();
+	.tc1_reg = (Atmega128TimerCounter1_TypeDef*) 0x0040,
 	#ifdef _TIMER1_MODULE_
-		setup_atmega128.tc1 = tc1();
+		.tc1_enable = tc1_enable,
 	#endif
 	/***TC3***/
-	setup_atmega128.tc3_reg = tc3_reg();
-	setup_atmega128.tc3_misc_reg = misc_reg();
+	.tc3_reg = (Atmega128TimerCounter3_TypeDef*) 0x0040,
 	#ifdef _TIMER3_MODULE_
-		setup_atmega128.tc3 = tc3();
+		.tc3_enable = tc3_enable,
 	#endif
 	/***TC2***/
-	setup_atmega128.tc2_reg = tc2_reg();
+	.tc2_reg = (Atmega128TimerCounter2_TypeDef*) 0x0043,
 	#ifdef _TIMER2_MODULE_
-		setup_atmega128.tc2 = tc2();
+		.tc2_enable = tc2_enable,
 	#endif
 	/***TC0***/
-	setup_atmega128.tc0_reg = tc0_reg();
-	setup_atmega128.tc0_misc_reg = misc_reg();
+	.tc0_reg = (Atmega128TimerCounter0_TypeDef*) 0x0040,
 	#ifdef _TIMER0_MODULE_
-		setup_atmega128.tc0 = tc0();
+		.tc0_enable = tc0_enable,
 	#endif
 	/***TWI***/
-	setup_atmega128.twi_reg = twi_reg();
+	.twi_reg = (Atmega128TwoWireSerialInterface_TypeDef*) 0x0070,
 	#ifdef _TWI_MODULE_
-		setup_atmega128.twi = twi();
+		.twi_enable = twi_enable,
 	#endif
 	/***USART0***/
-	setup_atmega128.usart0_reg = usart0_reg();
+	.usart0_reg = (Atmega128Usart0_TypeDef*) 0x0029,
 	#ifdef _USART0_MODULE_
-		setup_atmega128.usart0_enable = usart0_enable;
-		setup_atmega128.usart0 = usart0();
+		.usart0_enable = usart0_enable,
 	#endif
 	/***USART1***/
-	setup_atmega128.usart1_reg = usart1_reg();
+	.usart1_reg = (Atmega128Usart1_TypeDef*) 0x0098,
 	#ifdef _USART1_MODULE_
-		setup_atmega128.usart1_enable = usart1_enable;
-		setup_atmega128.usart1 = usart1();
+		.usart1_enable = usart1_enable,
 	#endif
 	/***WDT***/
-	setup_atmega128.wdt_reg = wdt_reg();
+	.wdt_reg = (Atmega128WatchdogTimer_TypeDef*) 0x0041,
 	/***Pointer Function***/
-	setup_atmega128.Clock_Prescaler_Select = ClockPrescalerSelect;
-	setup_atmega128.Move_Interrupts_To_Boot = MoveInterruptsToBoot;
-	
-	return setup_atmega128;
-}
+	.Clock_Prescaler_Select = ClockPrescalerSelect,
+	.Move_Interrupts_To_Boot = MoveInterruptsToBoot
+};
 
-ATMEGA128* atmega128(void){ return &setup_atmega128; }
+ATMEGA128* atmega128(void){ return (ATMEGA128*) &setup_atmega128; }
 
-/***EOF***/
+/*** EOF ***/
 

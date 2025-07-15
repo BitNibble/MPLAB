@@ -1,26 +1,27 @@
 /************************************************************************
 	CLOCK
 Author:   <sergio.salazar.santos@gmail.com>
+License:  GNU General Public License
 Hardware: all
 Date:     25102020
-Comment:
-	Stable
 ************************************************************************/
 #ifndef _CLOCK_H_
 	#define _CLOCK_H_
 
-/*** Global Library ***/
+/*** Library ***/
 #include <inttypes.h>
 
-/*** Global Constant & Macro ***/
+/*** Constant & Macro ***/
 #define HORA 24
 
-/*** Global Variable ***/
+/*** Parameter ***/
 struct CLOCKTIME{
 	int8_t hour;
 	int8_t minute;
 	int8_t second;
 };
+
+/*** Handler ***/
 typedef struct{
 	void (*set)(uint8_t hour, uint8_t minute, uint8_t second);
 	void (*increment)(void);
@@ -34,10 +35,8 @@ typedef struct{
 	char* (*show)(void);
 }CLOCK;
 
-/*** Global Header ***/
 CLOCK clock_enable(uint8_t hour, uint8_t minute, uint8_t second);
 
 #endif
-
-/***EOF***/
+/*** EOF ***/
 

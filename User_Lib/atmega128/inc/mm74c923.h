@@ -4,16 +4,14 @@ Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: 74HC923
 Date:
-COMMENT:
-	  stable
 ************************************************************************/
 #ifndef _MM74C923_H_
 	#define _MM74C9232_H_
 
-/*** Global Library ***/
+/*** Library ***/
 #include <inttypes.h>
 
-/*** Global Constant & Macro ***/
+/*** Constant & Macro ***/
 #define MM74C923_DATA_OUT_A 7 //ic pin 19 LSB
 #define MM74C923_DATA_OUT_B 6 //ic pin 18
 #define MM74C923_DATA_OUT_C 5 //ic pin 17
@@ -24,7 +22,7 @@ COMMENT:
 #define MM74C923_DATA_AVAILABLE 0 //ic pin 13
 #define MM74C923_KEY_BUFFER_SIZE 16
 
-/*** Global Variable ***/
+/*** Handler ***/
 typedef struct{
 	void (*activate)(void);
 	char (*getch)(void);
@@ -33,10 +31,8 @@ typedef struct{
 	void (*data_clear)(void);
 }MM74C923;
 
-/*** Global Header ***/
 MM74C923 mm74c923_enable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile uint8_t *port);
 
 #endif
-
-/***EOF***/
+/*** EOF ***/
 

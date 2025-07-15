@@ -4,22 +4,15 @@ Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: ALL
 Update:   29/12/2023
-Comment:
-	Stable
 *************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "hc05atcommands.h"
 #include <string.h>
 
-/*** File Constant & Macro ***/
-
-/*** File Variable ***/
+/*** Variable ***/
 char HC05ATstr[32];
 
-
-/*** File Header ***/
-
-/*** Procedure & Function ***/
+/*** Procedure and Function definition ***/
 char* hc05at_cmd(uint16_t num){
 	switch(num)
 	{
@@ -219,5 +212,5 @@ char* hc05at_cmd(uint16_t num){
 	return HC05ATstr;
 }
 
-/***EOF***/
+/*** EOF ***/
 

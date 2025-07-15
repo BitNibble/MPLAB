@@ -2,8 +2,8 @@
 	ATMEGA128ANALOG
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
-Hardware: ATmega128
-Date:   07/01/2024
+Hardware: Atmega128 by ETT ET-BASE
+Date:     07/01/2024
 *************************************************************************/
 /*** Library ***/
 #include "atmega128analog.h"
@@ -28,7 +28,7 @@ static ADC0 atmega128_adc = {
 };
 
 /*** Handler ***/
-ADC0 adc_enable( uint8_t Vreff, uint8_t Divfactor, int n_channel, ... )
+void adc_enable( uint8_t Vreff, uint8_t Divfactor, int n_channel, ... )
 // Interrupt running mode setup, and list of channels to be probed
 {
 	// LOCAL VARIABLES
@@ -130,9 +130,7 @@ ADC0 adc_enable( uint8_t Vreff, uint8_t Divfactor, int n_channel, ... )
 	//adc_reg()->adcsra.var |= (1 << ADEN);
 	adc_reg()->adcsra.par.aden = 1;
 	
-	cpu_reg()->sreg.var |= (1 << GLOBAL_INTERRUPT_ENABLE);
-	
-	return atmega128_adc;
+	cpu_reg()->sreg.var |= (1 << 7);
 }
 
 ADC0* adc(void){ return &atmega128_adc; }

@@ -4,13 +4,11 @@ Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: all
 Date:     25102020
-Comment:
-	Stable
 *************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "clock.h"
 
-/*** File Variable ***/
+/*** Variable ***/
 struct CLOCKTIME time;
 struct CLOCKTIME laptime;
 struct CLOCKTIME alarmtime;
@@ -18,7 +16,7 @@ char CLOCK_timp[9];
 uint8_t CLOCK_alarm_flag;
 uint8_t CLOCK_compare_active;
 
-/*** File Header ***/
+/*** Procedure and Function declaration ***/
 void CLOCK_set(uint8_t hour, uint8_t minute, uint8_t second);
 void CLOCK_increment(void);
 void CLOCK_decrement(void);
@@ -30,7 +28,7 @@ void CLOCK_alarm_reset(void);
 void CLOCK_alarm_stop(void);
 char* CLOCK_show(void);
 
-/*** Procedure & Function ***/
+/*** Handler ***/
 CLOCK clock_enable(uint8_t hour, uint8_t minute, uint8_t second)
 {
 	CLOCK setup_clock;
@@ -53,6 +51,8 @@ CLOCK clock_enable(uint8_t hour, uint8_t minute, uint8_t second)
 	
 	return setup_clock;
 }
+
+/*** Procedure and Function definition ***/
 void CLOCK_set(uint8_t hour, uint8_t minute, uint8_t second)
 {
 	time.hour = hour;
@@ -201,7 +201,5 @@ char* CLOCK_show(void)
 	return CLOCK_timp;
 }
 
-/***File Interrupt***/
-
-/***EOF***/
+/*** EOF ***/
 

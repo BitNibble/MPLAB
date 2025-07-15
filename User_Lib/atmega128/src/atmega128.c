@@ -17,7 +17,7 @@ unsigned int ftCounter[FTDELAY_SIZE] = {0};
 /**** MAIN HARDWARE LAYER ****/
 /*****************************/
 // GPWR
-Atmega128GPWR_TypeDef* gpwr_reg(void){return (Atmega128GPWR_TypeDef*) 0x0000;}
+//Atmega128GPWR_TypeDef* gpwr_reg(void){return (Atmega128GPWR_TypeDef*) 0x0000;}
 // Analog Comparator (AC)
 Atmega128AnalogComparator_TypeDef* ac_reg(void){return (Atmega128AnalogComparator_TypeDef*) 0x0028;}
 // Analog to Digital Converter (ADC)

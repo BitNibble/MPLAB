@@ -4,15 +4,13 @@ Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: 74C923
 Date:
-Comment:
-	stable
 *************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "mm74c923.h"
 #include "explode.h"
 #include "function.h"
 
-/*** File Variable ***/
+/*** Variable ***/
 EXPLODE vari;
 
 volatile uint8_t *mm74c923_DDR;
@@ -31,14 +29,14 @@ char MM74C923_KEY_BUFFER[MM74C923_KEY_BUFFER_SIZE + 1];
 char MM74C923_KEY_BUFFER_EMPTY[] = "";
 char* MM74C923_pointer;
 
-/*** File Header ***/
+/*** Procedure and Function declaration ***/
 void MM74C923_activate(void);
 char MM74C923_getch(void);
 char* MM74C923_gets(void);
 char* MM74C923_data(void);
 void MM74C923_data_clear(void);
 
-/*** Procedure & Function ***/
+/*** Handler ***/
 MM74C923 mm74c923_enable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile uint8_t *port)
 {
 	vari = explode_enable();
@@ -53,7 +51,7 @@ MM74C923 mm74c923_enable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile 
 	mm74c923_tmp &= ~(1 << MM74C923_DATA_AVAILABLE);
 	mm74c923_mem &= ~(1 << MM74C923_DATA_AVAILABLE);
 	MM74C923_pointer = MM74C923_KEY_BUFFER_EMPTY;
-	// Direccionar apontadores para PROTOTIPOS
+	// V-table
 	mm74c923.activate = MM74C923_activate;
 	mm74c923.getch = MM74C923_getch;
 	mm74c923.gets = MM74C923_gets;
@@ -62,6 +60,8 @@ MM74C923 mm74c923_enable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile 
 	
 	return mm74c923;
 }
+
+/*** Procedure and Function definition ***/
 void MM74C923_activate(void){
 	vari.update(&vari.par, *mm74c923_PIN);
 }
@@ -114,7 +114,5 @@ void MM74C923_data_clear(void){
 	MM74C923_KEY_BUFFER[MM74C923_KEY_BUFFER_INDEX] = '\0';
 }
 
-/*** File Interrupt ***/
-
-/***EOF***/
+/*** EOF ***/
 

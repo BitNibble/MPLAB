@@ -4,10 +4,8 @@ Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: PCF8563
 Date:     29112022
-Comment:
-	Stable
  **************************************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "pcf8563rtc.h"
 #if defined(__AVR_ATmega64__) || defined(__AVR_ATmega128__)
 	#include "atmega128twi.h"

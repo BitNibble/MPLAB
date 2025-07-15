@@ -4,21 +4,16 @@ Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: Atmega 128
 Date:     08032021_start
-Comment:
-
 ************************************************************************/
 #ifndef _HX711_H_
 	#define _HX711_H_
 
-/*** Global Library ***/
+/*** Library ***/
 #include <inttypes.h>
 
-/*** Global Constant & Macro ***/
+/*** Constant & Macro ***/
 #ifndef STATUS_instanceISTER
 	#define STATUS_instanceISTER SREG
-#endif
-#ifndef GLOBAL_INTERRUPT_ENABLE
-	#define GLOBAL_INTERRUPT_ENABLE 7
 #endif
 
 #define ZERO 0
@@ -29,8 +24,7 @@ Comment:
 #define HX711_ADC_bits 24
 #define HX711_VECT_SIZE 4
 
-/*** Global Variable ***/
-// calibration
+/*** Parameter ***/
 typedef struct{
 	int32_t offset_32; // ZERO set point A
 	int32_t offset_64; // ZERO set point B 64
@@ -43,7 +37,7 @@ typedef struct{
 
 HX711_calibration* HX711_Default;
 
-// device
+/*** Handler ***/
 struct model_hx711{
 	volatile uint8_t readflag; // indicate start of bit shifting
 	uint8_t trigger; // pickup signal
@@ -70,10 +64,8 @@ struct model_hx711{
 
 typedef struct model_hx711 HX711;
 
-/*** Global Header ***/
 HX711 hx711_enable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile uint8_t *port, uint8_t datapin, uint8_t clkpin);
 
 #endif
-
-/***EOF***/
+/*** EOF ***/
 
