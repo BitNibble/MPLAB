@@ -62,7 +62,7 @@ usart0_enable(38400,8,1,NONE);
 /* Init Values */
 watch()->preset(0,0,0);
 tc1_reg()->tcnt1->par.h.var = 55;
-gpiod_reg()->port->par.b2 = 1;
+gpiod_reg()->port->par.bit2 = 1;
 	
 tcompare=compare=eeprom()->read_word((uint16_t*)0);
 prescaler=eeprom()->read_word((uint16_t*)4);
@@ -94,7 +94,7 @@ while (True)
 	lcd0()->gotoxy(1,12);
 	lcd0()->string_size( watch()->show(), 8 );
 		
-	if(watch()->start_delay(0,20)) { gpiod_reg()->port->par.b2 ^= 1; }
+	if(watch()->start_delay(0,20)) { gpiod_reg()->port->par.bit2 ^= 1; }
 		
 	if(input) {
 		lcd0()->gotoxy(1,0);
@@ -306,7 +306,7 @@ while (True)
 }}
 /***Prototypes***/
 void PORTINIT(void){
-	gpiod_reg()->ddr->par.b2 = 1;
+	gpiod_reg()->ddr->par.bit2 = 1;
 	gpiod_reg()->ddr->var |= (1<<4) | (1<<5);
 	gpiod_reg()->port->var = (1<<4) | (1<<5);
 };
