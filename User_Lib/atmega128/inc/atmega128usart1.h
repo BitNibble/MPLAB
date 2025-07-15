@@ -52,6 +52,7 @@ typedef struct{
 void usart1_enable( uint32_t baud, unsigned int FDbits, unsigned int Stopbits, unsigned int Parity );
 USART1* usart1(void);
 
+/*** Procedure and Function declaration ***/
 char* usart1_messageprint(USART1* uart, char* oneshot, char* msg, const char* endl);
 
 #endif

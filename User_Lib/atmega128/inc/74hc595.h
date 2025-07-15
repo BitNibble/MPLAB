@@ -7,6 +7,10 @@ Date:     25/10/2020
 ************************************************************************/
 #ifndef _74HC595_H_
 	#define _74HC595_H_
+
+/*** Library ***/
+#include <stdint.h>
+#include <inttypes.h>
 	
 /*** Constant & Macro ***/
 //#define STM32F4
@@ -15,10 +19,6 @@ Date:     25/10/2020
 #else
 	#define IO_var uint8_t
 #endif
-
-/*** Library ***/
-#include <stdint.h>
-#include <inttypes.h>
 
 /*** Parameter ***/
 typedef struct{

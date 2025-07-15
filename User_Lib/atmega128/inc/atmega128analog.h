@@ -31,7 +31,8 @@ typedef struct{
 /*** Handler ***/
 typedef struct{
 	analogparameter par;
-	// prototype pointers
+	
+	// V-table
 	int (*read)(int selection);
 }ADC0_Handler;
 

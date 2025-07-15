@@ -27,7 +27,7 @@ Date:     07/01/2024
 
 /*** Handler ***/
 typedef struct{
-	// prototype pointers
+	// V-table
 	void (*transfer_sync) (uint8_t * dataout, uint8_t * datain, uint8_t len);
 	void (*transmit_sync) (uint8_t * dataout, uint8_t len);
 	uint8_t (*fast_shift) (uint8_t data);

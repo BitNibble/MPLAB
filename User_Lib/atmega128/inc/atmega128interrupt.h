@@ -18,7 +18,7 @@ Date:     07/01/2024
 
 /*** Handler ***/
 typedef struct{
-	// prototype pointers
+	// V-table
 	void (*set)(uint8_t channel, uint8_t sense);
 	void (*off)(uint8_t channel);
 	void (*on)(uint8_t channel);

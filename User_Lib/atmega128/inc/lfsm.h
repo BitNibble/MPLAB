@@ -37,6 +37,7 @@ struct model_lfsm{
 	uint8_t input;
 	uint16_t output;
 	uint8_t status;
+	
 	// V-table
 	uint8_t (*read)(struct model_lfsm *r, uint8_t input);
 	uint8_t (*learn)(struct model_lfsm *r, const uint8_t input, const uint16_t next, const uint16_t mask, const uint8_t page);

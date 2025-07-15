@@ -25,6 +25,8 @@ typedef struct{
 /*** Handler ***/
 typedef struct{
 	buffer_parameter par;
+	
+	// V-table
 	void (*push)(buffer_parameter* par, BUFFvar data);
 	BUFFvar* (*raw)(buffer_parameter* par);
 	void (*flush)(buffer_parameter* par);
