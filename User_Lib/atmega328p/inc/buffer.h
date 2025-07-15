@@ -8,19 +8,20 @@ Date:     26062025
 #ifndef _BUFFER_H_
 	#define _BUFFER_H_
 
-/*** Global Library ***/
+/*** Library ***/
 #include <inttypes.h>
 
-/*** Global Constant & Macro ***/
+/*** Constant & Macro ***/
 #define BUFFvar char
 
-/*** Global Variable ***/
+/*** Parameter ***/
 typedef struct {
 	BUFFvar* orig;
 	BUFFvar* head;
 	BUFFvar* end;
 }bufferparameter;
 
+/*** Handler ***/
 struct buffer
 {
 	bufferparameter par;
@@ -31,10 +32,8 @@ struct buffer
 
 typedef struct buffer BUFF;
 
-/*** Global Header ***/
 BUFF buff_enable(uint8_t size_buff, BUFFvar* buff);
 
 #endif
-
-/***EOF***/
+/*** EOF ***/
 

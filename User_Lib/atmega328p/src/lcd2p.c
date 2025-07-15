@@ -5,17 +5,17 @@ License:  GNU General Public License
 Hardware: all
 Date:     12072025
 ************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "lcd2p.h"
 #include <util/delay.h>
 #include <stdio.h>
 
-/*** File Constant & Macro ***/
+/*** Constant & Macro ***/
 // CMD RS
 #define LCD02P_INST 0
 #define LCD02P_DATA 1
 
-/*** File Variable ***/
+/*** Variable ***/
 volatile uint8_t *lcd02pcmd_DDR;
 volatile uint8_t *lcd02pcmd_PIN;
 volatile uint8_t *lcd02pcmd_PORT;
@@ -32,7 +32,7 @@ typedef struct {
 	uint8_t col;
 } LCDx_Pos;
 
-/*** Procedure & Function declaration ***/
+/*** Procedure and Function declaration ***/
 void LCD02P_inic(void);
 void LCD02P_write(char c, unsigned short D_I);
 char LCD02P_read(unsigned short D_I);
@@ -88,7 +88,7 @@ void lcd02p_enable(volatile uint8_t *cmdddr, volatile uint8_t *cmdpin, volatile 
 
 LCD02P* lcd02p(void){ return &setup_lcd02p; }
 
-/*** Procedure & Function definition ***/
+/*** Procedure and Function definition ***/
 void LCD02P_inic(void)
 {
 	// LCD INIC

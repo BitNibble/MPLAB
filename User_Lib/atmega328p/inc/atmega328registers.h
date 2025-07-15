@@ -2,7 +2,7 @@
 	ATMEGA 328P REGISTERS
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
-Hardware: Atmega328 by ETT ET-BASE
+Hardware: Atmega 328 by ETT ET-BASE
 Date:   06122024
 ************************************************************************/
 #ifndef _ATMEGA328REGISTERS_H_
@@ -13,7 +13,7 @@ Date:   06122024
 	#error "This library requires AVR-GCC 3.4 or later, update to newer AVR-GCC compiler !"
 #endif
 
-/*** Global Library ***/
+/*** Library ***/
 #include <stdint.h>
 #include <inttypes.h>
 #include <stddef.h>
@@ -42,7 +42,7 @@ typedef union {
 } U_word;
 
 /*****************************/
-/****      REGISTERS      ****/
+/*****      REGISTER      ****/
 /*****************************/
 // Reserved 0x20
 // Reserved 0x21

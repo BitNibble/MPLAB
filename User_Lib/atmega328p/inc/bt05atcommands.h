@@ -5,19 +5,15 @@ License:  GNU General Public License
 Hardware: ALL
 Date:     24042023
 ************************************************************************/
-/****** Comment:
-	Stable
-************************************************************************/
 #ifndef _BT05ATCOMMANDS_H_
 	#define _BT05ATCOMMANDS_H_
 
-/*** Global Library ***/
+/*** Library ***/
 #include <inttypes.h>
 
-/*** Global Header ***/
+/*** handler ***/
 char* bt05at_cmd(uint16_t num);
 
 #endif
-
 /*** EOF ***/
 

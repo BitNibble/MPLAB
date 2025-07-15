@@ -5,12 +5,12 @@ License:  GNU General Public License
 Hardware: ATmega324
 Update:   01/07/2025
 *************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "atmega328_usart0.h"
 #include "buffer.h"
 #include <string.h>
 
-/*** File Variable ***/
+/*** Variable ***/
 static USART0 atmega328_usart0;
 
 static BUFF rx0buff;
@@ -21,7 +21,7 @@ static const uint16_t uart0_rx_buffer_size = (UART0_RX_BUFFER_SIZE - 1);
 static uint8_t UART0_LastRxError;
 static uint8_t uart0flag;
 
-/*** File Header ***/
+/*** Procedure and Function declaration ***/
 UARTvar uart0_read(void);
 UARTvar uart0_getch(void);
 UARTvar* uart0_gets(void);
@@ -40,7 +40,7 @@ uint8_t USART0ReadErrors(void);
 void USART0ClearErrors(void);
 void USART0DoubleTransmissionSpeed(void);
 
-/*** Procedure & Function ***/
+/*** Handler ***/
 USART0 usart0_enable( uint32_t baud, unsigned int FDbits, unsigned int Stopbits, unsigned int Parity )
 {
 	uart0flag = 1;
@@ -128,6 +128,7 @@ USART0 usart0_enable( uint32_t baud, unsigned int FDbits, unsigned int Stopbits,
 
 USART0* usart0(void){ return &atmega328_usart0; }
 
+/*** Procedure and Function definition ***/
 UARTvar uart0_read(void)
 {
 	UARTvar c;

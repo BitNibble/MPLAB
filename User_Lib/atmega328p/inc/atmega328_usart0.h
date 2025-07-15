@@ -2,19 +2,19 @@
 	ATMEGA 328 USART0
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
-Hardware: ATmega324
+Hardware: ATmega 328
 Update:   01/07/2025
 ************************************************************************/
 #ifndef _ATMEGA328_USART0_H_
 	#define _ATMEGA328_USART0_H_
 
-/*** Global Library ***/
+/*** Library ***/
 #include "atmega328.h"
 /***
 Note F_CPU value is correct !
 Note If Interrupt enabled make sure respective interrupt function is defined !
 ***/
-/*** Global Constant & Macro ***/
+/*** Constant & Macro ***/
 #ifndef UART0_RX_BUFFER_SIZE
 	#define UART0_RX_BUFFER_SIZE 32
 #endif
@@ -35,7 +35,7 @@ Note If Interrupt enabled make sure respective interrupt function is defined !
 #define UART_BUFFER_OVERFLOW	0x0200              /* receive ring buffer overflow */
 #define UART_NO_DATA			0x0100              /* no receive data available    */
 
-/*** Global Variable ***/
+/*** Handler ***/
 typedef struct {
 	// prototype pointers
 	UARTvar (*read)(void);
@@ -47,12 +47,11 @@ typedef struct {
 	void (*puts)(UARTvar* s);
 }USART0;
 
-/*** Global ***/
-USART0* usart0(void);
 USART0 usart0_enable( uint32_t baud, unsigned int FDbits, unsigned int Stopbits, unsigned int Parity );
+USART0* usart0(void);
 
 char* usart0_messageprint(USART0* uart, char* oneshot, char* msg, const char* endl);
 
 #endif
-/***EOF***/
+/*** EOF ***/
 

@@ -4,10 +4,8 @@ Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
 Hardware: PCF8563
 Date:     29112022
-Comment:
-	Stable
 ***************************************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "pcf8563rtc.h"
 
 #if defined(__AVR_ATmega64__) || defined(__AVR_ATmega328__) || defined(__AVR_ATmega328P__)
@@ -18,7 +16,7 @@ Comment:
 	#error "MCU Lib not available"
 #endif
 
-/*** File Header ***/
+/*** Procedure and Function declaration ***/
 void PCF8563RTC_Init(void);
 void PCF8563RTC_SetTime(uint8_t var_hour_u8, uint8_t var_min_u8, uint8_t var_sec_u8);
 void PCF8563RTC_SetHour(uint8_t var_hour_u8);
@@ -37,7 +35,7 @@ uint8_t PCF8563RTC_bintobcd(uint8_t bin);
 
 #ifdef _TWI_MODULE_
 
-/*** Procedure & Function ***/
+/*** Handler ***/
 PCF8563RTC pcf8563rtc_enable(uint8_t prescaler)
 {
 	PCF8563RTC pcf;
@@ -62,6 +60,8 @@ PCF8563RTC pcf8563rtc_enable(uint8_t prescaler)
 	
 	return pcf;
 }
+
+/*** Procedure and Function definition ***/
 // void PCF8563RTC_Init(uint8_t prescaler)
 void PCF8563RTC_Init(void)
 {

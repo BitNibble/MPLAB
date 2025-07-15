@@ -5,16 +5,13 @@ License:  GNU General Public License
 Hardware: all
 Date:     27112022
 *************************************************************************/
-/****** Comment:
-	Stable
-*************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "keypad.h"
 #include <stdlib.h>
 #include <string.h>
 #include <stdarg.h>
 
-/*** File Variable ***/
+/*** Variable ***/
 volatile uint8_t *keypad_DDR;
 volatile uint8_t *keypad_PIN;
 volatile uint8_t *keypad_PORT;
@@ -40,7 +37,7 @@ char KEYPAD_char;
 char endstr[2] = "\0";
 // can not assign something outside a function
 
-/*** File Header ***/
+/*** Procedure and Function declaration ***/
 // getkey
 char KEYPAD_getkey(void);
 // read
@@ -54,7 +51,7 @@ uint8_t KEYPADlh(uint8_t xi, uint8_t xf);
 // hl
 uint8_t KEYPADhl(uint8_t xi, uint8_t xf);
 
-/*** Procedure & Function ***/
+/*** Handler ***/
 KEYPAD keypad_enable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile uint8_t *port)
 {
 	// LOCAL VARIABLE
@@ -84,6 +81,8 @@ KEYPAD keypad_enable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile uint
 	
 	return keypad;
 }
+
+/*** Procedure and Function definition ***/
 char KEYPAD_getkey(void)
 {
 	uint8_t HL;
@@ -239,8 +238,6 @@ uint8_t KEYPADhl(uint8_t xi, uint8_t xf)
 	i &= xi;
 	return i;
 }
-
-/***File Interrupt***/
 
 /*** EOF ***/
 

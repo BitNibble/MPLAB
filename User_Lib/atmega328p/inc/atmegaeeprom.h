@@ -5,16 +5,13 @@ License:  GNU General Public License
 Hardware: ATmega
 Update:   01/01/2024
 *************************************************************************/
-/****** Comment:
-   Very Stable
-*************************************************************************/
 #ifndef _ATMEGAEEPROM_H_
 	#define _ATMEGAEEPROM_H_
 
-/*** Global Library ***/
+/*** Library ***/
 #include "atmega328.h"
 
-/*** Global Variable ***/
+/*** Handler ***/
 typedef struct{
 	// V-table
 	uint8_t (*read_byte) ( const uint8_t * addr );
@@ -38,6 +35,5 @@ EEPROM0 eeprom_enable(void);
 EEPROM0* eeprom(void);
 
 #endif
-
 /*** EOF ***/
 

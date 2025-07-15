@@ -5,17 +5,14 @@ License:  GNU General Public License
 Hardware: ALL
 Date:     24042023
 *************************************************************************/
-/****** Comment:
-	Stable
-*************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "bt05atcommands.h"
 #include <string.h>
 
-/*** File Variable ***/
+/*** Variable ***/
 char BT05ATstr[32];
 
-/*** Procedure & Function ***/
+/*** Handler ***/
 char* bt05at_cmd(uint16_t num){
 	switch(num)
 	{
@@ -205,8 +202,6 @@ char* bt05at_cmd(uint16_t num){
 	};
 	return BT05ATstr;
 }
-
-/***File Interrupt***/
 
 /*** EOF ***/
 

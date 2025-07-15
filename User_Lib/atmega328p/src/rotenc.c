@@ -5,13 +5,10 @@ License:  GNU General Public License
 Hardware: Rotary encoder Potentiometer
 Date:     25102020
 ************************************************************************/
-/****** Comment:
-	Stable
-************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "rotenc.h"
 
-/*** File Header ***/
+/*** Procedure and Function declaration ***/
 rotaryencoderparameter RotEnc_rte(rotaryencoderparameter* par, uint8_t data);
 uint8_t ROTENClh(uint8_t xp, uint8_t xi);
 uint8_t ROTENChl(uint8_t xp, uint8_t xi);
@@ -19,19 +16,19 @@ uint8_t ROTENChl(uint8_t xp, uint8_t xi);
 /*** Procedure & Function ***/
 ROTENC rotenc_enable( uint8_t ChnApin, uint8_t ChnBpin )
 {
-	// struct object
 	ROTENC rtnc;
 	// Initialize variables
 	rtnc.par.PinChnA = ChnApin;
 	rtnc.par.PinChnB = ChnBpin;
 	rtnc.par.pchn = rtnc.par.chn = (1 << ChnBpin) | (1 << ChnApin);
 	rtnc.par.num = 0;
-	// function pointers
+	// V-table
 	rtnc.rte = RotEnc_rte;
 	
 	return rtnc;
 }
 
+/*** Procedure and Function definition ***/
 rotaryencoderparameter RotEnc_rte(rotaryencoderparameter* par, uint8_t data)
 {
 	uint8_t hl;
@@ -62,8 +59,6 @@ uint8_t ROTENChl(uint8_t xp, uint8_t xi)
 	i &= xp;
 	return i;
 }
-
-/*** File Interrupt ***/
 
 /*** EOF ***/
 

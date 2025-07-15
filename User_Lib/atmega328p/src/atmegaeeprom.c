@@ -5,16 +5,13 @@ License:  GNU General Public License
 Hardware: ATmega
 Update:   01/01/2024
 *************************************************************************/
-/****** Comment:
-   Very Stable
-*************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "atmegaeeprom.h"
 
-/*** File Variable ***/
+/*** Variable ***/
 static EEPROM0 setup_eeprom;
 
-/*** Procedure & Function ***/
+/*** Handler ***/
 EEPROM0 eeprom_enable(void){
 	// V-table
 	setup_eeprom.read_byte = eeprom_read_byte;

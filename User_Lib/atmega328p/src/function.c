@@ -3,11 +3,7 @@
 Author:   <sergio.salazar.santos@gmail.com> 
 License:  GNU General Public License
 Hardware: all
-Date:     31122023
-Update :  07012024
-*************************************************************************/
-/****** Comment:
-	Tested Atemga128 16Mhz and Atmega328 8Mhz and STM32F446RE
+Date :    07012024
 *************************************************************************/
 /*** File Library ***/
 #include "function.h"
@@ -17,11 +13,11 @@ Update :  07012024
 #include <stdarg.h>
 #include <math.h>
 
-/*** File Variable ***/
+/*** Variable ***/
 static FUNC setup_func;
 static char FUNCstr[FUNCSTRSIZE + 1];
 
-/*** File Header ***/
+/*** Procedure and Function declaration ***/
 int StringLength (const char string[]);
 void Reverse(char s[]);
 uint8_t FUNCintinvstr(uint32_t num, uint8_t index);
@@ -69,7 +65,7 @@ unsigned int FUNCgetnumv2(char* x);
 int FUNCreadint(int nmin, int nmax);
 ******************************/
 
-/*** Procedure & Function ***/
+/*** Handler ***/
 FUNC func_enable( void )
 {
 	FUNCstr[FUNCSTRSIZE] = '\0';
@@ -120,6 +116,7 @@ FUNC func_enable( void )
 
 FUNC* func(void){ return &setup_func; }
 
+/*** Procedure and Function definition ***/
 // mayia
 unsigned int FUNCmayia(unsigned int xi, unsigned int xf, uint8_t nbits)
 {

@@ -5,17 +5,14 @@ License:  GNU General Public License
 Hardware: Atmega328 by ETT ET-BASE
 Update:   01/01/2024
 *************************************************************************/
-/****** Comment:
-	Very Stable
-*************************************************************************/
-/*** File library ***/
+/*** Library ***/
 #include "atmega328timer2.h"
 
-/*** File Variable ***/
+/*** Variable ***/
 TC2 setup_tc2;
 static unsigned char timer2_state;
 
-/*** File Header ***/
+/*** Procedure and Function declaration ***/
 void TIMER_COUNTER2_compoutmodeA(unsigned char compoutmode);
 void TIMER_COUNTER2_compoutmodeB(unsigned char compoutmode);
 void TIMER_COUNTER2_compareA(unsigned char compare);
@@ -23,7 +20,7 @@ void TIMER_COUNTER2_compareB(unsigned char compare);
 void TIMER_COUNTER2_start(unsigned int prescaler);
 void TIMER_COUNTER2_stop(void);
 
-/*** Procedure & Function ***/
+/*** Handler ***/
 TC2 tc2_enable(unsigned char wavegenmode, unsigned char interrupt)
 //	PARAMETER SETTING
 //	wavegen mode: Normal; PWM phase correct; Fast PWM; default-Normasl;
@@ -99,6 +96,7 @@ TC2 tc2_enable(unsigned char wavegenmode, unsigned char interrupt)
 
 TC2* tc2(void){ return &setup_tc2; }
 
+/*** Procedure and Function definition ***/
 void TIMER_COUNTER2_start(unsigned int prescaler)
 //	PARAMETER SETTING
 //	Frequency oscillator devision factor or prescaler.

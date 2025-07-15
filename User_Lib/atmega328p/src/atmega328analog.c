@@ -5,14 +5,11 @@ License:  GNU General Public License
 Hardware: Atmega328
 Update:   01/01/2024
 *************************************************************************/
-/****** Comment:
-	Very Stable
-*************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "atmega328analog.h"
 #include <stdarg.h>
 
-/*** File Variable ***/
+/*** Variable ***/
 static ADC0 setup_analog;
 
 static volatile int ADC_VALUE[ADC_MAX_CHANNEL];
@@ -23,10 +20,10 @@ static volatile int adc_sample;
 static volatile int adc_tmp;
 static volatile unsigned char adc_n_sample;
 
-/*** File Header ***/
+/*** Procedure and Function declaration ***/
 int ANALOG_read(int selection);
 
-/*** Procedure & Function ***/
+/*** Handler ***/
 ADC0 adc_enable( uint8_t Vreff, uint8_t Divfactor, int n_channel, ... )
 // Interrupt running mode setup
 // setup, and list of channels to be probed
@@ -144,6 +141,7 @@ ADC0 adc_enable( uint8_t Vreff, uint8_t Divfactor, int n_channel, ... )
 
 ADC0* adc(void){ return &setup_analog; }
 
+/*** Procedure and Function definition ***/
 int ANALOG_read(int selection)
 // Returns selected Channel ADC_VALUE
 {

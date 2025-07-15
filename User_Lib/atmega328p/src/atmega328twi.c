@@ -5,17 +5,14 @@ License:  GNU General Public License
 Hardware: Atmega328 by ETT ET-BASE
 Update:   01/01/2024
 ***************************************************************************************************/
-/****** Comment:
-	Stable
-***************************************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "atmega328twi.h"
 #include <util/delay.h>
 
-/*** File Variable ***/
+/*** Variable ***/
 static TWI0 setup_i2c;
 
-/*** File Header ***/
+/*** Procedure and Function declaration ***/
 void TWI_init(uint8_t device_id, uint8_t prescaler);
 void TWI_start(void);
 void TWI_connect(uint8_t address, uint8_t rw);
@@ -26,7 +23,7 @@ void TWI_stop(void);
 uint8_t TWI_status(void);
 void TWI_wait_twint( uint16_t nticks );
 
-/*** Procedure and Function ***/
+/*** Handler ***/
 TWI0 twi_enable(uint8_t atmega_ID,  uint8_t prescaler)
 {
 	//local var
@@ -51,6 +48,7 @@ TWI0 twi_enable(uint8_t atmega_ID,  uint8_t prescaler)
 
 TWI0* twi(void){ return &setup_i2c; };
 
+/*** Procedure and Function definition ***/
 // void TWI_Init(uint8_t device_id, uint8_t prescaler)
 void TWI_init(uint8_t device_id, uint8_t prescaler)
 {
@@ -196,9 +194,6 @@ void TWI_wait_twint( uint16_t nticks ) // hardware triggered
 			break;
 	}
 }
-
-/*** File Interrupt ***/
-// ISR(TWI_vect){}
 	
 /*** EOF ***/
 

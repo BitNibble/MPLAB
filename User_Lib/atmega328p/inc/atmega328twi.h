@@ -2,19 +2,16 @@
 	TWI API
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
-Hardware: Atmega328 by ETT ET-BASE
+Hardware: Atmega 328 by ETT ET-BASE
 Update:   01/01/2024
-**************************************************************************************************/
-/****** Comment:
-	Stable
 **************************************************************************************************/
 #ifndef _ATMEGA328TWI_H_
 	#define _ATMEGA328TWI_H_
 
-/*** Global Library ***/
+/*** Library ***/
 #include "atmega328.h"
 
-/*** Global Constant & Macro ***/
+/*** Constant & Macro ***/
 #ifndef _TWI_MODULE_
 	#define _TWI_MODULE_
 #endif
@@ -23,9 +20,6 @@ Update:   01/01/2024
 #endif
 #ifndef TWI_SCL_CLOCK
 	#define TWI_SCL_CLOCK 100000UL
-#endif
-#ifndef GLOBAL_INTERRUPT_ENABLE
-	#define GLOBAL_INTERRUPT_ENABLE 7
 #endif
 #define TWI_NACK 0
 #define TWI_ACK 1
@@ -79,7 +73,7 @@ Update:   01/01/2024
 //#define Dev24C02_ID 0xA2		// device address 24C02
 //#define LM73_ID 0x90			// LM73 address temperature sensor
 
-/*** Global Variable ***/
+/*** Handler ***/
 typedef struct{
 	// V-table
 	void (*start)(void);
@@ -94,6 +88,5 @@ TWI0 twi_enable(uint8_t atmega_ID, uint8_t prescaler);
 TWI0* twi(void);
 
 #endif
-
 /*** EOF ***/
 

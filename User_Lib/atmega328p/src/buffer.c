@@ -5,21 +5,17 @@ License:  GNU General Public License
 Hardware: all
 Date:     26062025
 ******************************************************************************/
-/*** File Library ***/
+/*** Library ***/
 #include "buffer.h"
 #include <stdio.h>
 #include <string.h>
 
-/*** File Constant & Macro ***/
-
-/*** File Variable ***/
-
-/*** File Header ***/
+/*** Procedure and Function declaration ***/
 void BUFF_push(bufferparameter* par, BUFFvar data);
 BUFFvar* BUFF_raw(bufferparameter* par);
 void BUFF_flush(bufferparameter* par);
 
-/*** Procedure & Function ***/
+/*** Handler ***/
 BUFF buff_enable( uint8_t size_buff, BUFFvar* buff )
 {
 	// OBJECT STRUCT
@@ -35,6 +31,7 @@ BUFF buff_enable( uint8_t size_buff, BUFFvar* buff )
 	return ret; // return copy
 }
 
+/*** Procedure and Function definition ***/
 void BUFF_push( bufferparameter* par, BUFFvar data ){
 	BUFFvar* head; BUFFvar* next;
 	head = par->head;
@@ -62,5 +59,5 @@ void BUFF_flush( bufferparameter* par ){
 	*head = 0;
 }
 
-/***EOF***/
+/*** EOF ***/
 

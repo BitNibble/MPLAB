@@ -18,7 +18,7 @@ Update:   10072025
 	#define F_CPU 8000000UL
 #endif
 
-/*** Global Library ***/
+/*** Library ***/
 #include <avr/io.h>
 #include <avr/boot.h>
 #include <avr/fuse.h>
@@ -29,7 +29,7 @@ Update:   10072025
 
 #include "atmega328registers.h"
 
-/*** Global Constant & Macro ***/
+/*** Constant & Macro ***/
 #define TWO 2
 #define NIBBLE_BITS 4
 #define BYTE_BITS 8
@@ -426,34 +426,4 @@ void ftdelayReset(uint8_t ID);
 /*** EOF ***/
 
 
-/*** FLASH ***
-// Interrupt Vectors (ISR)
-typedef volatile struct { // SRAM START = 0x0100 END = 0x0877 atmega328
-	U_word RESET_vect; // 0x0000
-	U_word INT0_vect; // 0x0002
-	U_word INT1_vect; // 0x0004
-	U_word PCINT0_vect; // 0x0006
-	U_word PCINT1_vect; // 0x0008
-	U_word PCINT2_vect; // 0x000A
-	U_word WDT_vect; // 0x000C
-	U_word TIMER2_COMPA_vect; // 0x000E
-	U_word TIMER2_COMPB_vect; // 0x0010
-	U_word TIMER2_OVF_vect; // 0x0012
-	U_word TIMER1_CAPT_vect; // 0x0014
-	U_word TIMER1_COMPA_vect; // 0x0016
-	U_word TIMER1_COMPB_vect; // 0x0018
-	U_word TIMER1_OVF_vect; // 0x001A
-	U_word TIMER0_COMPA_vect; // 0x001C
-	U_word TIMER0_COMPB_vect; // 0x001E
-	U_word TIMER0_OVF_vect; // 0x0020
-	U_word SPI_STC_vect; // 0x0022
-	U_word USART_RX_vect; // 0x0024
-	U_word USART_UDRE_vect; // 0x0026
-	U_word USART_TX_vect; // 0x0028
-	U_word ADC_vect; // 0x002A
-	U_word EE_READY_vect; // 0x002C
-	U_word ANALOG_COMP_vect; // 0x002E
-	U_word TWI_vect; // 0x0030
-	U_word SPM_READY_vect; // 0x0032
-} Atmega328InterruptVectors_TypeDef;
-*** FLASH ***/
+

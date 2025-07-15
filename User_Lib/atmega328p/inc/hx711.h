@@ -2,28 +2,21 @@
 	HX711
 Author:   <sergio.salazar.santos@gmail.com>
 License:  GNU General Public License
-Hardware: Atmega 128
+Hardware: Atmega 328
 Date:     08032021_start
-************************************************************************/
-/****** Comment:
-
 ************************************************************************/
 #ifndef _HX711_H_
 	#define _HX711_H_
 
-/*** Global Library ***/
+/*** Library ***/
 #include <inttypes.h>
 
-/*** Global Constant & Macro ***/
+/*** Constant & Macro ***/
 #ifndef STATUS_instanceISTER
 	#define STATUS_instanceISTER SREG
 #endif
-#ifndef GLOBAL_INTERRUPT_ENABLE
-	#define GLOBAL_INTERRUPT_ENABLE 7
-#endif
 
-/*** Global Variable ***/
-// calibration
+/*** Parameter ***/
 typedef struct{
 	int32_t offset_32; // ZERO set point A
 	int32_t offset_64; // ZERO set point B 64
@@ -34,7 +27,8 @@ typedef struct{
 	uint8_t status;
 }HX711_calibration;
 HX711_calibration* HX711_Default;
-// device
+
+/*** Handler ***/
 struct hx711{
 	volatile uint8_t readflag; // indicate start of bit shifting
 	uint8_t trigger; // pickup signal
@@ -48,7 +42,7 @@ struct hx711{
 	uint8_t av_n;
 	float raw_mean;
 	HX711_calibration cal_data;
-	
+	// V-table
 	uint8_t (*get_amplify)(struct hx711* self);
 	uint8_t (*read_bit)(void);
 	void (*set_amplify)(struct hx711* self, uint8_t amplify);
@@ -60,10 +54,8 @@ struct hx711{
 };
 typedef struct hx711 HX711;
 
-/*** Global Header ***/
 HX711 hx711_enable(volatile uint8_t *ddr, volatile uint8_t *pin, volatile uint8_t *port, uint8_t datapin, uint8_t clkpin);
 
 #endif
-
 /*** EOF ***/
 

@@ -5,20 +5,17 @@ License:  GNU General Public License
 Hardware: Atmega 128
 Date:     17022021_start
 ************************************************************************/
-/****** Comment:
-
-************************************************************************/
-/***File Library***/
+/*** Library ***/
 #include "znpid.h"
 
-/***File Constant & Macro***/
+/*** Constant & Macro ***/
 #define ZNPID_outMAX 1023
 #define ZNPID_outMIN -1023
 
-/***File Variable***/
+/*** Variable ***/
 double ZNPID_tmp;
 
-/***File Header***/
+/*** Procedure and Function declaration ***/
 void ZNPID_set_kc(znpidparameter* par, double kc);
 void ZNPID_set_ki(znpidparameter* par, double ki);
 void ZNPID_set_kd(znpidparameter* par, double kp);
@@ -30,7 +27,7 @@ double ZNPID_delta(double present_value, double past_value);
 double ZNPID_sum(double value_1, double value_2);
 double ZNPID_product(double value_1, double value_2);
 
-/***Procedure & Function***/
+/*** Handler ***/
 ZNPID znpid_enable(void)
 {
 	// LOCAL VARIABLES
@@ -47,7 +44,7 @@ ZNPID znpid_enable(void)
 	znpid.par.derivative = 0;
 	znpid.par.PV = 0;
 	znpid.par.OP = 0;
-	// Direccionar apontadores para PROTOTIPOS
+	// V-table
 	znpid.set_kc = ZNPID_set_kc;
 	znpid.set_ki = ZNPID_set_ki;
 	znpid.set_kd = ZNPID_set_kd;
@@ -56,6 +53,8 @@ ZNPID znpid_enable(void)
 	
 	return znpid;
 }
+
+/*** Procedure and Function definition ***/
 void ZNPID_set_kc(znpidparameter* par, double kc)
 {
 	par->kc = kc;
@@ -120,8 +119,6 @@ double ZNPID_product(double value_1, double value_2)
 {
 	return (value_1 * value_2);
 }
-
-/***File Interrupt***/
 
 /*** EOF ***/
 

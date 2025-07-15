@@ -5,16 +5,13 @@ License:  GNU General Public License
 Hardware: Atmega 128
 Date:     17022021_start
 ************************************************************************/
-/****** Comment:
-
-************************************************************************/
 #ifndef _ZNPID_H_
 	#define _ZNPID_H_
 
-/*** Global Library ***/
+/*** Library ***/
 #include <inttypes.h>
 
-/*** Global Variable ***/
+/*** Parameter ***/
 typedef struct {
 	double kc; // constant p
 	double ki; // constant i
@@ -29,9 +26,11 @@ typedef struct {
 	double OP; // output signal
 }znpidparameter;
 
+/*** Handler ***/
 struct znpid{
 	znpidparameter par;
-	/******/
+	
+	// V-table
 	void (*set_kc)(znpidparameter* par, double kc);
 	void (*set_ki)(znpidparameter* par, double ki);
 	void (*set_kd)(znpidparameter* par, double kd);
@@ -40,10 +39,8 @@ struct znpid{
 };
 typedef struct znpid ZNPID;
 
-/*** Global Header ***/
 ZNPID znpid_enable(void);
 
 #endif
-
 /*** EOF ***/
 
