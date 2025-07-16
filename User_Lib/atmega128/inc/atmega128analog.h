@@ -26,11 +26,11 @@ Date:     07/01/2024
 typedef struct{
 	uint8_t VREFF;
 	uint8_t DIVISION_FACTOR;
-}analogparameter;
+}ADC0_Parameter;
 
 /*** Handler ***/
 typedef struct{
-	analogparameter par;
+	ADC0_Parameter par;
 	
 	// V-table
 	int (*read)(int selection);

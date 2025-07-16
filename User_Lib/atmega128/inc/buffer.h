@@ -20,19 +20,19 @@ typedef struct{
 	BUFFvar* orig;
 	BUFFvar* head;
 	BUFFvar* end;
-}buffer_parameter;
+}BUFF_Parameter;
 
 /*** Handler ***/
 typedef struct{
-	buffer_parameter par;
+	BUFF_Parameter par;
 	
 	// V-table
-	void (*push)(buffer_parameter* par, BUFFvar data);
-	BUFFvar* (*raw)(buffer_parameter* par);
-	void (*flush)(buffer_parameter* par);
-}BUFF;
+	void (*push)(BUFF_Parameter* par, BUFFvar data);
+	BUFFvar* (*raw)(BUFF_Parameter* par);
+	void (*flush)(BUFF_Parameter* par);
+}BUFF_Handler;
 
-BUFF buff_enable(uint16_t size_buff, BUFFvar* buff);
+BUFF_Handler buff_enable(uint16_t size_buff, BUFFvar* buff);
 
 #endif
 /*** EOF ***/

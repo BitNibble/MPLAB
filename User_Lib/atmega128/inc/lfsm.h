@@ -18,7 +18,7 @@ Date:     25102020
 #define BYTEH 65535
 
 /*** Parameter ***/
-struct lfsmdata{
+struct LFSM_Data{
 	uint8_t page;
 	uint16_t feedback;
 	uint8_t inhl;
@@ -30,7 +30,7 @@ struct lfsmdata{
 
 /*** Handler ***/
 struct model_lfsm{
-	EEPROM0* eprom;
+	EEPROM0_Handler* eprom;
 	uint16_t sizeeeprom;
 	uint8_t sizeblock;
 	uint8_t page;
@@ -52,9 +52,9 @@ struct model_lfsm{
 	void (*setpage)(struct model_lfsm *r,uint8_t page);
 };
 
-typedef struct model_lfsm LFSM;
+typedef struct model_lfsm LFSM_Handler;
 
-LFSM lfsm_enable(EEPROM0* eeprom, const uint16_t sizeeeprom);
+LFSM_Handler lfsm_enable(EEPROM0_Handler* eeprom, const uint16_t sizeeeprom);
 
 #endif
 /*** EOF ***/

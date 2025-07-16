@@ -23,9 +23,9 @@ typedef struct{
 	void (*off)(uint8_t channel);
 	void (*on)(uint8_t channel);
 	uint8_t (*reset_status)(void);
-}EXINT0;
+}EXINT0_Handler;
 
-EXINT0* exint(void);
+EXINT0_Handler* exint(void);
 
 #endif
 /*** EOF ***/
