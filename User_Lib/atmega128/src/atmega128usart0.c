@@ -55,7 +55,7 @@ void usart0_enable(uint32_t baud, unsigned int fdbits, unsigned int stopbits, un
 {
 	USART0_flag = 1;
 	uint16_t ubrr = 0;
-	USART0_rxbuff = buff_enable(USART0_rx_buffer_size, USART0_rxbuf);
+	USART0_rxbuff = buff_enable(UART0_RX_BUFFER_SIZE, USART0_rxbuf);
 	ubrr = BAUDRATEnormal(baud);
 	// Set baud rate
 	if (ubrr & 0x8000) // The transfer rate can be doubled by setting the U2X bit in UCSRA.

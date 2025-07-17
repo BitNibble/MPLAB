@@ -55,7 +55,7 @@ void usart1_enable( uint32_t baud, unsigned int FDbits, unsigned int Stopbits, u
 {
 	uart1flag = 1;
 	uint16_t ubrr = 0;
-	rx1buff = buff_enable( uart1_rx_buffer_size, UART1_RxBuf );
+	rx1buff = buff_enable( UART1_RX_BUFFER_SIZE, UART1_RxBuf );
 	ubrr = BAUDRATEnormal(baud);
 	// Set baud rate
 	if ( ubrr & 0x8000 ) {
